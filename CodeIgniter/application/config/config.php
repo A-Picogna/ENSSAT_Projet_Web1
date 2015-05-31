@@ -16,7 +16,7 @@
 | environments.
 |
 */
-$config['base_url'] = 'http://localhost/ENSSAT/Projet/ENSSAT_Projet_Web1/CodeIgniter';
+$config['base_url'] = 'http://localhost/ENSSAT_Projet_Web1/CodeIgniter';
 
 /*
 |--------------------------------------------------------------------------
@@ -226,7 +226,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'REALLY_LONG_NUMBER';
 
 /*
 |--------------------------------------------------------------------------
