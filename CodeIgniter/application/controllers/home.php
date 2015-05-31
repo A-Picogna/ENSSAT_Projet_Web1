@@ -23,7 +23,7 @@
                 //If no session, redirect to login page
                 redirect('login', 'refresh');
             }            
-        $this->load->view('footer', $data);
+        $this->load->view('footer');
         }
 
         function logout(){
