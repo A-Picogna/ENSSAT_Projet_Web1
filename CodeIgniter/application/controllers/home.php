@@ -34,7 +34,16 @@
         }
 
         function ajout_utilisateur(){
-            
+            if($this->session->userdata('connecte')){
+
+
+
+
+            }
+            else{
+                //If no session, redirect to login page
+                redirect('login', 'refresh');
+            }
         }
 
 

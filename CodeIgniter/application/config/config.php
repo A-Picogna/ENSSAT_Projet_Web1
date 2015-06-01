@@ -16,7 +16,7 @@
 | environments.
 |
 */
-$config['base_url'] = 'http://localhost/ENSSAT_Projet_Web1/CodeIgniter';
+$config['base_url'] = '';
 
 /*
 |--------------------------------------------------------------------------
