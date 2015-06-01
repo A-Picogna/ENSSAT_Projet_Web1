@@ -4,17 +4,22 @@ class loginVerification extends CI_Controller {
  
     function __construct(){
         parent::__construct();
+        //pré-chargement du modele (sinon ca ne marche pas)
         $this->load->model('utilisateur','',TRUE);
     }
 
     function index(){
         $this->load->library('form_validation');
-
+        
+        //On définie les règles des données du formulaire et on appelle la fonction verif_bdd avec un callback
         $this->form_validation->set_rules('login', 'Login', 'trim|required|xss_clean');
         $this->form_validation->set_rules('mdp', 'Password', 'trim|required|xss_clean|callback_verif_bdd');
 
         if($this->form_validation->run() == FALSE){
-            $this->load->view('login_view');
+            $data['title'] = "Service de gestion des cours pour les enseignants";
+            $this->load->view('header', $data);        
+            $this->load->view('login_view');           
+            $this->load->view('footer');
         }
         else{
             redirect('home', 'refresh');
@@ -32,7 +37,8 @@ class loginVerification extends CI_Controller {
                                     'login' => $r->login,
                                     'nom' => $r->nom,
                                     'prenom' => $r->prenom,
-                                    'statut' => $r->statut
+                                    'statut' => $r->statut,
+                                    'administrateur' => $r->administrateur
                                     );
                 $this->session->set_userdata('connecte', $liste_resultats);
             }

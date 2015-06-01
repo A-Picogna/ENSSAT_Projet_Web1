@@ -5,7 +5,7 @@
     class home extends CI_Controller {
 
         function __construct(){
-            parent::__construct();
+            parent::__construct();            
         }
 
         function index(){
@@ -17,6 +17,7 @@
                 $data['nom'] = $session_data['nom'];
                 $data['prenom'] = $session_data['prenom'];
                 $data['statut'] = $session_data['statut'];
+                $data['administrateur'] = $session_data['administrateur'];
                 $this->load->view('home_view', $data);
             }
             else{
@@ -31,6 +32,11 @@
             session_destroy();
             redirect('home', 'refresh');
         }
+
+        function ajout_utilisateur(){
+            
+        }
+
 
     }
  
