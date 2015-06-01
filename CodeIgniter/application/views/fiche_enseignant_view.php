@@ -1,9 +1,7 @@
 <?php header('Content-Type: text/html; charset=utf-8'); ?>
 
-<ul>
-	<?php echo "<li> ".$infosEnseignant[0]['nom']." ".$infosEnseignant[0]['prenom']." </li>"; ?>
-	<?php echo "<li>Statut : ".$infosEnseignant[0]['statut']." </li>"; ?>
-</ul>
+	<?php echo "<p> ".$infosEnseignant[0]['nom']." ".$infosEnseignant[0]['prenom']." </br>"; ?>
+	<?php echo "Statut : ".$infosEnseignant[0]['statut']." </p>"; ?>
 
 
 <?php 
@@ -12,29 +10,29 @@
 
 		if ($mod == '') {
 			$mod = $cours["module"];
-			echo "<ul><li>".$cours["libelle"]." - ".$cours["public"];
+			echo "<table><tr><th colspan='2'>".$cours["libelle"]." - ".$cours["public"]."</th></tr>";
 		}
 		else if ($cours["module"] != $mod) {
 			$mod = $cours["module"];
-			echo "</li></ul><ul><li>".$cours["libelle"]." - ".$cours["public"];
+			echo "</table><table><tr><th colspan='2'>".$cours["libelle"]." - ".$cours["public"]."</th></tr>";
 		} 
-		echo "<li>".$cours["partie"]." ".$cours["hed"]." h eq. ".$cours["type"]."</li>";
+		echo "<tr><td>".$cours["partie"]."</td><td>".$cours["hed"]." h eq. ".$cours["type"]."</td></tr>";
 	}
 
-	echo "</li></ul><ul>";
+	echo "</table><table>";
 
 	if ($heuresCMEnseignant[0]['sum(hed)'] != '')
-		echo "<li>Total ".$heuresCMEnseignant[0]['sum(hed)']." h eq. CM</li>";
+		echo "<tr><td>Total</td><td>".$heuresCMEnseignant[0]['sum(hed)']." h eq. CM</tr></td>";
 	if ($heuresTDEnseignant[0]['sum(hed)'] != '')
-		echo "<li>Total ".$heuresTDEnseignant[0]['sum(hed)']." h eq. TD</li>";
+		echo "<tr><td>Total</td><td>".$heuresTDEnseignant[0]['sum(hed)']." h eq. TD</tr></td>";
 	if ($heuresTPEnseignant[0]['sum(hed)'] != null)
-		echo "<li>Total ".$heuresTPEnseignant[0]['sum(hed)']." h eq. TP</li>";
+		echo "<tr><td>Total</td><td>".$heuresTPEnseignant[0]['sum(hed)']." h eq. TP</tr></td>";
 	if ($heuresProjetEnseignant[0]['sum(hed)'] != null)
-		echo "<li>Total ".$heuresProjetEnseignant[0]['sum(hed)']." h eq. Projet</li>";
+		echo "<tr><td>Total</td><td>".$heuresProjetEnseignant[0]['sum(hed)']." h eq. Projet</tr></td>";
 
 	$total = ($heuresCMEnseignant[0]['sum(hed)'] + $heuresTDEnseignant[0]['sum(hed)'] + $heuresTPEnseignant[0]['sum(hed)'] + $heuresProjetEnseignant[0]['sum(hed)']);
 	if ($total == null)
 		$total = 0;
-	echo "<li>Total ". $total ." h eq.</li></ul>";
+	echo "<tr><td>Total</td><td>". $total ." h</tr></td></table>";
 
 ?>
