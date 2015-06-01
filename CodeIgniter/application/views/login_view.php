@@ -7,8 +7,6 @@
         echo form_open('loginVerification', 'class="form-signin"');
         echo validation_errors();
             echo '<div class="form-group">';
-        echo form_open("loginVerification", 'role="form"', 'style=width:800px');
-            echo '<div class="form-group col-lg-12">';
                 echo form_label('Login :', 'username');
                 echo form_input('login', set_value('login'), 'class="form-control" placeholder="Saisir votre login"');
             echo '</div>';
