@@ -19,9 +19,9 @@
         }
 
         function index(){ 
-            $data['title'] = "Service de gestion des cours pour les enseignants";            
+            $data['titre'] = "Service de gestion des cours pour les enseignants";            
             $this->load->view('header', $data);
-            $session_data = $this->session->userdata('connecte');
+            $session_data = $this->session->userdata('info_user');
             $data['login'] = $session_data['login'];
             $data['nom'] = $session_data['nom'];
             $data['prenom'] = $session_data['prenom'];

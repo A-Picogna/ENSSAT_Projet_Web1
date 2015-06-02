@@ -8,7 +8,7 @@ class erreur extends CI_Controller {
     
 	public function index(){
         
-        $data['title'] = "Administration du service de gestion des cours pour les enseignants";
+        $data['titre'] = "Administration du service de gestion des cours pour les enseignants";
         $this->load->view('header', $data);
         // METTRE DES TRUC ICI HEIN !
         $this->load->view('footer');

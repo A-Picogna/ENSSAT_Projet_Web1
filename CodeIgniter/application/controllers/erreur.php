@@ -9,7 +9,7 @@ class erreur extends CI_Controller {
 	public function index(){
         
         //On charge le titre dans la liste $data et on appelle les vues qui vont construire notre page de login
-        $data['title'] = "Service de gestion des cours pour les enseignants";
+        $data['titre'] = "Erreur";
         $this->load->view('header', $data);  
         
         switch ($this->session->flashdata('type_erreur')) {
