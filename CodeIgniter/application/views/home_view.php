@@ -1,18 +1,27 @@
 
-<div class="alert alert-info">
+ <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="home">Gestion des cours</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="#">Se positionner sur un cours</a></li>
+        <li><a href="#">Ajouter un module</a></li>
+        <?php		
+		if ($administrateur) {
+		echo '
+        <li><a href="home/ajout_utilisateur">Ajouter un utilisateur</a></li>
+        ';}?>
+      </ul>      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Paramêtres de mon compte</a></li>
+        <li><a href="home/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="alert alert-info" style="margin-top:50px;">
     <h1>Bonjour <?php echo $prenom.' '.$nom.', Vous etes '.$statut; if ($administrateur){echo " et Administrateur du site ";}?>!</h1>
 </div>
-
-<a href="home/logout" class="form-group col-lg-12">
-    <button class="btn btn-primary">Logout</button>
-</a>
-
-<?php
-
-if ($administrateur) {
-	echo '
-		<a href="home/ajout_utilisateur" class="form-group col-lg-12">
-	    	<button class="btn btn-primary">Ajouter un utilisateur</button>
-		</a>
-	';
-}
