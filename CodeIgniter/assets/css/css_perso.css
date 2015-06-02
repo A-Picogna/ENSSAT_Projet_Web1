@@ -54,3 +54,7 @@
     font-weight: 400;
     display: block;
 }
+
+table{
+    border: 2px solid;
+}

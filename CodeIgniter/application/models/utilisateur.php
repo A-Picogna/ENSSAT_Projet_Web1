@@ -4,7 +4,7 @@
         
         function verif_login_bdd($login, $mdp){
 
-            $this -> db -> select('login, pwd, nom, prenom, statut, administrateur');
+            $this -> db -> select('login, pwd, nom, prenom, statut, administrateur, actif');
             $this -> db -> from('enseignant');
             $this -> db -> where('login', $login);
             $this -> db -> where('pwd', $mdp);

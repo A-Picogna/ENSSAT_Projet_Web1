@@ -1,7 +1,6 @@
-<?php header('Content-Type: text/html; charset=utf-8'); ?>
 
-	<?php echo "<p> ".$infosEnseignant[0]['nom']." ".$infosEnseignant[0]['prenom']." </br>"; ?>
-	<?php echo "Statut : ".$infosEnseignant[0]['statut']." </p>"; ?>
+<?php echo "<p> ".$infosEnseignant[0]['nom']." ".$infosEnseignant[0]['prenom']." </br>"; ?>
+<?php echo "Statut : ".$infosEnseignant[0]['statut']." </p>"; ?>
 
 
 <?php 
@@ -10,16 +9,16 @@
 
 		if ($mod == '') {
 			$mod = $cours["module"];
-			echo "<table><tr><th colspan='2'>".$cours["libelle"]." - ".$cours["public"]."</th></tr>";
+			echo "<table class='table table-striped'><tr><th colspan='2'>".$cours["libelle"]." - ".$cours["public"]."</th></tr>";
 		}
 		else if ($cours["module"] != $mod) {
 			$mod = $cours["module"];
-			echo "</table><table><tr><th colspan='2'>".$cours["libelle"]." - ".$cours["public"]."</th></tr>";
+			echo "</table><table class='table table-striped'><tr><th colspan='2'>".$cours["libelle"]." - ".$cours["public"]."</th></tr>";
 		} 
 		echo "<tr><td>".$cours["partie"]."</td><td>".$cours["hed"]." h eq. ".$cours["type"]."</td></tr>";
 	}
 
-	echo "</table><table>";
+	echo "</table><table class='table table-striped'>";
 
 	if ($heuresCMEnseignant[0]['sum(hed)'] != '')
 		echo "<tr><td>Total</td><td>".$heuresCMEnseignant[0]['sum(hed)']." h eq. CM</tr></td>";

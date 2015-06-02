@@ -6,17 +6,17 @@
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li><a href="#">Se positionner sur un cours</a></li>
-        <li><a href="#">Ajouter un module</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-hand-up"></span> Se positionner sur un cours</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-book"></span> Ajouter un module</a></li>
         <?php		
 		if ($administrateur) {
 		echo '
-        <li><a href="home/ajout_utilisateur">Ajouter un utilisateur</a></li>
+        <li><a href="home/ajout_utilisateur"><span class="glyphicon glyphicon-user"></span> Ajouter un utilisateur</a></li>
         ';}?>
       </ul>      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Paramêtres de mon compte</a></li>
-        <li><a href="home/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Paramêtres de mon compte</a></li>
+        <li><a href="home/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
   </div>

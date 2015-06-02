@@ -8,9 +8,10 @@
             parent::__construct();            
         }
 
-        function index(){
-        $data['title'] = "Service de gestion des cours pour les enseignants";            
-        $this->load->view('header', $data);        
+        function index(){ 
+            $data['title'] = "Service de gestion des cours pour les enseignants";            
+            $this->load->view('header', $data);     
+            
             if($this->session->userdata('connecte')){
                 $session_data = $this->session->userdata('connecte');
                 $data['login'] = $session_data['login'];
@@ -18,23 +19,29 @@
                 $data['prenom'] = $session_data['prenom'];
                 $data['statut'] = $session_data['statut'];
                 $data['administrateur'] = $session_data['administrateur'];
-                $this->load->view('home_view', $data);
+                $data['actif'] = $session_data['actif']; 
+                if ($data['actif'] == 0){                
+                    $this->load->view('erreur_inactif');
+                }
+                else{                                   
+                    $this->load->view('home_view', $data);
+                }
             }
             else{
                 //If no session, redirect to login page
                 redirect('login', 'refresh');
-            }            
-        $this->load->view('footer');
+            }
+            $this->load->view('footer');
         }
 
         function logout(){
             $this->session->unset_userdata('connecte');
             session_destroy();
-            redirect('home', 'refresh');
+            redirect('login', 'refresh');
         }
 
         function ajout_utilisateur(){
-            if($this->session->userdata('connecte')){
+            /*if($this->session->userdata('connecte')){
 
 
 
@@ -43,7 +50,7 @@
             else{
                 //If no session, redirect to login page
                 redirect('login', 'refresh');
-            }
+            }*/
         }
 
 

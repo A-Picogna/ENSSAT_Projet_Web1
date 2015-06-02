@@ -15,6 +15,7 @@ class loginVerification extends CI_Controller {
         $this->form_validation->set_rules('login', 'Login', 'trim|required|xss_clean');
         $this->form_validation->set_rules('mdp', 'Password', 'trim|required|xss_clean|callback_verif_bdd');
 
+        
         if($this->form_validation->run() == FALSE){
             $data['title'] = "Service de gestion des cours pour les enseignants";
             $this->load->view('header', $data);        
@@ -38,10 +39,12 @@ class loginVerification extends CI_Controller {
                                     'nom' => $r->nom,
                                     'prenom' => $r->prenom,
                                     'statut' => $r->statut,
-                                    'administrateur' => $r->administrateur
+                                    'administrateur' => $r->administrateur,
+                                    'actif' => $r->actif
                                     );
-                $this->session->set_userdata('connecte', $liste_resultats);
+                
             }
+            $this->session->set_userdata('connecte', $liste_resultats);
             return true;
         }
         else{
