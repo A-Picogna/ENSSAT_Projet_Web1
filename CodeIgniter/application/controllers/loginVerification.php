@@ -44,7 +44,7 @@ class loginVerification extends CI_Controller {
                                     );
                 
             }
-            $this->session->set_userdata('connecte', $liste_resultats);
+            $this->session->set_userdata('info_user', $liste_resultats);
             return true;
         }
         else{
