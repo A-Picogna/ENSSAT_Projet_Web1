@@ -8,6 +8,7 @@
       <ul class="nav navbar-nav">
         <li><a href="#"><span class="glyphicon glyphicon-hand-up"></span> Se positionner sur un cours</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-book"></span> Ajouter un module</a></li>
+        <li><a href="afficheEnseignant"><span class="glyphicon glyphicon-book"></span> Afficher Boulot Yasmine</a></li>
         <?php		
 		if ($administrateur) {
 		echo '
