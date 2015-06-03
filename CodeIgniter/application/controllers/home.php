@@ -43,7 +43,8 @@
                 $this->session->set_flashdata('type_erreur', 'admin');
                 redirect('erreur', 'refresh');
             }
-            else{
+            else{ 
+                $data['titre'] = "Ajout d'un utilisateur";
                 $this->load->view('header', $data);
                 $this->load->view('footer');
             }

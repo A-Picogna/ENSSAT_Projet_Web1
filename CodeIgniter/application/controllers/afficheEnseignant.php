@@ -19,6 +19,7 @@ class afficheEnseignant extends CI_Controller {
 		$data['heuresTDEnseignant'] = $this->fiche_enseignant_model->get_heuresTD($login);
 		$data['heuresTPEnseignant'] = $this->fiche_enseignant_model->get_heuresTP($login);
 		$data['heuresProjetEnseignant'] = $this->fiche_enseignant_model->get_heuresProjet($login);
+        $data['titre'] = "Affichage Enseignant";
 		$this->load->view('header', $data);
 		$this->load->view('fiche_enseignant_view', $data);
 		$this->load->view('footer', $data);
