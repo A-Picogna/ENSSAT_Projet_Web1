@@ -28,7 +28,9 @@ class afficheModule extends CI_Controller {
 		$data['hTD'] = $this->affiche_module_model->getHeuresTD($module);
 		$data['hTP'] = $this->affiche_module_model->getHeuresTP($module);
 		$data['hProjets'] = $this->affiche_module_model->getHeuresProjet($module);
+		$this->load->view('header', $data);
 		$this->load->view('affiche_module_vue', $data);
+		$this->load->view('footer', $data);
 	}
 	
 }
