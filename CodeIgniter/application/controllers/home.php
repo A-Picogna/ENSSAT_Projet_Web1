@@ -46,6 +46,7 @@
             else{ 
                 $data['titre'] = "Ajout d'un utilisateur";
                 $this->load->view('header', $data);
+                $this->load->view('ajouter_utilisateur');
                 $this->load->view('footer');
             }
         }

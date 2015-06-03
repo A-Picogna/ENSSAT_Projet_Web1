@@ -20,18 +20,29 @@
             }
         }
 
-        function inserer_utilisateur($login, $mdp, $nom, $prenom, $statut){
-            $data = array(  
-                        'login' => $login,
-                        'pwd' => $mdp,
-                        'nom' => $nom,
-                        'prenom' => $prenom,
-                        'statut' => $statut,
-                        'actif' => 1,
-                        'administrateur' => 0
-                    );
+        function inserer_utilisateur($login, $mdp, $nom, $prenom, $statut, $admin){
+            $this -> db -> select('login');
+            $this -> db -> from('enseignant');
+            $this -> db -> where('login', $login);
+            $this -> db -> limit(1);            
+            $query = $this -> db -> get();
+            if($query -> num_rows() == 1){
+                return false;
+            }
+            else{
+                $data = array(  
+                            'login' => $login,
+                            'pwd' => $mdp,
+                            'nom' => $nom,
+                            'prenom' => $prenom,
+                            'statut' => $statut,
+                            'actif' => 1,
+                            'administrateur' => $admin
+                        );
 
-            $this->db->insert('enseignant', $data); 
+                $this->db->insert('enseignant', $data);
+                return true;
+            }
         }
     }
 
