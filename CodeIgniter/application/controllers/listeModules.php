@@ -25,7 +25,7 @@ class listeModules extends CI_Controller {
 
 	public function home()
 	{
-		$data['title']='Projet_php';
+		$data['titre']='Liste des modules';
 		$data['page_header']='liste des modules';
 		$data['liste'] = $this->affiche_module_model->getListeModules();
 		$this->load->view('header', $data);
