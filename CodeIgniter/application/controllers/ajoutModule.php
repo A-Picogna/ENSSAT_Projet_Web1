@@ -6,7 +6,6 @@ class ajoutModule extends CI_Controller {
 		session_start();
 		parent::__construct();
 		$this->load->model('ajout_module_model');
-		$this->load->helper('form');
 	}
 
 	public function index()

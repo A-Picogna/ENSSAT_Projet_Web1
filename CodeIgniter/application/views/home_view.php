@@ -6,8 +6,8 @@
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li><a href="#"><span class="glyphicon glyphicon-hand-up"></span> Se positionner sur un cours</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-book"></span> Ajouter un module</a></li>
+        <li><a href="listeModules"><span class="glyphicon glyphicon-hand-up"></span> Liste Modules</a></li>
+        <li><a href="ajoutModule"><span class="glyphicon glyphicon-book"></span> Ajouter un module</a></li>
         <li><a href="afficheEnseignant"><span class="glyphicon glyphicon-book"></span> Boulot Yasmine</a></li>
         <li><a href="afficheModule"><span class="glyphicon glyphicon-book"></span> Boulot Jihane</a></li>
         <?php		
