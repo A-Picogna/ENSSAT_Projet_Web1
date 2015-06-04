@@ -5,6 +5,16 @@ class ajoutModule extends CI_Controller {
 	{
 		session_start();
 		parent::__construct();
+        if($this->session->userdata('info_user')){
+            if (!$this->session->userdata('info_user')['actif']){
+                $this->session->set_flashdata('type_erreur', 'inactif');
+                redirect('erreur', 'refresh');
+            }                    
+        }
+        else{
+            //If no session, redirect to login page
+            redirect('login', 'refresh');
+        }
 		$this->load->model('ajout_module_model');
 	}
 

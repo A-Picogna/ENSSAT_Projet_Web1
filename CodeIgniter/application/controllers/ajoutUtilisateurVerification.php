@@ -4,8 +4,13 @@ class ajoutUtilisateurVerification extends CI_Controller {
  
     function __construct(){
         parent::__construct();
-        //pré-chargement du modele (sinon ca ne marche pas)
-        $this->load->model('utilisateur','',TRUE);
+        if (isset($this->session->userdata('info_user')['login'])){
+            redirect('home', 'refresh');
+        }
+        else{
+            //pré-chargement du modele (sinon ca ne marche pas)
+            $this->load->model('utilisateur','',TRUE);
+        }
     }
 
     function index(){

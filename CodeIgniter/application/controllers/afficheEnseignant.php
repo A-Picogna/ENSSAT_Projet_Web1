@@ -4,6 +4,16 @@ class afficheEnseignant extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+        if($this->session->userdata('info_user')){
+            if (!$this->session->userdata('info_user')['actif']){
+                $this->session->set_flashdata('type_erreur', 'inactif');
+                redirect('erreur', 'refresh');
+            }                    
+        }
+        else{
+            //If no session, redirect to login page
+            redirect('login', 'refresh');
+        }
 		$this->load->model('fiche_enseignant_model');
 	}
 
