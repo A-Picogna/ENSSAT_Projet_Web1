@@ -11,10 +11,6 @@ $options_statut = array(
                   'permanent' => 'Permanent',
                 );
 
-
-
-
-
     if (!isset($email) && !isset($password)){
         echo form_open('ajoutUtilisateurVerification', '');
         echo validation_errors();

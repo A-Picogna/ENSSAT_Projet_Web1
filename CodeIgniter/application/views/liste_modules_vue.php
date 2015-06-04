@@ -12,11 +12,23 @@
 	<div id="body">
 
 		<?php
-
 			foreach ($liste as $object) 
 			{
 
-				echo "<table class='table table-striped'><tr><th colspan='1'>".$object['libelle']."</th></tr></table>";
+				echo "  
+                        <table class='table table-striped'>
+                            <tr>                                
+                                <td>
+                                    <a href='afficheModule/module/{$object['ident']}'>
+                                        <div>{$object['libelle']}</div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <div><button class='btn btn-primary btn-xs'>Se positionner sur ce cours</button></div>
+                                </td>
+                            </tr>
+                        </table>
+                    ";
 	 		}
 	 	
 		?>

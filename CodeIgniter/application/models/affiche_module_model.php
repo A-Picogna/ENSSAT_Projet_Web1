@@ -118,7 +118,7 @@ class affiche_module_model extends CI_Model
 
 	public function getListeModules()
 	{
-		$query = $this->db->query('SELECT libelle FROM module order by libelle');
+		$query = $this->db->query('SELECT ident,libelle FROM module order by libelle');
 		if ($query->num_rows() > 0)
 		{
 			return $query->result_array();

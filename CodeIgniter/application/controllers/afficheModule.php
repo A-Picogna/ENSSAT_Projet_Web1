@@ -32,6 +32,12 @@ class afficheModule extends CI_Controller {
 		$this->load->view('affiche_module_vue', $data);
 		$this->load->view('footer', $data);
 	}
+    
+    public function module($module)
+	{
+		$this->home($module);
+	}
+	
 	
 }
  
