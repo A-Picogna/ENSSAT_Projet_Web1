@@ -24,7 +24,7 @@
 				foreach ($Cours as $object) 
 				{
 					echo "<table class='table table-striped'><tr><th colspan='2'> ".$object["partie"]."";
-					echo "(".$object['hed']." h eq. ".$object['type']. " )</th></tr>";
+					echo "(".$object['hed']." h eq. TD)</th></tr>";
 					echo " <tr><td>".$object['prenom']." ".$object['nom']."</td></tr></table>";
 	 			}
 	 		}
