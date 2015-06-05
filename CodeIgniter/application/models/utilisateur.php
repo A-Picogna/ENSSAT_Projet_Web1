@@ -44,6 +44,22 @@
                 return true;
             }
         }
+        
+        function getListeUtilisateurs(){
+            $query = $this->db->query(' SELECT login,nom,prenom,statut,statutaire,actif,administrateur
+                                        FROM enseignant');
+                            $liste_utilisateurs = array();
+            foreach ($query->result() as $row){
+                $liste_utilisateurs[$row->login] = array(   'nom' => $row->nom,
+                                                            'prenom' => $row->prenom,
+                                                            'statut' => $row->prenom,
+                                                            'statutaire' => $row->statutaire,
+                                                            'actif' => $row->actif,
+                                                            'administrateur' => $row->administrateur
+                                                        );
+            }
+            return $liste_utilisateurs;            
+        }
     }
 
 ?>

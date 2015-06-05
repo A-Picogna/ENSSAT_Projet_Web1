@@ -3,17 +3,21 @@
     <head>
         <meta charset="utf-8">
         <title><?php echo $titre; ?></title>        
-        <link href=<?php echo base_url()."assets/css/css_perso.css"; ?> rel="stylesheet">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <!-- Bootstrap -->
+
         <link rel="stylesheet" href=<?php echo base_url()."assets/css/bootstrap.min.css"; ?> type="text/css">
 		<script type="text/javascript" src=<?php echo base_url()."assets/js/jquery.min.js"; ?>></script>
 		<script type="text/javascript" src=<?php echo base_url()."assets/js/bootstrap.min.js"; ?>></script>
 
 		<link rel="stylesheet" href=<?php echo base_url()."assets/css/bootstrap-multiselect.css"; ?> type="text/css"/>
 		<script type="text/javascript" src=<?php echo base_url()."assets/js/bootstrap-multiselect.js"; ?>></script>
+
+        <link href=<?php echo base_url()."assets/css/bootstrap.min.css"; ?> rel="stylesheet">
+        <link href=<?php echo base_url()."assets/css/css_perso.css"; ?> rel="stylesheet">
+
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,6 +42,11 @@
                         if (isset($this->session->userdata('info_user')['login']) && ($this->session->userdata('info_user')['administrateur'])) {
                         echo '
                         <li><a href="'.base_url().'index.php/home/ajout_utilisateur"><span class="glyphicon glyphicon-user"></span> Ajouter un utilisateur</a></li>
+                        ';}?>
+                        <?php		
+                        if (isset($this->session->userdata('info_user')['login']) && ($this->session->userdata('info_user')['administrateur'])) {
+                        echo '
+                        <li><a href="'.base_url().'index.php/home/listeUtilisateurs"><span class="glyphicon glyphicon-user"></span> Afficher les utilisateurs</a></li>
                         ';}?>
                     </ul>      
                     <ul class="nav navbar-nav navbar-right">

@@ -1,21 +1,21 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-    session_start();
-
     class home extends CI_Controller {
 
         function __construct(){
             parent::__construct();
-            if($this->session->userdata('info_user')){
+            session_start();
+            if(!$this->session->userdata('info_user')){ 
+                //If no session, redirect to login page
+                redirect('login', 'refresh');                   
+            }
+            else{
                 if (!$this->session->userdata('info_user')['actif']){
                     $this->session->set_flashdata('type_erreur', 'inactif');
                     redirect('erreur', 'refresh');
-                }                    
-            }
-            else{
-                //If no session, redirect to login page
-                redirect('login', 'refresh');
-            }
+                }
+            }            
+            $this->load->model('utilisateur','',TRUE);
         }
 
         function index(){ 
@@ -47,6 +47,20 @@
                 $data['titre'] = "Ajout d'un utilisateur";
                 $this->load->view('header', $data);
                 $this->load->view('ajouter_utilisateur');
+                $this->load->view('footer');
+            }
+        }
+        
+        function listeUtilisateurs(){
+            if (!$this->session->userdata('info_user')['administrateur']){
+                $this->session->set_flashdata('type_erreur', 'admin');
+                redirect('erreur', 'refresh');
+            }
+            else{ 
+                $data['titre'] = "Liste des utilisateurs";
+                $data['liste_utilisateurs'] = $this->utilisateur->getListeUtilisateurs();                              
+                $this->load->view('header', $data);
+                $this->load->view('liste_des_utilisateurs', $data);
                 $this->load->view('footer');
             }
         }
