@@ -20,7 +20,7 @@ class afficheEnseignant extends CI_Controller {
 
 	public function index()
 	{
-		$this->afficheEnseignant("fgoasdoue");
+		$this->afficheEnseignant($this->session->userdata('info_user')['login']);
 	}
 
 	public function afficheEnseignant($login) {

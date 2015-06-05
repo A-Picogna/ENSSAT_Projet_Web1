@@ -4,9 +4,11 @@
 <?php
 
 echo form_open('ajoutModule/ajoutCours');
+echo '<div class="form-group">';
 echo form_label('Partie', 'partie');
 echo form_input('partie', set_value('partie'));
-echo "<br/>";
+echo '</div>';
+echo '<div class="form-group">';
 echo form_label('Type', 'type');
 $options = array(
                   'CM'  => 'CM',
@@ -15,17 +17,18 @@ $options = array(
                   'Projet' => 'Projet'
                 );
 echo form_dropdown('type', $options);
-echo "<br/>";
+echo '</div>';
+echo '<div class="form-group">';
 echo form_label('Hed', 'hed');
 echo form_input('hed', set_value('hed'));
-echo "<br/>";
-echo form_label('Nom enseignant', 'nomEnseignant');
-echo form_input('nomEnseignant', set_value('nomEnseignant'));
-echo "<br/>";
-echo form_label('Prenom enseignant', 'prenomEnseignant');
-echo form_input('prenomEnseignant', set_value('prenomEnseignant'));
-echo "<br/>";
+echo '</div>';
+echo '<div class="form-group">';
+echo form_label('Identifiant de l\'enseignant', 'idEnseignant');
+echo form_input('idEnseignant', set_value('idEnseignant'));
+echo '</div>';
+echo '<div class="form-group">';
 echo form_submit('valider', 'Valider');
+echo '</div>';
 echo form_close();
 
 ?>

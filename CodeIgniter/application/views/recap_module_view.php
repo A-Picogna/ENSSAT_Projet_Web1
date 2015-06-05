@@ -12,7 +12,7 @@
 		<td><?php echo $this->session->userdata('module')["libelle"];?></td>
 		<td><?php echo $this->session->userdata('module')["public"];?></td>
 		<td><?php echo $this->session->userdata('module')["semestre"];?></td>
-		<td><?php echo $this->session->userdata('module')["prenomResponsable"]." ".$this->session->userdata('module')["nomResponsable"];?></td>
+		<td><?php echo $this->session->userdata('module')["idResponsable"];?></td>
 	</tr>
 </table>
 
@@ -30,7 +30,7 @@ if ($this->session->userdata('moduleCours') != null): ?>
 		<td><?php echo $cours["partie"]; ?></td>
 		<td><?php echo $cours["type"]; ?></td>
 		<td><?php echo $cours["hed"]; ?></td>
-		<td><?php echo $cours["prenomEnseignant"]." ".$cours["nomEnseignant"]; ?></td>
+		<td><?php echo $cours["idEnseignant"]; ?></td>
 	</tr>
 <?php endforeach; ?>
 </table>

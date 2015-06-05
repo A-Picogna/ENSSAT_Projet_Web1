@@ -15,7 +15,7 @@
 		<script type="text/javascript" src=<?php echo base_url()."assets/js/jquery.min.js"; ?>></script>
 		<script type="text/javascript" src=<?php echo base_url()."assets/js/bootstrap.min.js"; ?>></script>
 
-		<link rel="stylesheet" href=<?php echo base_url()."assets/css/chosen.css"; ?> type="text/css"/>
+		<link rel="stylesheet" href=<?php echo base_url()."assets/css/chosen.jquery.css"; ?> type="text/css"/>
 		<script type="text/javascript" src=<?php echo base_url()."assets/js/chosen.jquery.js"; ?>></script>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

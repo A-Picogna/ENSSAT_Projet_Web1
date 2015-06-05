@@ -23,7 +23,7 @@ class loginVerification extends CI_Controller {
         
         if($this->form_validation->run() == FALSE){
             $data['titre'] = "Service de gestion des cours pour les enseignants";
-            $this->load->view('header', $data);        
+            $this->load->view('header_login', $data);        
             $this->load->view('login_view');           
             $this->load->view('footer');
         }

@@ -14,7 +14,6 @@ echo form_label('Libellé', 'libelle');
 echo form_input('libelle', set_value('libelle'), 'class ="form-control" placeholder="Nom complet du module"');
 echo '</div>';
 echo '<div class="form-group">';
-echo form_label('Public', 'public');
 $options = array(
                   'IMR1'  => 'IMR1',
                   'IMR2'    => 'IMR2',
@@ -30,7 +29,8 @@ $options = array(
                   'OPT2'    => 'OPT2',
                   'OPT3'    => 'OPT3'
                 );
-echo form_multiselect('public[]', $options, 'class ="form-control" ', 'id="multiselect_public"');
+echo form_label('Public', 'public');
+echo form_multiselect('public[]', $options, 'class ="form-control" ', 'id="multiselect_public" data-placeholder="Filière(s) concernée(s)"');
 echo '</div>';
 echo '<div class="form-group">';
 echo form_label('Semestre', 'semestre');
@@ -42,15 +42,11 @@ $options = array(
                   'S5'  => 'S5',
                   'S6'    => 'S6'
                 );
-echo form_dropdown('semestre', $options);
+echo form_dropdown('semestre', $options, 'class ="form-control" ');
 echo '</div>';
 echo '<div class="form-group">';
-echo form_label('Nom du responsable', 'nomResponsable');
-echo form_input('nomResponsable', set_value('nomResponsable'), 'class ="form-control" ');
-echo '</div>';
-echo '<div class="form-group">';
-echo form_label('Prénom du responsable', 'prenomResponsable');
-echo form_input('prenomResponsable', set_value('prenomResponsable'), 'class ="form-control" ');
+echo form_label('Identifiant du responsable', 'idResponsable');
+echo form_input('idResponsable', set_value('idResponsable'), 'class ="form-control" placeholder="Identifiant du responsable"');
 echo '</div>';
 echo '<div class="form-group">';
 echo form_submit('valider', 'Valider','class="btn btn-lg btn-primary btn-block"');
@@ -61,6 +57,6 @@ echo form_close();
 </div>
 <script type='text/javascript'>
 	$(document).ready(function() {
-		$('#multiselect_public').multiselect();
+		$('#multiselect_public').chosen();
 	});
 </script>;
