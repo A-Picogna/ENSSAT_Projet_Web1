@@ -14,7 +14,8 @@
                     $this->session->set_flashdata('type_erreur', 'inactif');
                     redirect('erreur', 'refresh');
                 }
-            }
+            }            
+            $this->load->model('utilisateur','',TRUE);
         }
 
         function index(){ 
@@ -46,6 +47,20 @@
                 $data['titre'] = "Ajout d'un utilisateur";
                 $this->load->view('header', $data);
                 $this->load->view('ajouter_utilisateur');
+                $this->load->view('footer');
+            }
+        }
+        
+        function listeUtilisateurs(){
+            if (!$this->session->userdata('info_user')['administrateur']){
+                $this->session->set_flashdata('type_erreur', 'admin');
+                redirect('erreur', 'refresh');
+            }
+            else{ 
+                $data['titre'] = "Liste des utilisateurs";
+                $data['liste_utilisateurs'] = $this->utilisateur->getListeUtilisateurs();                              
+                $this->load->view('header', $data);
+                $this->load->view('liste_des_utilisateurs', $data);
                 $this->load->view('footer');
             }
         }

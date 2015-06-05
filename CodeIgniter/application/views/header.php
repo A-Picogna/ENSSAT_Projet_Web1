@@ -34,6 +34,11 @@
                         echo '
                         <li><a href="'.base_url().'index.php/home/ajout_utilisateur"><span class="glyphicon glyphicon-user"></span> Ajouter un utilisateur</a></li>
                         ';}?>
+                        <?php		
+                        if (isset($this->session->userdata('info_user')['login']) && ($this->session->userdata('info_user')['administrateur'])) {
+                        echo '
+                        <li><a href="'.base_url().'index.php/home/listeUtilisateurs"><span class="glyphicon glyphicon-user"></span> Afficher les utilisateurs</a></li>
+                        ';}?>
                     </ul>      
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="<?php echo base_url();?>index.php/"><span class="glyphicon glyphicon-wrench"></span> Paramêtres de mon compte</a></li>
