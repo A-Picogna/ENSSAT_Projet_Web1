@@ -1,20 +1,19 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-    session_start();
-
     class home extends CI_Controller {
 
         function __construct(){
             parent::__construct();
-            if($this->session->userdata('info_user')){
+            session_start();
+            if(!$this->session->userdata('info_user')){ 
+                //If no session, redirect to login page
+                redirect('login', 'refresh');                   
+            }
+            else{
                 if (!$this->session->userdata('info_user')['actif']){
                     $this->session->set_flashdata('type_erreur', 'inactif');
                     redirect('erreur', 'refresh');
-                }                    
-            }
-            else{
-                //If no session, redirect to login page
-                redirect('login', 'refresh');
+                }
             }
         }
 

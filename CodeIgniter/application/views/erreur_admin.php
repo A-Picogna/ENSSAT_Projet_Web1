@@ -1,6 +1,6 @@
 <div class="alert alert-danger">
-    <h1>Bien essayer petit filou ! mais tu n'est pas administrateur Héhé !</h1>
+    <h1>Bien essayé petit filou ! Mais tu n'es pas administrateur !</h1>
     <a href="home">
-        <button class="btn btn-danger">Revenir a la page de connexion</button>
+        <button class="btn btn-danger">Revenir au menu principal</button>
     </a> 
 </div>
