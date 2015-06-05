@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
     <head>
         <meta charset="utf-8">
@@ -8,7 +8,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <!-- Bootstrap -->
-        <link href=<?php echo base_url()."assets/css/bootstrap.min.css"; ?> rel="stylesheet">
+        <link rel="stylesheet" href=<?php echo base_url()."assets/css/bootstrap.min.css"; ?> type="text/css">
+		<script type="text/javascript" src=<?php echo base_url()."assets/js/jquery.min.js"; ?>></script>
+		<script type="text/javascript" src=<?php echo base_url()."assets/js/bootstrap.min.js"; ?>></script>
+
+		<link rel="stylesheet" href=<?php echo base_url()."assets/css/bootstrap-multiselect.css"; ?> type="text/css"/>
+		<script type="text/javascript" src=<?php echo base_url()."assets/js/bootstrap-multiselect.js"; ?>></script>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

@@ -30,7 +30,7 @@ $options = array(
                   'OPT2'    => 'OPT2',
                   'OPT3'    => 'OPT3'
                 );
-echo form_dropdown('public', $options, 'class ="form-control" ');
+echo form_multiselect('public[]', $options, 'class ="form-control" ', 'id="multiselect_public"');
 echo '</div>';
 echo '<div class="form-group">';
 echo form_label('Semestre', 'semestre');
@@ -59,3 +59,8 @@ echo form_close();
 ?>
     </div>
 </div>
+<script type='text/javascript'>
+	$(document).ready(function() {
+		$('#multiselect_public').multiselect();
+	});
+</script>;

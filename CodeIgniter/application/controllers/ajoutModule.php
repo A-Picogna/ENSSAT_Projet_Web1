@@ -20,7 +20,6 @@ class ajoutModule extends CI_Controller {
 
 	public function index()
 	{
-		//$this->afficheEnseignant("fgoasdoue");
 		$data["titre"] = "Le module";
 		$this->load->view('header', $data);
 		$this->load->view('ajout_module_view', $data);
@@ -28,14 +27,6 @@ class ajoutModule extends CI_Controller {
 	}
 
 	public function ajoutPremierCours() {
-		/*$data['infosEnseignant'] = $this->fiche_enseignant_model->get_enseignant($login);
-		$data['coursEnseignant'] = $this->fiche_enseignant_model->get_cours($login);
-		$data['heuresCMEnseignant'] = $this->fiche_enseignant_model->get_heuresCM($login);
-		$data['heuresTDEnseignant'] = $this->fiche_enseignant_model->get_heuresTD($login);
-		$data['heuresTPEnseignant'] = $this->fiche_enseignant_model->get_heuresTP($login);
-		$data['heuresProjetEnseignant'] = $this->fiche_enseignant_model->get_heuresProjet($login);
-		$this->load->view('fiche_enseignant_view', $data);*/
-
 		$this->load->helper(array('form', 'url'));
 
 		$this->load->library('form_validation');
