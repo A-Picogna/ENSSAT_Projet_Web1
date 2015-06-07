@@ -34,6 +34,21 @@
         <![endif]-->
     </head>
     <body>
-        <div class="container">
-      
-      
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="<?php echo base_url();?>index.php/home">Administration</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="<?php echo base_url();?>index.php/administration/ajout_utilisateur"><span class="glyphicon glyphicon-user"></span> Ajouter un utilisateur</a></li>   
+                        <li><a href="<?php echo base_url();?>index.php/administration/listeUtilisateurs"><span class="glyphicon glyphicon-user"></span> Gerer les utilisateurs</a></li>
+                    </ul>      
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="<?php echo base_url();?>index.php/"><span class="glyphicon glyphicon-wrench"></span> Paramêtres de mon compte</a></li>
+                        <li><a href="<?php echo base_url();?>index.php/home"><span class="glyphicon glyphicon-log-out"></span> Retour</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container"  style="margin-top:50px;">

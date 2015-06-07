@@ -47,16 +47,20 @@
         
         function getListeUtilisateurs(){
             $query = $this->db->query(' SELECT login,nom,prenom,statut,statutaire,actif,administrateur
-                                        FROM enseignant');
+                                        FROM enseignant
+                                        ORDER BY nom');
+            $i = 0;
                             $liste_utilisateurs = array();
             foreach ($query->result() as $row){
-                $liste_utilisateurs[$row->login] = array(   'nom' => $row->nom,
-                                                            'prenom' => $row->prenom,
-                                                            'statut' => $row->prenom,
-                                                            'statutaire' => $row->statutaire,
-                                                            'actif' => $row->actif,
-                                                            'administrateur' => $row->administrateur
-                                                        );
+                $liste_utilisateurs[$i] = array(    'login' => $row->login,
+                                                    'nom' => $row->nom,
+                                                    'prenom' => $row->prenom,
+                                                    'statut' => $row->prenom,
+                                                    'statutaire' => $row->statutaire,
+                                                    'actif' => $row->actif,
+                                                    'administrateur' => $row->administrateur
+                                                );
+                $i++;
             }
             return $liste_utilisateurs;            
         }

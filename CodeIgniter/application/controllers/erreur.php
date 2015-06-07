@@ -22,6 +22,10 @@ class erreur extends CI_Controller {
                 $this->load->view('header', $data); 
                 $this->load->view('erreur_admin');
                 break;
+            default:
+                $data['message_erreur'] = $this->session->flashdata('type_erreur');
+                $this->load->view('header', $data); 
+                $this->load->view('erreur_parDefaut', $data);
         }
         
         $this->load->view('footer');

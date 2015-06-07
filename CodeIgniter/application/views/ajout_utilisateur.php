@@ -11,7 +11,7 @@ $options_statut = array(
                   'permanent' => 'Permanent',
                 );
 
-    if (!isset($email) && !isset($password)){
+    
         echo form_open('ajoutUtilisateurVerification', '');
         echo validation_errors();
             echo '<div class="form-group">';
@@ -47,8 +47,7 @@ $options_statut = array(
                 echo form_reset('submit', 'reset','class="btn btn-lg btn-info"');
             echo '</div>';
         
-        echo form_close();
-    }                                                                            
+        echo form_close();                                                         
 ?>
         
     </div>
