@@ -11,10 +11,10 @@
 	<div id="body">
 
 		<?php echo "<p> Module : " .$Modules[0]['libelle']."</br>"; ?>
-		<?php echo "Responsable : " .$Responsables[0]['prenom']." "; ?>
-		<?php echo " ".$Responsables[0]['nom']." </br>"; ?>
+		<?php echo "Responsable : " .$ResponsablesETfiliere[0]['prenom']." "; ?>
+		<?php echo " ".$ResponsablesETfiliere[0]['nom']." </br>"; ?>
 
-		<?php echo " Public : " .$publics[0]['public']. "</p>"; ?>
+		<?php echo " Public : " .$ResponsablesETfiliere[0]['public']. "</p>"; ?>
 	
 
 		<?php

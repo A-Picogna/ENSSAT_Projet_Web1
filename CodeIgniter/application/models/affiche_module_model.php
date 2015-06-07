@@ -21,7 +21,7 @@ class affiche_module_model extends CI_Model
 
 	public function getCourses($module)
 	{
-		$query = $this->db->query('SELECT nom, prenom, partie, hed, type from contenu, enseignant where login=enseignant and module="'. $module .'" order by module');
+		$query = $this->db->query('SELECT nom, prenom, partie, hed, type from contenu LEFT JOIN enseignant where login=enseignant and module="'. $module .'" order by module');
 	
 		if ($query->num_rows() > 0)
 		{
@@ -32,9 +32,9 @@ class affiche_module_model extends CI_Model
 		}
 	}
 
-	public function getEnseignant($module)
+	public function getResponsableANDFiliere($module)
 	{
-		$query = $this->db->query('SELECT nom, prenom from enseignant, contenu where enseignant = login and module="'. $module .'"');
+		$query = $this->db->query('SELECT nom, prenom, public from enseignant, module where login=responsable and ident="'. $module .'"');
 		if ($query->num_rows() > 0)
 		{
 			return $query->result_array();
@@ -44,29 +44,6 @@ class affiche_module_model extends CI_Model
 		}
 	}
 
-	public function getResponsable($module)
-	{
-		$query = $this->db->query('SELECT nom, prenom from enseignant, module where login=responsable and ident="'. $module .'"');
-		if ($query->num_rows() > 0)
-		{
-			return $query->result_array();
-
-		}else{
-			return NULL;
-		}
-	}
-
-	public function getFiliere($module)
-	{
-		$query = $this->db->query('SELECT public FROM module where ident="'. $module .'"');
-		if ($query->num_rows() > 0)
-		{
-			return $query->result_array();
-
-		}else{
-			return NULL;
-		}
-	}
 
 	public function getHeuresCM($module)
 	{
