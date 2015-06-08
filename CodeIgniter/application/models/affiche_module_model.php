@@ -21,6 +21,7 @@ class affiche_module_model extends CI_Model
 
 	public function getCourses($module)
 	{
+		
 		$query = $this->db->query('SELECT nom, prenom, partie, hed, type from contenu left join enseignant on login=enseignant where module="'. $module .'" order by partie');
 	
 		if ($query->num_rows() > 0)

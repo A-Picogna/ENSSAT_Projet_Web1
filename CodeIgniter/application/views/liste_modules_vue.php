@@ -24,7 +24,14 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <div><button class='btn btn-primary btn-xs'>Se positionner sur ce cours</button></div>
+                                     <div align='right'>";
+
+                                    echo '<a href="'.base_url()."index.php/choisirCours/index/".$object['ident'].'"">
+	                                    	<button class="btn btn-primary btn-xs">
+	                                    		Se positionner sur ce cours
+	                                    	</button>
+                                    	</a>
+                                    </div>
                                 </td>
                             </tr>
                         </table>
