@@ -24,10 +24,9 @@
                                     </a>
                                 </td>
                                 <td>
-                                     <div align='right'>";
-
-                                    echo '<a href="'.base_url()."index.php/choisirCours/index/".$object['ident'].'"">
-	                                    	<button class="btn btn-primary btn-xs">
+                                	<div align='right'>
+                                    	<a href='index.php/choisirCours/{$object['ident']}'>
+	                                    	<button class='btn btn-primary btn-xs'>
 	                                    		Se positionner sur ce cours
 	                                    	</button>
                                     	</a>
