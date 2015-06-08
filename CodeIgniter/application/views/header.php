@@ -6,6 +6,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
+        <!-- JQuery -->
+		<script type="text/javascript" src=<?php echo base_url()."assets/js/jquery.min.js"; ?>></script>
+        
         <!-- Bootstrap -->
         <link href=<?php echo base_url()."assets/css/bootstrap.min.css"; ?> rel="stylesheet">
         <link rel="stylesheet" href=<?php echo base_url()."assets/css/bootstrap.min.css"; ?> type="text/css">
@@ -14,9 +17,6 @@
         <!-- Chosen -->
 		<link rel="stylesheet" href=<?php echo base_url()."assets/css/chosen.css"; ?> type="text/css"/>
 		<script type="text/javascript" src=<?php echo base_url()."assets/js/chosen.jquery.js"; ?>></script>
-        
-        <!-- JQuery -->
-		<script type="text/javascript" src=<?php echo base_url()."assets/js/jquery.min.js"; ?>></script>
         
         <!-- DataTables -->
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
