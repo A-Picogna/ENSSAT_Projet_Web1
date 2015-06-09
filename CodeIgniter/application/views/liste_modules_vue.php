@@ -19,13 +19,13 @@
                         <table class='table table-striped'>
                             <tr>                                
                                 <td>
-                                    <a href='afficheModule/module/{$object['ident']}'>
+                                    <a href='".base_url()."index.php/afficheModule/module/{$object['ident']}'>
                                         <div>{$object['libelle']}</div>
                                     </a>
                                 </td>
                                 <td>
                                 	<div align='right'>
-                                    	<a href='index.php/choisirCours/{$object['ident']}'>
+                                    	<a href='".base_url()."index.php/choisirCours/positionnement/{$object['ident']}'>
 	                                    	<button class='btn btn-primary btn-xs'>
 	                                    		Se positionner sur ce cours
 	                                    	</button>

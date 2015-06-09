@@ -14,8 +14,9 @@ class choisirCours extends CI_Controller {
 		$this->home('opivert', 'ALGOC1');
 	}
 	
-	public function home($login ,$module)
+	public function positionnement($module)
 	{
+        $login = $this->session->userdata('info_user')['login'];
 		//$this->load->model('admin_model');
 		$data['module']=$module;
 		$data['title']='Projet_php';

@@ -21,7 +21,7 @@ class afficheModule extends CI_Controller {
 
 	public function index()
 	{
-		$this->home("ALGOC1");
+        
 	}
 	
 	public function home($module)
