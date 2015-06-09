@@ -7,7 +7,6 @@
         <table id="table_id" class="table table-striped text-center table-bordered" >
             <thead>
                 <tr class="titre_tableau">
-                    <th></th>
                     <th>Login</th>
                     <th>Prenom</th>
                     <th>Nom</th>
@@ -22,7 +21,6 @@
 <?php
     foreach($liste_utilisateurs as $l){
         echo '<tr>';
-        echo '<td>'.form_checkbox('', 0, FALSE).'</td>';
         echo '<td>'.$l['login'].'</td>';
         echo '<td>'.$l['prenom'].'</td>';
         echo '<td>'.$l['nom'].'</td>';
