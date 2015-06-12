@@ -1,5 +1,7 @@
 <!-- Chargement du tableau intéractif -->
-<script>$(document).ready( function () {$('#table_id').DataTable();} );</script>
+<script>
+    $(document).ready( function () {$('#table_id').DataTable();} );
+</script>
 
 <div class="row">
     <div class="">
@@ -15,6 +17,7 @@
                     <th>Actif</th>
                     <th>Administrateur</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody class="ligne_couleur_alterne">
@@ -28,12 +31,12 @@
         echo '<td>'.$l['statutaire'].'</td>';
         if ($l['actif']){echo '<td>Oui</td>';}else{echo '<td>Non</td>';}
         if ($l['administrateur']){echo '<td>Oui</td>';}else{echo '<td>Non</td>';}
-        echo '<td><a href="'.base_url().'index.php/administration/supprimer_utilisateur/'.$l['login'].'"<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a></td>';
+        echo '<td><a href="'.base_url().'index.php/administration/modifier_utilisateur/'.$l['login'].'"<button class="btn btn-success btn-xs"><span title="Modifier" class="glyphicon glyphicon-pencil"></span></button></a></td>';
+        echo '<td><a href="'.base_url().'index.php/administration/supprimer_utilisateur/'.$l['login'].'"<button class="btn btn-danger btn-xs" onclick="return confirm(\'Attention ! Etes-vous sûr de vouloir supprimer cet utilisateur\')"><span title="Supprimer" class="glyphicon glyphicon-trash" ></span></button></a></td>';
         echo '</tr>';
     }
 
-?>
-                    
+?>                    
             </tbody>
         </table>
     </div>
