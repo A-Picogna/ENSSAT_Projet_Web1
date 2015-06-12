@@ -21,9 +21,12 @@
 			echo "
 					</table><table class='table table-striped'><tr><th colspan='2'>".$cours["libelle"]." - ".$cours["public"]."</th></tr>
 				";
-		} 
+		}
+
 		echo "
 				<tr><td>".$cours["partie"]."</td><td>".$cours["hed"]." h eq. TD
+
+
 					<div align='right'>
             		
             			<a href='".base_url()."index.php/sedepositionner/depositionnement/".$cours['partie']."/".$cours['module']."'>
@@ -31,6 +34,7 @@
 	                			Se dépositionner de cette partie
 	            			</button>
            				</a>
+           				
 
 				</td></tr>
 			";

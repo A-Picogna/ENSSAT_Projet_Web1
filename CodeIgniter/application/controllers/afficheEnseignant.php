@@ -24,6 +24,7 @@ class afficheEnseignant extends CI_Controller {
 	}
 
 	public function afficheEnseignant() {
+
 		$login = $this->session->userdata('info_user')['login'];
 		$data['infosEnseignant'] = $this->fiche_enseignant_model->get_enseignant($login);
 		$data['coursEnseignant'] = $this->fiche_enseignant_model->get_cours($login);

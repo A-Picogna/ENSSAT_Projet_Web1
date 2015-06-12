@@ -191,7 +191,6 @@ class Choisir_cours_model extends CI_Model
 	public function supprimerEnseignantDePartie($partie, $module)
 	{
 
-		print_r('UPDATE contenu set enseignant = NULL where module ="'. $module .'" and partie = "'. $partie .'" ');
 		$query = $this->db->query('UPDATE contenu set enseignant = NULL where module ="'. $module .'" and partie = "'. $partie .'" ');
 	
 	}
