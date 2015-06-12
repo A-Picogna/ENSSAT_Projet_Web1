@@ -13,8 +13,8 @@ class Gestion_Module_model extends CI_Model {
 	}
 
 	public function supprime_module($ident) {
-		$query = $this->db->query('Delete from module where ident="'.$ident.'"');
-		return $query->result_array();
+		$this->db->query('Delete from contenu where module="'.$ident.'"');
+		$this->db->query('Delete from module where ident="'.$ident.'"');
 	}
 }
 ?>

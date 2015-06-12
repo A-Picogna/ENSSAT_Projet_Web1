@@ -44,6 +44,7 @@
                         <li><a href="<?php echo base_url();?>index.php/administration/ajout_utilisateur"><span class="glyphicon glyphicon-user"></span> Ajouter un utilisateur</a></li>  
                         <li><a href="<?php echo base_url();?>index.php/ajoutModule"><span class="glyphicon glyphicon-book"></span> Ajouter un module</a></li> 
                         <li><a href="<?php echo base_url();?>index.php/administration/listeUtilisateurs"><span class="glyphicon glyphicon-user"></span> Gerer les utilisateurs</a></li>
+                        <li><a href="<?php echo base_url();?>index.php/gestionModule"><span class="glyphicon glyphicon-book"></span> Gérer les modules</a></li> 
                     </ul>      
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="<?php echo base_url();?>index.php/"><span class="glyphicon glyphicon-wrench"></span> Paramêtres de mon compte</a></li>

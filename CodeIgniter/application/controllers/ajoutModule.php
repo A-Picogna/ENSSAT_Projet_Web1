@@ -21,7 +21,7 @@ class ajoutModule extends CI_Controller {
 	public function index()
 	{
 		$data["titre"] = "Le module";
-		$this->load->view('header', $data);
+		$this->load->view('header_admin', $data);
 		$this->load->view('ajout_module_view', $data);
 		$this->load->view('footer', $data);
 	}
@@ -38,7 +38,7 @@ class ajoutModule extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			$data["titre"] = "Le module";
-			$this->load->view('header', $data);
+			$this->load->view('header_admin', $data);
 			$this->load->view('ajout_module_view', $data);
 			$this->load->view('footer', $data);
 		}
@@ -68,7 +68,7 @@ class ajoutModule extends CI_Controller {
 				);
 				$this->session->set_userdata('module', $module);
 			} 
-			$this->load->view('header', $data);
+			$this->load->view('header_admin', $data);
 			$this->load->view('recap_module_view', $data);
 			$this->load->view('ajout_cours_view', $data);
 			$this->load->view('footer', $data);
@@ -85,7 +85,7 @@ class ajoutModule extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			$data["titre"] = "Le module";
-			$this->load->view('header', $data);
+			$this->load->view('header_admin', $data);
 			$this->load->view('recap_module_view', $data);
 			$this->load->view('ajout_cours_view', $data);
 			$this->load->view('footer', $data);
@@ -112,7 +112,7 @@ class ajoutModule extends CI_Controller {
 				$this->session->set_userdata('moduleCours', $cours);
 			}
 
-			$this->load->view('header', $data);
+			$this->load->view('header_admin', $data);
 			$this->load->view('recap_module_view', $data);
 			$this->load->view('ajout_cours_view', $data);
 			$this->load->view('bouton_validation_creation_module_view', $data);
@@ -124,7 +124,7 @@ class ajoutModule extends CI_Controller {
 		$data["titre"] = "Le module";
 		$res=$this->ajout_module_model->creer_module();
 		if ($res) {
-			$this->load->view('header', $data);
+			$this->load->view('header_admin', $data);
 			$this->load->view('ajout_module_reussite_view', $data);
 			$this->load->view('recap_module_view', $data);
 			$this->load->view('footer', $data);
