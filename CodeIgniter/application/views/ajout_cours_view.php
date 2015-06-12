@@ -19,7 +19,7 @@ $options = array(
 echo form_dropdown('type', $options);
 echo '</div>';
 echo '<div class="form-group">';
-echo form_label('Hed', 'hed');
+echo form_label('Hetd', 'hed');
 echo form_input('hed', set_value('hed'));
 echo '</div>';
 echo '<div class="form-group">';

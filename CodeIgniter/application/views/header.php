@@ -42,6 +42,7 @@
                 <div>
                     <ul class="nav navbar-nav">
                         <li><a href="<?php echo base_url();?>index.php/listeModules"><span class="glyphicon glyphicon-hand-up"></span> Liste Modules</a></li>
+						<li><a href="<?php echo base_url();?>index.php/afficheEnseignant"><span class="glyphicon glyphicon-hand-up"></span> Fiche enseignant</a></li>
                     </ul>      
                     <ul class="nav navbar-nav navbar-right">
                         <?php       
