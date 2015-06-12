@@ -50,7 +50,7 @@
             $data['titre'] = "Liste des utilisateurs";
             $data['liste_utilisateurs'] = $this->utilisateur->getListeUtilisateurs();                              
             $this->load->view('header_admin', $data);
-            $this->load->view('liste_des_utilisateurs', $data);
+            $this->load->view('admin_listeUtilisateurs', $data);
             $this->load->view('footer');
         }
         
@@ -65,6 +65,10 @@
                 //$this->db->delete('enseignant', array('login' => $login));
                 //redirect('administration/listeUtilisateurs', 'refresh');
             }
+        }
+        
+        function modifier_utilisateur($login){
+            $this->load->view('edit_utilisateur');
         }
     }
  
