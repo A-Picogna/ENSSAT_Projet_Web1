@@ -175,6 +175,18 @@ class Choisir_cours_model extends CI_Model
 			return NULL;
 		}
 	}
+
+	public function getModule($module)
+	{
+		$query = $this->db->query('SELECT libelle, ident FROM module where ident="'. $module .'"');
+		if ($query->num_rows() > 0)
+		{
+			return $query->result_array();
+
+		}else{
+			return NULL;
+		}
+	}
 }
 
 ?>

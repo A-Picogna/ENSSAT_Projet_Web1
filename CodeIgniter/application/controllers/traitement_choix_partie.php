@@ -12,16 +12,26 @@ class traitement_choix_partie extends CI_Controller {
 	
 	public function index()
 	{
-		$this->home('ALGOC1','opivert');
+		$module = $this->input->post('ident');
+		print_r($module);
+		$login = $this->session->userdata('info_user')['login'];
+		print_r($login);
+		$this->traitement($module, $login);
+		
 	}
 	
-	public function home($module, $login)
+	public function traitement($module,$login)
 	{
+
+		$module = $this->input->post('ident');
+
+
 		$sommeHeuresCMChoisies=0;
 		$sommeHeuresTDChoisies=0;  /* initialisation à 0 ? */
 		$sommeHeuresTPChoisies=0;
 		$sommeHeuresProjetChoisies=0;
 		$TotalHeuresEnseignantAvant=0;
+
 
 		$PartieCMchecked = $this->input->post('CM');
 		if($PartieCMchecked != null)
@@ -50,6 +60,7 @@ class traitement_choix_partie extends CI_Controller {
 		{
 			foreach ($PartieTPchecked as $TP)
 			{	
+
 				$data['heuresTP'][]=$this->choisir_cours_model->getheureTPPartie($module, $TP);	
 			}
 		}
@@ -67,7 +78,7 @@ class traitement_choix_partie extends CI_Controller {
 		else { $data['heuresProjet']=null;}
 
 
-		$ModuleChoisi = $this->input->post('Module');
+		
 		$data['statutaireEnseignant']=$this->choisir_cours_model->getStatutaire($login);
 		$data['dechargeEnseignant']=$this->choisir_cours_model->getDecharge($login);
 
@@ -124,7 +135,7 @@ class traitement_choix_partie extends CI_Controller {
 			$totalHeuresPermises = $data['statutaireEnseignant'] - $data['dechargeEnseignant'];
 
 		$this->load->view('header', $data);
-		if (($data['dechargeEnseignant'] = '') || ($totalHeuresEnseignant < $totalHeuresPermises))
+		if (!isset($data['dechargeEnseignant']) || ($totalHeuresEnseignant < $totalHeuresPermises))
 		{
 
 
