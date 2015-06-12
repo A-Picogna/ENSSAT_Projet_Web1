@@ -19,6 +19,22 @@
                 return false;
             }
         }
+        
+        function get_info_utilisateur($login){
+            $this -> db -> select('login, pwd, nom, prenom, statut, administrateur, actif, statutaire');
+            $this -> db -> from('enseignant');
+            $this -> db -> where('login', $login);
+            $this -> db -> limit(1);
+
+            $query = $this -> db -> get();
+
+            if($query -> num_rows() == 1){
+                return $query->row_array();
+            }
+            else{
+                return false;
+            }
+        }
 
         function inserer_utilisateur($login, $mdp, $nom, $prenom, $statut, $admin){
             $this -> db -> select('login');
@@ -63,6 +79,19 @@
                 $i++;
             }
             return $liste_utilisateurs;            
+        }
+        
+        function update_utilisateur($login, $mdp, $nom, $prenom, $statut, $statutaire, $admin){
+            $data = array(
+                            'pwd' => $title,
+                            'nom' => $name,
+                            'prenom' => $date,
+                            'statut' => $statut,
+                            'statutaire' => $statutaire,
+                            'admin' => $admin,
+                            );
+            $this->db->where('login', $login);
+            $this->db->update('enseignant', $data); 
         }
     }
 

@@ -66,10 +66,6 @@
                 //redirect('administration/listeUtilisateurs', 'refresh');
             }
         }
-        
-        function modifier_utilisateur($login){
-            $this->load->view('edit_utilisateur');
-        }
     }
  
 ?>

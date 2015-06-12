@@ -31,7 +31,7 @@
         echo '<td>'.$l['statutaire'].'</td>';
         if ($l['actif']){echo '<td>Oui</td>';}else{echo '<td>Non</td>';}
         if ($l['administrateur']){echo '<td>Oui</td>';}else{echo '<td>Non</td>';}
-        echo '<td><a href="'.base_url().'index.php/administration/modifier_utilisateur/'.$l['login'].'"<button class="btn btn-success btn-xs"><span title="Modifier" class="glyphicon glyphicon-pencil"></span></button></a></td>';
+        echo '<td><a href="'.base_url().'index.php/home/modifier_utilisateur/'.$l['login'].'"<button class="btn btn-success btn-xs"><span title="Modifier" class="glyphicon glyphicon-pencil"></span></button></a></td>';
         echo '<td><a href="'.base_url().'index.php/administration/supprimer_utilisateur/'.$l['login'].'"<button class="btn btn-danger btn-xs" onclick="return confirm(\'Attention ! Etes-vous sûr de vouloir supprimer cet utilisateur\')"><span title="Supprimer" class="glyphicon glyphicon-trash" ></span></button></a></td>';
         echo '</tr>';
     }
