@@ -4,13 +4,24 @@ class ajoutUtilisateurVerification extends CI_Controller {
  
     function __construct(){
         parent::__construct();
-        if (isset($this->session->userdata('info_user')['login'])){
-            redirect('home', 'refresh');
+        session_start();
+        if(!$this->session->userdata('info_user')){ 
+            //If no session, redirect to login page
+            redirect('login', 'refresh');                   
         }
         else{
-            //pré-chargement du modele (sinon ca ne marche pas)
-            $this->load->model('utilisateur','',TRUE);
-        }
+            if (!$this->session->userdata('info_user')['actif']){
+                $this->session->set_flashdata('type_erreur', 'inactif');
+                redirect('erreur', 'refresh');
+            }
+            else{
+                if(!$this->session->userdata('info_user')['administrateur']){
+                    $this->session->set_flashdata('type_erreur', 'admin');
+                    redirect('erreur', 'refresh');
+                }            
+            }
+        }                        
+        $this->load->model('utilisateur'); 
     }
 
     function index(){

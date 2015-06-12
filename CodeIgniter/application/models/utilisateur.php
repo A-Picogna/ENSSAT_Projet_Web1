@@ -82,14 +82,25 @@
         }
         
         function update_utilisateur($login, $mdp, $nom, $prenom, $statut, $statutaire, $admin){
-            $data = array(
-                            'pwd' => $title,
-                            'nom' => $name,
-                            'prenom' => $date,
-                            'statut' => $statut,
-                            'statutaire' => $statutaire,
-                            'admin' => $admin,
-                            );
+            if (empty($mdp)){
+                $data = array(
+                                'nom' => $nom,
+                                'prenom' => $prenom,
+                                'statut' => $statut,
+                                'statutaire' => $statutaire,
+                                'administrateur' => $admin,
+                                );
+            }
+            else{
+                $data = array(
+                                'pwd' => $mdp,
+                                'nom' => $nom,
+                                'prenom' => $prenom,
+                                'statut' => $statut,
+                                'statutaire' => $statutaire,
+                                'administrateur' => $admin,
+                                );
+            }                
             $this->db->where('login', $login);
             $this->db->update('enseignant', $data); 
         }

@@ -17,9 +17,10 @@ $options_admin = array(
 
 
         echo form_open('editUtilisateurVerification', '');
+        echo validation_errors();
         echo '<div class="form-group">';
             echo form_label('Login', 'username');
-            echo form_input('login', $info_user['login'], 'class="form-control" disabled');
+            echo form_input('login', set_value('login', $info_user['login']), 'class="form-control" readonly');
         echo '</div>';        
         echo form_open('home/changer_mdp', '');
 
