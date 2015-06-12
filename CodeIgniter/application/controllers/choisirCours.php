@@ -4,6 +4,7 @@ class choisirCours extends CI_Controller {
 
 	public function __construct()
 	{
+		session_start();
 		parent::__construct();
 		$this->load->model('choisir_cours_model');
 	}
@@ -11,16 +12,18 @@ class choisirCours extends CI_Controller {
 	
 	public function index()
 	{
-		$this->home('opivert', 'ALGOC1');
+		redirect('home','refresh');
 	}
 	
 	public function positionnement($module)
 	{
         $login = $this->session->userdata('info_user')['login'];
+        print_r($login);
 		//$this->load->model('admin_model');
 		$data['module']=$module;
 		$data['title']='Projet_php';
 		$data['page_header']='Choisir un cours';
+		$data['libelle']=$this->choisir_cours_model->getModule($module);
 		$data['PartiesCM']=$this->choisir_cours_model->getPartiesCM($module);
 		$data['PartiesTD']=$this->choisir_cours_model->getPartiesTD($module);
 		$data['PartiesTP']=$this->choisir_cours_model->getPartiesTP($module);

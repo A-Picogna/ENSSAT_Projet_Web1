@@ -14,7 +14,7 @@
 		<?php
 			foreach ($liste as $object) 
 			{
-
+				
 				echo "  
                         <table class='table table-striped'>
                             <tr>                                

@@ -12,6 +12,7 @@
 
 		<?php
 			echo form_open('traitement_choix_partie');
+			echo $libelle[0]['libelle'];
 
 			if ($PartiesCM != '')
 			{
@@ -87,7 +88,7 @@
 
 		?>
 
-		<?php echo form_hidden('ident','$module')?>
+		<?php echo form_hidden('ident',$module)?>
 
 		<?php echo form_submit('valider', 'Valider')?>
 		<?php echo form_close() ?>
