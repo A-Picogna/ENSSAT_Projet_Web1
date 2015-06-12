@@ -37,14 +37,11 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="<?php echo base_url();?>index.php/home">Gestion des cours</a>
+                    <a class="navbar-brand" href="<?php echo base_url();?>index.php/home"> Page d'accueil</a>
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
                         <li><a href="<?php echo base_url();?>index.php/listeModules"><span class="glyphicon glyphicon-hand-up"></span> Liste Modules</a></li>
-                        <li><a href="<?php echo base_url();?>index.php/ajoutModule"><span class="glyphicon glyphicon-book"></span> Ajouter un module</a></li>
-                        <li><a href="<?php echo base_url();?>index.php/afficheEnseignant"><span class="glyphicon glyphicon-book"></span> Boulot Yasmine</a></li>
-                        <li><a href="<?php echo base_url();?>index.php/afficheModule"><span class="glyphicon glyphicon-book"></span> Boulot Jihane</a></li>
                     </ul>      
                     <ul class="nav navbar-nav navbar-right">
                         <?php       
