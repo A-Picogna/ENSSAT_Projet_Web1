@@ -105,14 +105,47 @@
             $this->db->update('enseignant', $data); 
         }
         
-        changer_etat_utilisateur($login, $nouvel_etat){
+        function changer_etat_utilisateur($login, $nouvel_etat){
                  $data = array(
-                                'action' => $nouvel_etat,
-                                );
-            }                
+                                'actif' => $nouvel_etat,
+                                );                
             $this->db->where('login', $login);
             $this->db->update('enseignant', $data); 
         }
+        
+        function supprimer_utilisateur($login){            
+            $this->db->where('enseignant', $login);
+            $this->db->update('contenu', array('enseignant' => NULL));
+            
+            $this->db->where('responsable', $login);
+            $this->db->update('module', array('responsable' => NULL));
+            
+            $this->db->delete('decharge', array('enseignant' => $login));
+            $this->db->delete('enseignant', array('login' => $login));
+            
+            redirect('administration/listeUtilisateurs', 'refresh');
+        }
+
+        public function getStatutaire($login)
+        {
+            $query = $this->db->query('Select statut from enseignant where login ="'. $login .'"');
+    
+            if ($query->num_rows() > 0)
+            {
+                foreach ($query->result() as $row)
+                {
+                    return $row->statutaire;
+                }
+            }else{
+            
+                return NULL;
+            }
+        }
+
+        function get_decharge($login){
+            return 0;
+        }
+
     }
 
 ?>

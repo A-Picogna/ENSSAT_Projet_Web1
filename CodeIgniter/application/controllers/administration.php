@@ -60,21 +60,25 @@
                 redirect('erreur', 'refresh');
             }
             else{
-                $this->session->set_flashdata('type_erreur', 'La suppression est temporairement désactivée pour cause de bug');
-                redirect('erreur', 'refresh');
-                //$this->db->delete('enseignant', array('login' => $login));
-                //redirect('administration/listeUtilisateurs', 'refresh');
+                $this->utilisateur->supprimer_utilisateur($login);
+                redirect('administration/listeUtilisateurs', 'refresh');
             }
         }
         
         function activer_utilisateur($login){
             $this->utilisateur->changer_etat_utilisateur($login, 1);
-            redirect('administration/listeUtilisateur', 'refresh');
+            redirect('administration/listeUtilisateurs', 'refresh');
         }
         
         function desactiver_utilisateur($login){
-            $this->utilisateur->changer_etat_utilisateur($login, 0);
-            redirect('administration/listeUtilisateur', 'refresh');
+            if (strcmp($login,$this->session->userdata('info_user')['login']) == 0){
+                $this->session->set_flashdata('type_erreur', 'Vous ne pouvez pas vous désactiver vous même !');
+                redirect('erreur', 'refresh');
+            }
+            else{
+                $this->utilisateur->changer_etat_utilisateur($login, 0);
+                redirect('administration/listeUtilisateurs', 'refresh');
+            }
         }
         
         
