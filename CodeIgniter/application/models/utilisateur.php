@@ -104,6 +104,15 @@
             $this->db->where('login', $login);
             $this->db->update('enseignant', $data); 
         }
+        
+        changer_etat_utilisateur($login, $nouvel_etat){
+                 $data = array(
+                                'action' => $nouvel_etat,
+                                );
+            }                
+            $this->db->where('login', $login);
+            $this->db->update('enseignant', $data); 
+        }
     }
 
 ?>

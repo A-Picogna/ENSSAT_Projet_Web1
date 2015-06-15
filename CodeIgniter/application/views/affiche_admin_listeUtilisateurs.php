@@ -16,9 +16,9 @@
                     <th>Statutaire</th>
                     <th>Actif</th>
                     <th>Administrateur</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th>Edit</th>
+                    <th>Del</th>
+                    <th>Etat</th>
                 </tr>
             </thead>
             <tbody class="ligne_couleur_alterne">
@@ -35,10 +35,10 @@
         echo '<td><a href="'.base_url().'index.php/home/modifier_utilisateur/'.$l['login'].'"<button class="btn btn-primary btn-xs"><span title="Modifier" class="glyphicon glyphicon-pencil"></span></button></a></td>';
         echo '<td><a href="'.base_url().'index.php/administration/supprimer_utilisateur/'.$l['login'].'"<button class="btn btn-danger btn-xs" onclick="return confirm(\'Attention ! Etes-vous sûr de vouloir supprimer cet utilisateur ? \')"><span title="Supprimer" class="glyphicon glyphicon-trash" ></span></button></a></td>';
         if ($l['actif']){
-        echo '<td><a href="'.base_url().'index.php/administration/desactiver_utilisateur/'.$l['login'].'"<button class="btn btn-default btn-xs" onclick="return confirm(\'Etes-vous sûr de vouloir désactiver cet utilisateur ? \')"><span title="Supprimer" class="glyphicon glyphicon-trash" ></span></button></a></td>';
+        echo '<td><a href="'.base_url().'index.php/administration/desactiver_utilisateur/'.$l['login'].'"<button class="btn btn-success btn-xs" onclick="return confirm(\'Etes-vous sûr de vouloir désactiver cet utilisateur ? \')"><span title="Rendre inactif" class="glyphicon glyphicon-flash" ></span></button></a></td>';
         }
         else{
-        echo '<td><a href="'.base_url().'index.php/administration/activer_utilisateur/'.$l['login'].'"<button class="btn btn-success btn-xs"><span title="Supprimer" class="glyphicon glyphicon-trash" ></span></button></a></td>';        
+        echo '<td><a href="'.base_url().'index.php/administration/activer_utilisateur/'.$l['login'].'"<button class="btn btn-warning btn-xs"><span title="Rendre actif" class="glyphicon glyphicon-flash" ></span></button></a></td>';        
         }
         echo '</tr>';
     }

@@ -29,11 +29,8 @@ class erreur extends CI_Controller {
         }
         
         $this->load->view('footer');
-        
+      
+    $this->session->unset_userdata('info_user');
+    session_destroy();  
 	}
-    
-    function logout(){
-        $this->session->unset_userdata('info_user');
-        session_destroy();
-    }
 }

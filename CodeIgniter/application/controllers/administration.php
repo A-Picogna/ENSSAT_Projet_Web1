@@ -50,7 +50,7 @@
             $data['titre'] = "Liste des utilisateurs";
             $data['liste_utilisateurs'] = $this->utilisateur->getListeUtilisateurs();                              
             $this->load->view('header_admin', $data);
-            $this->load->view('admin_listeUtilisateurs', $data);
+            $this->load->view('affiche_admin_listeUtilisateurs', $data);
             $this->load->view('footer');
         }
         
@@ -66,6 +66,18 @@
                 //redirect('administration/listeUtilisateurs', 'refresh');
             }
         }
+        
+        function activer_utilisateur($login){
+            $this->utilisateur->changer_etat_utilisateur($login, 1);
+            redirect('administration/listeUtilisateur', 'refresh');
+        }
+        
+        function desactiver_utilisateur($login){
+            $this->utilisateur->changer_etat_utilisateur($login, 0);
+            redirect('administration/listeUtilisateur', 'refresh');
+        }
+        
+        
     }
  
 ?>
