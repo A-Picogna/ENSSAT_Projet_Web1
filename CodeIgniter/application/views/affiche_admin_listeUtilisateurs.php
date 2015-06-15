@@ -14,6 +14,7 @@
                     <th>Nom</th>
                     <th>Statut</th>
                     <th>Statutaire</th>
+                    <th>Decharge</th>
                     <th>Administrateur</th>
                     <th>Etat</th>
                     <th>Edit</th>
@@ -29,6 +30,7 @@
         echo '<td>'.$l['nom'].'</td>';
         echo '<td>'.$l['statut'].'</td>';
         echo '<td>'.$l['statutaire'].'</td>';
+        echo '<td>'.$l['decharge'].'</td>';
         if ($l['administrateur']){echo '<td>Oui</td>';}else{echo '<td>Non</td>';}
         if ($l['actif']){
         echo '<td><a href="'.base_url().'index.php/administration/desactiver_utilisateur/'.$l['login'].'"<button class="btn btn-success btn-xs" onclick="return confirm(\'Etes-vous sûr de vouloir désactiver cet utilisateur ? \')"><span title="Rendre inactif" class="glyphicon glyphicon-flash" ></span></button></a></td>';

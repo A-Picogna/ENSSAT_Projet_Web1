@@ -62,16 +62,22 @@
         }
         
         function getListeUtilisateurs(){
-            $query = $this->db->query(' SELECT login,nom,prenom,statut,statutaire,actif,administrateur
-                                        FROM enseignant
+            $query = $this->db->query(' SELECT login,nom,prenom,statut,statutaire,actif,administrateur, decharge
+                                        FROM enseignant LEFT JOIN decharge
+                                        ON enseignant.login = decharge.enseignant
                                         ORDER BY nom');
             $i = 0;
                             $liste_utilisateurs = array();
             foreach ($query->result() as $row){
+                $tmp_decharge = $row->decharge;
+                if (empty($tmp_decharge)){
+                    $tmp_decharge = 0;
+                }
                 $liste_utilisateurs[$i] = array(    'login' => $row->login,
                                                     'nom' => $row->nom,
                                                     'prenom' => $row->prenom,
-                                                    'statut' => $row->prenom,
+                                                    'statut' => $row->statut,
+                                                    'decharge' => $tmp_decharge,
                                                     'statutaire' => $row->statutaire,
                                                     'actif' => $row->actif,
                                                     'administrateur' => $row->administrateur
@@ -142,8 +148,20 @@
             }
         }
 
-        function get_decharge($login){
-            return 0;
+        function get_decharge($login){            
+            $this -> db -> select('decharge');
+            $this -> db -> from('decharge');
+            $this -> db -> where('enseignant', $login);
+            $this -> db -> limit(1);
+
+            $query = $this -> db -> get();
+
+            if($query -> num_rows() == 1){
+                return $query->row_array();
+            }
+            else{
+                return false;
+            }
         }
 
     }
