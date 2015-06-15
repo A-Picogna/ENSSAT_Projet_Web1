@@ -187,6 +187,13 @@ class Choisir_cours_model extends CI_Model
 			return NULL;
 		}
 	}
+
+	public function supprimerEnseignantDePartie($partie, $module)
+	{
+
+		$query = $this->db->query('UPDATE contenu set enseignant = NULL where module ="'. $module .'" and partie = "'. $partie .'" ');
+	
+	}
 }
 
 ?>

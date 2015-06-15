@@ -15,17 +15,17 @@ class erreur extends CI_Controller {
         switch ($this->session->flashdata('type_erreur')) {
             case "inactif":
                 $this->load->view('header_login', $data); 
-                $this->load->view('erreur_inactif');
+                $this->load->view('affiche_erreur_inactif');
                 $this->logout();
                 break;
             case "admin":
                 $this->load->view('header', $data); 
-                $this->load->view('erreur_admin');
+                $this->load->view('affiche_erreur_admin');
                 break;
             default:
                 $data['message_erreur'] = $this->session->flashdata('type_erreur');
                 $this->load->view('header', $data); 
-                $this->load->view('erreur_parDefaut', $data);
+                $this->load->view('affiche_erreur', $data);
         }
         
         $this->load->view('footer');

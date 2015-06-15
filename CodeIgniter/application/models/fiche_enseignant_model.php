@@ -8,7 +8,7 @@ class Fiche_Enseignant_model extends CI_Model {
 
 	public function get_enseignant($login)
 	{
-		$query = $this->db->query('Select nom, prenom, statut from enseignant where login="'. $login .'"');
+		$query = $this->db->query('Select login, nom, prenom, statut from enseignant where login="'. $login .'"');
 		return $query->result_array();
 	}
 

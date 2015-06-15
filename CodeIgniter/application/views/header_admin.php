@@ -37,7 +37,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="<?php echo base_url();?>index.php/administration">Administration</a>
+                    <a class="navbar-brand" href="<?php echo base_url();?>index.php/home"> Page d'accueil</a>
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
@@ -47,8 +47,8 @@
                         <li><a href="<?php echo base_url();?>index.php/gestionModule"><span class="glyphicon glyphicon-book"></span> Gérer les modules</a></li> 
                     </ul>      
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="<?php echo base_url();?>index.php/"><span class="glyphicon glyphicon-wrench"></span> Paramétres de mon compte</a></li>
-                        <li><a href="<?php echo base_url();?>index.php/home"><span class="glyphicon glyphicon-log-out"></span> Retour</a></li>
+                        <li><a href="<?php echo base_url();?>index.php/home/modifier_utilisateur/<?php echo $this->session->userdata('info_user')['login'];?>"><span class="glyphicon glyphicon-wrench"></span> Paramêtres de mon compte</a></li>
+                        <li><a href="<?php echo base_url();?>index.php/home/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     </ul>
                 </div>
             </div>

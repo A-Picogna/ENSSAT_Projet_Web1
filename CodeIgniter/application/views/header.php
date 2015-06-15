@@ -50,7 +50,7 @@
                         echo '
                         <li><a href="'.base_url().'index.php/administration"><span class="glyphicon glyphicon-user"></span> Administration</a></li>
                         ';}?>
-                        <li><a href="<?php echo base_url();?>index.php/"><span class="glyphicon glyphicon-wrench"></span> Paramêtres de mon compte</a></li>
+                        <li><a href="<?php echo base_url();?>index.php/home/modifier_utilisateur/<?php echo $this->session->userdata('info_user')['login'];?>"><span class="glyphicon glyphicon-wrench"></span> Paramêtres de mon compte</a></li>
                         <li><a href="<?php echo base_url();?>index.php/home/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     </ul>
                 </div>
