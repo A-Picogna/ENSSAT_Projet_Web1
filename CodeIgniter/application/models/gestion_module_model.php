@@ -22,5 +22,10 @@ class Gestion_Module_model extends CI_Model {
 		$this->db->query('Delete from contenu where module="'.$ident.'"');
 		$this->db->query('Delete from module where ident="'.$ident.'"');
 	}
+
+	public function get_liste_cours($ident) {
+		$query = $this->db->query('Select * from contenu where module="'.$ident.'"');
+		return $query->result_array();
+	}
 }
 ?>

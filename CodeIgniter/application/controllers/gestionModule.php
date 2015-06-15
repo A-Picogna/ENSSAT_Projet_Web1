@@ -29,7 +29,7 @@ class gestionModule extends CI_Controller {
 
 	public function supprimeModule($ident) {
 		$data["titre"] = "Suppression module";
-		$data["message_validation"] = $ident."et tous ses cours ont bien été supprimés.";
+		$data["message_validation"] = "Le module " .$ident."et tous ses cours ont bien été supprimés.";
 		$this->gestion_module_model->supprime_module($ident);
 		$this->load->view('header_admin', $data);
 		$this->load->view('supprime_module_view', $data);
@@ -41,20 +41,22 @@ class gestionModule extends CI_Controller {
 		$data["ident"] = $ident;
 
 		$data["module"] = $this->gestion_module_model->get_module($ident)[0];
+		$data["liste_cours"] = $this->gestion_module_model->get_liste_cours($ident);
 
 		$this->load->view('header_admin', $data);
 		$this->load->view('modif_module_view', $data);
+		$this->load->view('admin_liste_cours_view', $data);
 		$this->load->view('footer', $data);
 	}
 
-	public function modifierModuleEffectif($ident) {
-		$data["titre"] = "Modifier module";
-		$data["ident"] = $ident;
+	public supprimeCours($ident, $partie) {
+		$data["titre"] = "Suppression module";
+		$data["message_validation"] = "Le cours " .$partie." du module ".$ident." a bien été supprimé";
+		$this->gestion_module_model->supprime_cours($ident, $partie);
+	}
 
-		$this->gestion_module_model->supprime_module($ident);
-		$this->load->view('header_admin', $data);
-		$this->load->view('supprime_module_view', $data);
-		$this->load->view('footer', $data);
+	public function modifierCours($ident, $partie) {
+		
 	}
 }
 ?>
