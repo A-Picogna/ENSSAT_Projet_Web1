@@ -167,8 +167,8 @@ class traitement_choix_partie extends CI_Controller {
 				}
 			}
 
-				
-			$this->load->view('confirmation_choix_partie', $data);
+			$data['message_confirmation'] = "Félicitation ! Votre choix a été pris en compte !";
+			$this->load->view('affiche_message_confirmation', $data);
 		
 		
 
@@ -176,7 +176,8 @@ class traitement_choix_partie extends CI_Controller {
 		else if ($totalHeuresEnseignant > $totalHeuresPermises)
 		{
 	
-			$this->load->view('refus_choix_partie', $data);
+            $data['message_erreur'] = "Vous ne pouvez pas vous vous positionnez car vous avez dépassez le nombre d'heures permis";
+			$this->load->view('affiche_erreur', $data);
 			
 		}
 

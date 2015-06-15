@@ -122,10 +122,11 @@ class ajoutModule extends CI_Controller {
 
 	public function creationModule() {
 		$data["titre"] = "Le module";
+        $data["message_validation"] = $this->session->userdata('module')["libelle"]." à bien été créer";
 		$res=$this->ajout_module_model->creer_module();
 		if ($res) {
 			$this->load->view('header_admin', $data);
-			$this->load->view('ajout_module_reussite_view', $data);
+			$this->load->view('affiche_message_confirmation', $data);
 			$this->load->view('recap_module_view', $data);
 			$this->load->view('footer', $data);
 			$this->session->unset_userdata('module');

@@ -29,7 +29,7 @@ class gestionModule extends CI_Controller {
 
 	public function supprimeModule($ident) {
 		$data["titre"] = "Suppression module";
-		$data["ident"] = $ident;
+		$data["message_validation"] = $ident."et tous ses cours ont bien été supprimés.";
 		$this->gestion_module_model->supprime_module($ident);
 		$this->load->view('header_admin', $data);
 		$this->load->view('supprime_module_view', $data);

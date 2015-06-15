@@ -7,7 +7,7 @@
 echo form_open('ajoutModule/ajoutPremierCours');
 echo '<div class="form-group">';
 echo form_label('Identifiant', 'ident');
-echo form_input('ident', set_value('ident'), 'class ="form-control" placeholder="Nom abrégé du module"');
+echo form_input('ident', set_value('ident'), 'class ="form-control" placeholder="Nom abrégé du module, Ex : ALGOC1 ou PROGWEB"');
 echo '</div>';
 echo '<div class="form-group">';
 echo form_label('Libellé', 'libelle');
