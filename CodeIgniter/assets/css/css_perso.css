@@ -56,15 +56,15 @@
 }
 
 .navbar-default {
-    background-color: #f5ddff;
-    border-color: #edc2ff;
+    background-color: #006699;
+    border-color: #000066;
 }
 .navbar-default .navbar-nav > li > a {
-    color: #000;
+    color: white;
 }
 
 .navbar-default .navbar-brand {
-    color: #000;
+    color: white;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
