@@ -21,8 +21,8 @@
         echo '<td>'.$l['type'].'</td>';
         echo '<td>'.$l['hed'].'</td>';
         echo '<td>'.$l['enseignant'].'</td>';
-        echo '<td><a href="'.base_url().'index.php/gestionModule/modifierModule/'.$module['ident'].'/'.$l['partie'].'"<button class="btn btn-success btn-xs"><span title="Modifier" class="glyphicon glyphicon-pencil"></span></button></a></td>';
-        echo '<td><a href="'.base_url().'index.php/gestionModule/supprimeModule/'.$module['ident'].'/'.$l['partie'].'"<button class="btn btn-danger btn-xs" onclick="return confirm(\'Attention ! Etes-vous sûr de vouloir supprimer ce cours ?\')"><span title="Supprimer" class="glyphicon glyphicon-trash" ></span></button></a></td>';
+        echo '<td><a href="'.base_url().'index.php/gestionModule/modifierCours/'.$module['ident'].'/'.$l['partie'].'" <button class="btn btn-success btn-xs"><span title="Modifier" class="glyphicon glyphicon-pencil"></span></button></a></td>';
+        echo '<td><a href="'.base_url().'index.php/gestionModule/supprimeCours/'.$module['ident'].'/'.$l['partie'].'" <button class="btn btn-danger btn-xs" onclick="return confirm(\'Attention ! Etes-vous sûr de vouloir supprimer ce cours ?\')"><span title="Supprimer" class="glyphicon glyphicon-trash" ></span></button></a></td>';
         echo '</tr>';
     }
 

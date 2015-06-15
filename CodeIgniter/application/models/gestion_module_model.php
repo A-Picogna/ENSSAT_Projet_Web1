@@ -23,8 +23,33 @@ class Gestion_Module_model extends CI_Model {
 		$this->db->query('Delete from module where ident="'.$ident.'"');
 	}
 
+	public function modif_module($ident, $libelle, $public, $semestre, $resp="") {
+		if ($resp!="")
+			$this->db->query('Update module 
+					set libelle="'.$libelle.'", public="'.$public.'", semestre="'.$semestre.'", responsable="'.$resp.'" 
+					where ident="'.$ident.'"');
+		else
+			$this->db->query('Update module 
+					set libelle="'.$libelle.'", public="'.$public.'", semestre="'.$semestre.'"  
+					where ident="'.$ident.'"');
+	}
+
 	public function get_liste_cours($ident) {
 		$query = $this->db->query('Select * from contenu where module="'.$ident.'"');
+		return $query->result_array();
+	}
+
+	public function supprime_cours($ident, $partie) {
+		$this->db->query('Delete from contenu where module="'.$ident.'" and partie="'.$partie.'"');
+	}
+
+	public function verif_existence_enseignant($id) {
+		$query = $this->db->query('Select login from enseignant where login="'.$id.'"');
+		return $query->result_array();
+	}
+
+	public function verif_existence_ident($ident) {
+		$query = $this->db->query('Select ident from module where ident="'.$ident.'"');
 		return $query->result_array();
 	}
 }
