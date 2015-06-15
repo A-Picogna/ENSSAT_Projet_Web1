@@ -36,6 +36,10 @@ $options_admin = array(
         echo '<div class="form-group">';
             echo form_label('Nombre d\'heure statutaire', 'statut');
             echo form_input('statutaire', $info_user['statutaire'], 'class="form-control"');
+        echo '</div>';    
+        echo '<div class="form-group">';
+            echo form_label('Volume horaire de decharge', 'decharge');
+            echo form_input('decharge', $decharge, 'class="form-control"');
         echo '</div>';      
         echo '<div class="form-group">';
             echo form_label('Statut', 'statut');

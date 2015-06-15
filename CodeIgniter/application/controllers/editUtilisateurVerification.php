@@ -25,6 +25,7 @@ class editUtilisateurVerification extends CI_Controller {
         $this->form_validation->set_rules('login', 'Login', 'trim|callback_update_bdd');
         $this->form_validation->set_rules('mdp', 'Mot de passe', 'trim|xss_clean');
         $this->form_validation->set_rules('Vmdp', 'Verification du mot de passe', 'trim|xss_clean');
+        $this->form_validation->set_rules('decharge', 'Volume horaire', 'trim|xss_clean');
         $this->form_validation->set_rules('nom', 'Nom', 'trim|required|xss_clean');
         $this->form_validation->set_rules('prenom', 'Prenom', 'trim|required|xss_clean');
         $this->form_validation->set_rules('statutaire', 'Statutaire', 'trim|required|xss_clean');
@@ -50,6 +51,9 @@ class editUtilisateurVerification extends CI_Controller {
         $statut = $this->input->post('statut');
         $statutaire = $this->input->post('statutaire');
         $admin = $this->input->post('admin');
+        $decharge = $this->input->post('decharge');
+        
+        $this->utilisateur->set_decharge($login, $decharge);
         
         if (strcmp($mdp, $Vmdp)){
             $this->form_validation->set_message('update_bdd', 'Les mots de passe ne sont pas identiques');

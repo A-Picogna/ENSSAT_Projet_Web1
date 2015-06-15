@@ -132,21 +132,6 @@
             redirect('administration/listeUtilisateurs', 'refresh');
         }
 
-        public function getStatutaire($login)
-        {
-            $query = $this->db->query('Select statut from enseignant where login ="'. $login .'"');
-    
-            if ($query->num_rows() > 0)
-            {
-                foreach ($query->result() as $row)
-                {
-                    return $row->statutaire;
-                }
-            }else{
-            
-                return NULL;
-            }
-        }
 
         function get_decharge($login){            
             $this -> db -> select('decharge');
@@ -157,10 +142,26 @@
             $query = $this -> db -> get();
 
             if($query -> num_rows() == 1){
-                return $query->row_array();
+                return $query->row_array()['decharge'];
             }
             else{
                 return false;
+            }
+        }
+        
+        function set_decharge($login, $val){
+            if (!empty($val)){
+                if ($this->get_decharge($login) == false){
+                    $data = array(  
+                            'enseignant' => $login,
+                            'decharge' => $val
+                        );
+                    $this->db->insert('decharge', $data);
+                    }
+                else{
+                    $this->db->where('enseignant', $login);
+                    $this->db->update('decharge', array('decharge' => $val));
+                }
             }
         }
 
