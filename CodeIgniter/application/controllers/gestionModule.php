@@ -21,15 +21,36 @@ class gestionModule extends CI_Controller {
 	public function index()
 	{
 		$data["titre"] = "Liste des modules";
-		$data["liste_modules"] = $this->gestion_module_model->get_modules();
+		$data["liste_modules"] = $this->gestion_module_model->get_liste_modules();
 		$this->load->view('header_admin', $data);
-		$this->load->view('liste_modules_admin_view', $data);
+		$this->load->view('admin_liste_modules_view', $data);
 		$this->load->view('footer', $data);
 	}
 
 	public function supprimeModule($ident) {
 		$data["titre"] = "Suppression module";
 		$data["ident"] = $ident;
+		$this->gestion_module_model->supprime_module($ident);
+		$this->load->view('header_admin', $data);
+		$this->load->view('supprime_module_view', $data);
+		$this->load->view('footer', $data);
+	}
+
+	public function modifierModule($ident) {
+		$data["titre"] = "Modifier module";
+		$data["ident"] = $ident;
+
+		$data["module"] = $this->gestion_module_model->get_module($ident)[0];
+
+		$this->load->view('header_admin', $data);
+		$this->load->view('modif_module_view', $data);
+		$this->load->view('footer', $data);
+	}
+
+	public function modifierModuleEffectif($ident) {
+		$data["titre"] = "Modifier module";
+		$data["ident"] = $ident;
+
 		$this->gestion_module_model->supprime_module($ident);
 		$this->load->view('header_admin', $data);
 		$this->load->view('supprime_module_view', $data);

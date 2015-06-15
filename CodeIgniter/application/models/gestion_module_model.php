@@ -6,9 +6,15 @@ class Gestion_Module_model extends CI_Model {
 		$this->load->database();
 	}
 
-	public function get_modules()
+	public function get_liste_modules()
 	{
-		$query = $this->db->query('Select * from module');
+		$query = $this->db->query('Select * from module order by ident');
+		return $query->result_array();
+	}
+
+	public function get_module($ident)
+	{
+		$query = $this->db->query('Select * from module where ident="'.$ident.'"');
 		return $query->result_array();
 	}
 

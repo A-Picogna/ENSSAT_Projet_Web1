@@ -11,6 +11,7 @@
                     <th>Public</th>
                     <th>Semestre</th>
                     <th>Responsable</th>
+					<th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -23,7 +24,8 @@
         echo '<td>'.$l['public'].'</td>';
         echo '<td>'.$l['semestre'].'</td>';
         echo '<td>'.$l['responsable'].'</td>';
-        echo '<td><a href="'.base_url().'index.php/gestionModule/supprimeModule/'.$l['ident'].'"<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a></td>';
+        echo '<td><a href="'.base_url().'index.php/gestionModule/modifierModule/'.$l['ident'].'"<button class="btn btn-success btn-xs"><span title="Modifier" class="glyphicon glyphicon-pencil"></span></button></a></td>';
+        echo '<td><a href="'.base_url().'index.php/gestionModule/supprimeModule/'.$l['ident'].'"<button class="btn btn-danger btn-xs" onclick="return confirm(\'Attention ! Etes-vous sûr de vouloir supprimer ce module\')"><span title="Supprimer" class="glyphicon glyphicon-trash" ></span></button></a></td>';
         echo '</tr>';
     }
 
