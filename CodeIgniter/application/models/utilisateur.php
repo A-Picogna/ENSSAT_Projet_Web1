@@ -125,6 +125,27 @@
             
             redirect('administration/listeUtilisateurs', 'refresh');
         }
+
+        public function getStatutaire($login)
+        {
+            $query = $this->db->query('Select statut from enseignant where login ="'. $login .'"');
+    
+            if ($query->num_rows() > 0)
+            {
+                foreach ($query->result() as $row)
+                {
+                    return $row->statutaire;
+                }
+            }else{
+            
+                return NULL;
+            }
+        }
+
+        function get_decharge($login){
+            return 0;
+        }
+
     }
 
 ?>
