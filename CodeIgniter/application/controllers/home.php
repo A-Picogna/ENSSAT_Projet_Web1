@@ -46,6 +46,7 @@
             if ($this->session->userdata('info_user')['login'] || $this->session->userdata('info_user')['administrateur']){
                 $data['titre'] = "Modifier informations";
                 $data['info_user'] = $this->utilisateur->get_info_utilisateur($login);
+                $data['decharge'] = $this->utilisateur->get_decharge($login);
                 $this->load->view('header_admin', $data);
                 $this->load->view('edit_utilisateur', $data);
                 $this->load->view('footer');

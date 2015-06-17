@@ -62,16 +62,22 @@
         }
         
         function getListeUtilisateurs(){
-            $query = $this->db->query(' SELECT login,nom,prenom,statut,statutaire,actif,administrateur
-                                        FROM enseignant
+            $query = $this->db->query(' SELECT login,nom,prenom,statut,statutaire,actif,administrateur, decharge
+                                        FROM enseignant LEFT JOIN decharge
+                                        ON enseignant.login = decharge.enseignant
                                         ORDER BY nom');
             $i = 0;
                             $liste_utilisateurs = array();
             foreach ($query->result() as $row){
+                $tmp_decharge = $row->decharge;
+                if (empty($tmp_decharge)){
+                    $tmp_decharge = 0;
+                }
                 $liste_utilisateurs[$i] = array(    'login' => $row->login,
                                                     'nom' => $row->nom,
                                                     'prenom' => $row->prenom,
-                                                    'statut' => $row->prenom,
+                                                    'statut' => $row->statut,
+                                                    'decharge' => $tmp_decharge,
                                                     'statutaire' => $row->statutaire,
                                                     'actif' => $row->actif,
                                                     'administrateur' => $row->administrateur
@@ -126,24 +132,37 @@
             redirect('administration/listeUtilisateurs', 'refresh');
         }
 
-        public function getStatutaire($login)
-        {
-            $query = $this->db->query('Select statut from enseignant where login ="'. $login .'"');
-    
-            if ($query->num_rows() > 0)
-            {
-                foreach ($query->result() as $row)
-                {
-                    return $row->statutaire;
-                }
-            }else{
-            
-                return NULL;
+
+        function get_decharge($login){            
+            $this -> db -> select('decharge');
+            $this -> db -> from('decharge');
+            $this -> db -> where('enseignant', $login);
+            $this -> db -> limit(1);
+
+            $query = $this -> db -> get();
+
+            if($query -> num_rows() == 1){
+                return $query->row_array()['decharge'];
+            }
+            else{
+                return false;
             }
         }
-
-        function get_decharge($login){
-            return 0;
+        
+        function set_decharge($login, $val){
+            if (!empty($val)){
+                if ($this->get_decharge($login) == false){
+                    $data = array(  
+                            'enseignant' => $login,
+                            'decharge' => $val
+                        );
+                    $this->db->insert('decharge', $data);
+                    }
+                else{
+                    $this->db->where('enseignant', $login);
+                    $this->db->update('decharge', array('decharge' => $val));
+                }
+            }
         }
 
     }

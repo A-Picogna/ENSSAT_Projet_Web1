@@ -48,7 +48,8 @@
         
         function listeUtilisateurs(){           
             $data['titre'] = "Liste des utilisateurs";
-            $data['liste_utilisateurs'] = $this->utilisateur->getListeUtilisateurs();                              
+            $data['liste_utilisateurs'] = $this->utilisateur->getListeUtilisateurs();
+            
             $this->load->view('header_admin', $data);
             $this->load->view('affiche_admin_listeUtilisateurs', $data);
             $this->load->view('footer');
