@@ -76,11 +76,11 @@ table{
     border: 2px solid;
 }
 
-.ligne_couleur_alterne tr:nth-child(even) {background: #c4d8e2;}
+.ligne_couleur_alterne tr:nth-child(even) {background: #d8e4ff;}
 
 .titre_tableau {
     color: white;
-    background-color: #002d43;
+    background-color: #000d43;
     font-weight:bold;
 }
 
@@ -92,3 +92,15 @@ table{
     text-align: center;
     vertical-align: middle;
 }
+
+.thumbnail{
+    border: 0px;
+}
+
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+}
+

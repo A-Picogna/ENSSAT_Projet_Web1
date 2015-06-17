@@ -39,17 +39,27 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="<?php echo base_url();?>index.php/home"> <span class="glyphicon glyphicon-home"></span> Page d'accueil</a>
+                    <a class="navbar-brand" href="<?php echo base_url();?>index.php/home"> <span class="glyphicon glyphicon-home"></span> Accueil</a>
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
-                        <li><a href="<?php echo base_url();?>index.php/administration/ajout_utilisateur"><span class="glyphicon glyphicon-user"></span> Ajouter un utilisateur</a></li>
-                        <li><a href="<?php echo base_url();?>index.php/administration/listeUtilisateurs"><span class="glyphicon glyphicon-list-alt"></span> Gerer les utilisateurs</a></li>
-                        <li><a href="<?php echo base_url();?>index.php/ajoutModule"><span class="glyphicon glyphicon-book"></span> Ajouter un module</a></li> 
-                        <li><a href="<?php echo base_url();?>index.php/gestionModule"><span class="glyphicon glyphicon-book"></span> Gérer les modules</a></li> 
+                        <li class="dropdown">
+                            <a href='#' class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Ajouter...<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="<?php echo base_url();?>index.php/administration/ajout_utilisateur"><span class="glyphicon glyphicon-user"></span> Ajouter un utilisateur</a></li>
+                                <li><a href="<?php echo base_url();?>index.php/ajoutModule"><span class="glyphicon glyphicon-book"></span> Ajouter un module</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href='#' class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Gerer...<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="<?php echo base_url();?>index.php/administration/listeUtilisateurs"><span class="glyphicon glyphicon-list-alt"></span> Gerer les utilisateurs</a></li>
+                                <li><a href="<?php echo base_url();?>index.php/gestionModule"><span class="glyphicon glyphicon-book"></span> Gérer les modules</a></li> 
+                            </ul>
+                        </li>
                     </ul>      
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="<?php echo base_url();?>index.php/home/modifier_utilisateur/<?php echo $this->session->userdata('info_user')['login'];?>"><span class="glyphicon glyphicon-wrench"></span> Paramêtres de mon compte</a></li>
+                        <li><a href="<?php echo base_url();?>index.php/home/modifier_utilisateur/<?php echo $this->session->userdata('info_user')['login'];?>"><span class="glyphicon glyphicon-wrench"></span> Mon compte</a></li>
                         <li><a href="<?php echo base_url();?>index.php/home/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     </ul>
                 </div>
