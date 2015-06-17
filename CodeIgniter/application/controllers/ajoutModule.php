@@ -173,5 +173,22 @@ class ajoutModule extends CI_Controller {
 		}
 	}
 
+	public function partie_cours_check($ident, $str) {
+		if ($str=='') {
+			$this->form_validation->set_message('partie_cours_check', 'Le champ Partie est obligatoire.');
+				return false;
+		}
+		else {
+			$res=$this->gestion_module_model->verif_redondance_partie($ident, $str);
+			if (!empty($res)) {
+				$this->form_validation->set_message('partie_cours_check', 'Cet identifiant est déjà utilisé. Vérifiez que ce module n\'existe pas déjà.');
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+	}
+
 }
 ?>

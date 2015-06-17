@@ -96,13 +96,33 @@ class gestionModule extends CI_Controller {
 		}
 	}
 
+	public function ajoutCours($ident) {
+		$cours = array (
+			"partie" => $this->input->post('partie'),
+			"type" => $this->input->post('type'),
+			"hed" => $this->input->post('hed'),
+			"idEnseignant" => $this->input->post('idEnseignant')
+		);
+		$this->gestion_module_model->ajout_cours($ident, $cours);
+
+		redirect('gestionModule/modifierModule/'.$ident, 'refresh');
+	}
+
 	public function supprimeCours($ident, $partie) {
-		$data["titre"] = "Suppression module";
-		$data["message_validation"] = "Le cours " .urldecode($partie)." du module ".$ident." a bien été supprimé";
-		$this->gestion_module_model->supprime_cours($ident, urldecode($partie));
-		$this->load->view('header_admin', $data);
-		$this->load->view('affiche_message_confirmation', $data);
-		$this->load->view('footer', $data);
+		if ($this->gestion_module_model->verif_count_cours($ident)["count(*)"] > 1) {
+			$data["titre"] = "Suppression module";
+			$data["message_validation"] = "Le cours " .urldecode($partie)." du module ".$ident." a bien été supprimé";
+			$this->gestion_module_model->supprime_cours($ident, urldecode($partie));
+			$this->load->view('header_admin', $data);
+			$this->load->view('affiche_message_confirmation', $data);
+			$this->load->view('footer', $data);
+		}
+		else {
+			$data["message_erreur"] = "Vous ne pouvez pas supprimer plus de cours de ce module.";
+			$this->load->view('header_admin', $data);
+			$this->load->view('affiche_erreur', $data);
+			$this->load->view('footer', $data);
+		}
 	}
 
 	public function modifierCours($ident, $partie) {

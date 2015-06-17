@@ -26,9 +26,51 @@
         echo '</tr>';
     }
 
-?>
-                    
+?>       
             </tbody>
         </table>
+		<div id="accordAjoutCours">
+			<h3>Ajouter un cours</h3>
+			<div>
+<?php
+			echo form_open('gestionModule/ajoutCours/'.$module['ident']);
+			echo '<div class="form-group">';
+			echo form_label('Partie', 'partie');
+			echo form_input('partie', set_value('partie'));
+			echo '</div>';
+			echo '<div class="form-group">';
+			echo form_label('Type', 'type');
+			$options = array(
+						      'CM'  => 'CM',
+						      'TD'    => 'TD',
+						      'TP'   => 'TP',
+						      'Projet' => 'Projet'
+						    );
+			echo form_dropdown('type', $options);
+			echo '</div>';
+			echo '<div class="form-group">';
+			echo form_label('Hetd', 'hed');
+			echo form_input('hed', set_value('hed'));
+			echo '</div>';
+			echo '<div class="form-group">';
+			echo form_label('Identifiant de l\'enseignant', 'idEnseignant');
+			echo form_input('idEnseignant', set_value('idEnseignant'));
+			echo '</div>';
+			echo '<div class="form-group">';
+			echo form_submit('valider', 'Valider');
+			echo '</div>';
+			echo form_close();
+?>
+			</div>
+		</div>
     </div>
 </div>
+<script type='text/javascript'>
+	$(document).ready(function() {
+		$('#accordAjoutCours').accordion({
+			collapsible: true,
+		  	active: false,
+			icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus"}
+		});
+	});
+</script>

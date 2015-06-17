@@ -7,7 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <!-- JQuery -->
+		<link rel="stylesheet" href=<?php echo base_url()."assets/css/jquery-ui.min.css"; ?> type="text/css"/>
 		<script type="text/javascript" src=<?php echo base_url()."assets/js/jquery.min.js"; ?>></script>
+		<script type="text/javascript" src=<?php echo base_url()."assets/js/jquery-ui.min.js"; ?>></script>
         
         <!-- Bootstrap -->
         <link href=<?php echo base_url()."assets/css/bootstrap.min.css"; ?> rel="stylesheet">
