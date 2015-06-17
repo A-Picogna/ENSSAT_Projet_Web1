@@ -1,6 +1,11 @@
 
 <div class="row">
-    <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+    <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3" style="margin-top:5%;">
+        <div class="panel panel-primary">
+            <div class="panel panel-heading">
+                <h2 class="panel-title">Ajouter un module</h2>
+            </div>
+            <div class="panel-body">
 <?php echo validation_errors(); ?>
 <?php
 
@@ -53,6 +58,8 @@ echo form_submit('valider', 'Valider','class="btn btn-lg btn-primary btn-block"'
 echo '</div>';
 echo form_close();
 ?>
+            </div>
+        </div>        
     </div>
 </div>
 <script type='text/javascript'>

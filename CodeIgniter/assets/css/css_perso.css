@@ -76,14 +76,19 @@ table{
     border: 2px solid;
 }
 
-.ligne_couleur_alterne tr:nth-child(even) {background: #cfebff}
+.ligne_couleur_alterne tr:nth-child(even) {background: #FF1493;}
 
 .titre_tableau {
     color: white;
-    background-color: black;
+    background-color: #FF1493;
     font-weight:bold;
 }
 
 .titre_tableau th{
     text-align: center;
+}
+
+.well{
+    text-align: center;
+    vertical-align: middle;
 }

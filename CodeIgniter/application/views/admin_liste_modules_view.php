@@ -3,7 +3,7 @@
 <div class="row">
     <div class="">
         <h1 class="text-center login-title">Administration des modules</h1>
-        <table id="table_gestion_module" class="table table-striped text-center table-bordered" >
+        <table id="table_gestion_module" class="table text-center table-bordered" >
             <thead>
                 <tr class="titre_tableau">
                     <th>Identifiant</th>

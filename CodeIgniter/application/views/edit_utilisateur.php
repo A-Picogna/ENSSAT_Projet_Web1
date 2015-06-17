@@ -16,7 +16,7 @@ $options_admin = array(
                 );
 
 
-        echo form_open('editUtilisateurVerification', '');
+        echo form_open('editUtilisateurVerification', 'data-toggle="validator"');
         echo validation_errors();
         echo '<div class="form-group">';
             echo form_label('Login', 'username');

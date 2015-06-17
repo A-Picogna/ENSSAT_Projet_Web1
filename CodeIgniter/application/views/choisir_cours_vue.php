@@ -12,21 +12,23 @@
 
 		<?php
 			echo form_open('traitement_choix_partie');
+            echo '<div class="form-group">';
 			echo $libelle[0]['libelle'];
+            echo '</div>';
 
 			if ($PartiesCM != '')
 			{
 				
+                echo '<div class="form-group">';
 				echo "<h3>".$PartiesCM[0]['type']."</h3>";
-				echo "</br>";
-
+                
 
 				foreach ($PartiesCM as $key) 
 				{
-		            echo form_checkbox('CM[]', $key['partie'],FALSE).$key['partie'];
+		            echo form_checkbox('CM[]', $key['partie'],FALSE).' '.$key['partie'];
 		            echo " (".$key['hed']." heures eq TD) ";
-		            echo "</br>";
 				}
+                echo '</div>';
 
 		
 			}
@@ -35,15 +37,15 @@
 		<?php
 			if ($PartiesTD != NULL)
 			{
+                echo '<div class="form-group">';
 				echo "<h3>".$PartiesTD[0]['type']."</h3>";
-				echo "</br>";
 
 				foreach ($PartiesTD as $object) 
 				{
-		            echo form_checkbox('TD[]', $object['partie'],FALSE).$object['partie'];
+		            echo form_checkbox('TD[]', $object['partie'],FALSE).' '.$object['partie'];
 		            echo " (".$object['hed']." heures eq TD) ";
-		            echo "</br>";
 				}
+                echo '</div>';
 			
 			}
 
@@ -53,17 +55,15 @@
 
 			if ($PartiesTP != NULL)
 			{
-
+                echo '<div class="form-group">';
 				echo "<h3>".$PartiesTP[0]['type']."</h3>";
-				echo "</br>";
 				
 				foreach ($PartiesTP as $value) {
 
-		            echo form_checkbox('TP[]', $value['partie'],FALSE).$value['partie'];
+		            echo form_checkbox('TP[]', $value['partie'],FALSE).' '.$value['partie'];
 		            echo " (".$value['hed']." heures eq TD) ";
-		            echo "</br>";
-
 				}
+                echo '</div>';
 			}
 
 		?>
@@ -72,26 +72,29 @@
 
 			if ($PartiesProjet != NULL)
 			{
+                echo '<div class="form-group">';
 				echo "<h3>".$PartiesProjet[0]['type']."</h3>";
-				echo "</br>";
 
 				foreach ($PartiesProjet as $value) 
 				{
 	
-		            echo form_checkbox('Projet[]', $value['partie'],FALSE).$value['partie'];
+		            echo form_checkbox('Projet[]', $value['partie'],FALSE).' '.$value['partie'];
 		            echo " (".$value['hed']." heures eq TD) ";
-		            echo "</br>";
 				}
+                echo '</div>';
 			}
 
-			echo "</br>";
 
 		?>
 
-		<?php echo form_hidden('ident',$module)?>
-
-		<?php echo form_submit('valider', 'Valider')?>
-		<?php echo form_close() ?>
+		<?php
+            echo form_hidden('ident',$module);
+            echo '<div class="form-group">';
+            echo form_submit('valider', 'Valider');
+            echo '</div>';
+            echo form_close();
+        
+        ?>
 
 
 	</div>
