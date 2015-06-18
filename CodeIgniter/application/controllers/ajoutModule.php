@@ -42,6 +42,8 @@ class ajoutModule extends CI_Controller {
 
 		if ($this->form_validation->run() == FALSE)
 		{
+			if (isset($_POST["public"]))
+				$data["public"] = $_POST["public"];
 			$data["titre"] = "Le module";
 			$this->load->view('header_admin', $data);
 			$this->load->view('ajout_module_view', $data);
@@ -93,6 +95,8 @@ class ajoutModule extends CI_Controller {
 			$this->load->view('header_admin', $data);
 			$this->load->view('recap_module_view', $data);
 			$this->load->view('ajout_cours_view', $data);
+			if ($this->session->userdata('moduleCours') != null)
+				$this->load->view('bouton_validation_creation_module_view', $data);
 			$this->load->view('footer', $data);
 		}
 		else
@@ -127,7 +131,7 @@ class ajoutModule extends CI_Controller {
 
 	public function creationModule() {
 		$data["titre"] = "Le module";
-        $data["message_validation"] = $this->session->userdata('module')["libelle"]." à bien été créer";
+        $data["message_validation"] = $this->session->userdata('module')["libelle"]." à bien été créé.";
 		$res=$this->ajout_module_model->creer_module();
 		if ($res) {
 			$this->load->view('header_admin', $data);
@@ -173,15 +177,21 @@ class ajoutModule extends CI_Controller {
 		}
 	}
 
-	public function partie_cours_check($ident, $str) {
+	public function partie_cours_check($str) {
 		if ($str=='') {
 			$this->form_validation->set_message('partie_cours_check', 'Le champ Partie est obligatoire.');
 				return false;
 		}
 		else {
-			$res=$this->gestion_module_model->verif_redondance_partie($ident, $str);
-			if (!empty($res)) {
-				$this->form_validation->set_message('partie_cours_check', 'Cet identifiant est déjà utilisé. Vérifiez que ce module n\'existe pas déjà.');
+			$res = false;
+			if ($this->session->userdata('moduleCours') != null) {
+				foreach($this->session->userdata('moduleCours') as $cours) {
+					if ($str == $cours["partie"])
+						$res = true;
+				}
+			}
+			if ($res) {
+				$this->form_validation->set_message('partie_cours_check', 'Ce nom de partie est déjà utilisé.');
 				return false;
 			}
 			else {

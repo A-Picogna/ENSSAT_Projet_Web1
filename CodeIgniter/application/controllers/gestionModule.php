@@ -88,10 +88,18 @@ class gestionModule extends CI_Controller {
 				$publique = $_POST["public"][0];
 			}
 
+			$data["titre"] = "Modifier module";
+			$data["ident"] = $_POST["ident"];
+
+			$data["module"] = $this->gestion_module_model->get_module($_POST["ident"])[0];
+			$data["liste_cours"] = $this->gestion_module_model->get_liste_cours($_POST["ident"]);
+
 			$this->gestion_module_model->modif_module($_POST["ident"], $_POST["libelle"], $publique, $_POST["semestre"], $_POST["idResponsable"]);
 
 			$this->load->view('header_admin', $data);
 			$this->load->view('affiche_message_confirmation', $data);
+			$this->load->view('modif_module_view', $data);
+			$this->load->view('admin_liste_cours_view', $data);
 			$this->load->view('footer', $data);
 		}
 	}
@@ -126,16 +134,10 @@ class gestionModule extends CI_Controller {
 	}
 
 	public function modifierCours($ident, $partie) {
-		$data["titre"] = "Modifier cours";
+		$data["titre"] = "Modifier un cours";
 		$data["ident"] = $ident;
 
-		$cours = $this->gestion_module_model->get_cours($ident, $partie)[0];
-		$data["cours"] = array(
-			"partie" => $cours["partie"],
-			"type" => $cours["type"],
-			"hed" => $cours["hed"],
-			"idEnseignant" => $cours["idEnseignant"]
-		);
+		$data["cours"] = $this->gestion_module_model->get_cours($ident, urldecode($partie))[0];
 
 		$this->load->view('header_admin', $data);
 		$this->load->view('modif_cours_view', $data);
@@ -143,23 +145,43 @@ class gestionModule extends CI_Controller {
 	}
 
 	public function modificationCours($ident, $partie) {
+		$data["titre"] = "Modifier cours";
+		$data["message_validation"] = "Le cours " .$_POST["partie"]." a bien été modifié.";
+		$data["ident"] = $ident;
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('partie', 'Partie', 'required');
 		$this->form_validation->set_rules('hed', 'Hed', 'required');
 		$this->form_validation->set_rules('idEnseignant', 'Identifiant de l\'enseignant', 'callback_enseignant_check');
 
+		$data["cours"] = array (
+			"partie" => $this->input->post('partie'),
+			"type" => $this->input->post('type'),
+			"hed" => $this->input->post('hed'),
+			"enseignant" => $this->input->post('idEnseignant')
+		);
 		if ($this->form_validation->run() == FALSE)
 		{
-			$data["titre"] = "Le module";
+			
 			$this->load->view('header_admin', $data);
-			$this->load->view('recap_module_view', $data);
-			$this->load->view('ajout_cours_view', $data);
+			$this->load->view('modif_cours_view', $data);
 			$this->load->view('footer', $data);
 		}
 		else
 		{
+			$data["titre"] = "Modifier module";
+			$data["ident"] = $ident;
 
+			$data["module"] = $this->gestion_module_model->get_module($ident)[0];
+			$data["liste_cours"] = $this->gestion_module_model->get_liste_cours($ident);
+			
+			$this->gestion_module_model->modif_cours($ident, $data["cours"]);
+
+			$this->load->view('header_admin', $data);
+			$this->load->view('affiche_message_confirmation', $data);
+			$this->load->view('modif_module_view', $data);
+			$this->load->view('admin_liste_cours_view', $data);
+			$this->load->view('footer', $data);
 		}
 	}
 
@@ -188,6 +210,23 @@ class gestionModule extends CI_Controller {
 			$res=$this->gestion_module_model->verif_existence_ident($str);
 			if (!empty($res)) {
 				$this->form_validation->set_message('identifiant_module_check', 'Cet identifiant est déjà utilisé. Vérifiez que ce module n\'existe pas déjà.');
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+	}
+
+	public function partie_cours_check1($str, $ident) {
+		if ($str=='') {
+			$this->form_validation->set_message('partie_cours_check', 'Le champ Partie est obligatoire.');
+				return false;
+		}
+		else {
+			$res=$this->gestion_module_model->verif_redondance_partie($ident, $str);
+			if (!empty($res)) {
+				$this->form_validation->set_message('partie_cours_check', 'Ce nom de partie est déjà utilisé dans ce module.');
 				return false;
 			}
 			else {
