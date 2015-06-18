@@ -30,7 +30,7 @@ class choisirCours extends CI_Controller {
         print_r($login);
 		//$this->load->model('admin_model');
 		$data['module']=$module;
-		$data['title']='Projet_php';
+		$data['titre']='Choisir un cours';
 		$data['page_header']='Choisir un cours';
 		$data['libelle']=$this->choisir_cours_model->getModule($module);
 		$data['PartiesCM']=$this->choisir_cours_model->getPartiesCM($module);

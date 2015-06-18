@@ -37,20 +37,21 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="<?php echo base_url();?>index.php/home"> Page d'accueil</a>
+                    <a class="navbar-brand" href="<?php echo base_url();?>index.php/home"> <span class="glyphicon glyphicon-home"></span> Accueil</a>
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
-                        <li><a href="<?php echo base_url();?>index.php/listeModules"><span class="glyphicon glyphicon-hand-up"></span> Liste Modules</a></li>
-						<li><a href="<?php echo base_url();?>index.php/afficheEnseignant"><span class="glyphicon glyphicon-hand-up"></span> Fiche enseignant</a></li>
+                        <li><a href="<?php echo base_url();?>index.php/listeModules"><span class="glyphicon glyphicon-list"></span> Modules</a></li>
+						<li><a href="<?php echo base_url();?>index.php/afficheEnseignant"><span class="glyphicon glyphicon-file"></span> Ma fiche</a></li>
+                        <li><a href="<?php echo base_url();?>index.php/home/listeUtilisateurs"><span class="glyphicon glyphicon-list-alt"></span> Utilisateurs</a></li>
                     </ul>      
                     <ul class="nav navbar-nav navbar-right">
                         <?php       
                         if (isset($this->session->userdata('info_user')['login']) && ($this->session->userdata('info_user')['administrateur'])) {
                         echo '
-                        <li><a href="'.base_url().'index.php/administration"><span class="glyphicon glyphicon-user"></span> Administration</a></li>
+                        <li><a href="'.base_url().'index.php/administration"><span class="glyphicon glyphicon-cog"></span> Administration</a></li>
                         ';}?>
-                        <li><a href="<?php echo base_url();?>index.php/home/modifier_utilisateur/<?php echo $this->session->userdata('info_user')['login'];?>"><span class="glyphicon glyphicon-wrench"></span> Paramêtres de mon compte</a></li>
+                        <li><a href="<?php echo base_url();?>index.php/home/modifier_utilisateur/<?php echo $this->session->userdata('info_user')['login'];?>"><span class="glyphicon glyphicon-wrench"></span> Mon compte</a></li>
                         <li><a href="<?php echo base_url();?>index.php/home/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     </ul>
                 </div>

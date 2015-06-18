@@ -41,6 +41,15 @@
         function login(){
             redirect('login', 'refresh');
         }
+        
+        function listeUtilisateurs(){           
+            $data['titre'] = "Liste des utilisateurs";
+            $data['liste_utilisateurs'] = $this->utilisateur->getServiceUtilisateurs();
+            
+            $this->load->view('header', $data);
+            $this->load->view('affiche_liste_utilisateurs', $data);
+            $this->load->view('footer');
+        }
                 
         function modifier_utilisateur($login){
             if ($this->session->userdata('info_user')['login'] || $this->session->userdata('info_user')['administrateur']){

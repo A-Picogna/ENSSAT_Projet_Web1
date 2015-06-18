@@ -1,6 +1,10 @@
 <div class="row">
-    <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4" style="margin-top:5%;">
-        <h1 class="text-center login-title">Ajoutez un utilisateur</h1>
+    <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3" style="margin-top:5%;">
+        <div class="panel panel-primary">
+            <div class="panel panel-heading">
+                <h2 class="panel-title">Ajouter un utilisateur</h2>
+            </div>
+            <div class="panel-body">
 <?php
 
 $options_statut = array(
@@ -49,6 +53,7 @@ $options_statut = array(
         
         echo form_close();                                                         
 ?>
-        
+            </div>
+        </div>        
     </div>
 </div>

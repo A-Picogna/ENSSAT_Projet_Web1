@@ -177,7 +177,7 @@ class traitement_choix_partie extends CI_Controller {
 				}
 			}
 
-			$data['message_confirmation'] = "Félicitation ! Votre choix a été pris en compte !";
+			$data['message_validation'] = "Félicitation ! Votre choix a été pris en compte !";
 			$this->load->view('affiche_message_confirmation', $data);
 		
 		

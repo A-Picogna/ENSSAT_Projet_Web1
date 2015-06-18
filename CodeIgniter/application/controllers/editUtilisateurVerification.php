@@ -33,6 +33,7 @@ class editUtilisateurVerification extends CI_Controller {
         if($this->form_validation->run() == FALSE){
             $data['titre'] = "Modifier informations";
             $data['info_user'] = $this->utilisateur->get_info_utilisateur($this->input->post('login'));
+            $data['decharge'] = $this->utilisateur->get_decharge($this->input->post('login'));
             $this->load->view('header', $data);        
             $this->load->view('edit_utilisateur');           
             $this->load->view('footer');

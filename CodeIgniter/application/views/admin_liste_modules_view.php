@@ -3,7 +3,7 @@
 <div class="row">
     <div class="">
         <h1 class="text-center login-title">Administration des modules</h1>
-        <table id="table_gestion_module" class="table table-striped text-center table-bordered" >
+        <table id="table_gestion_module" class="table text-center table-bordered" >
             <thead>
                 <tr class="titre_tableau">
                     <th>Identifiant</th>
@@ -24,7 +24,7 @@
         echo '<td>'.$l['public'].'</td>';
         echo '<td>'.$l['semestre'].'</td>';
         echo '<td>'.$l['responsable'].'</td>';
-        echo '<td><a href="'.base_url().'index.php/gestionModule/modifierModule/'.$l['ident'].'"<button class="btn btn-success btn-xs"><span title="Modifier" class="glyphicon glyphicon-pencil"></span></button></a></td>';
+        echo '<td><a href="'.base_url().'index.php/gestionModule/modifierModule/'.$l['ident'].'"<button class="btn btn-primary btn-xs"><span title="Modifier" class="glyphicon glyphicon-pencil"></span></button></a></td>';
         echo '<td><a href="'.base_url().'index.php/gestionModule/supprimeModule/'.$l['ident'].'"<button class="btn btn-danger btn-xs" onclick="return confirm(\'Attention ! Etes-vous sûr de vouloir supprimer ce module ?\')"><span title="Supprimer" class="glyphicon glyphicon-trash" ></span></button></a></td>';
         echo '</tr>';
     }

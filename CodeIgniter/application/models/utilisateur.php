@@ -87,6 +87,24 @@
             return $liste_utilisateurs;            
         }
         
+        function getServiceUtilisateurs(){
+            $query = $this->db->query(' SELECT login,nom,prenom,statutaire,service
+                                        FROM services
+                                        ORDER BY nom');
+            $i = 0;
+            $liste_utilisateurs = array();
+            foreach ($query->result() as $row){
+                $liste_utilisateurs[$i] = array(    'login' => $row->login,
+                                                    'nom' => $row->nom,
+                                                    'prenom' => $row->prenom,
+                                                    'statutaire' => $row->statutaire,
+                                                    'service' => $row->service,
+                                                );
+                $i++;
+            }
+            return $liste_utilisateurs;            
+        }
+        
         function update_utilisateur($login, $mdp, $nom, $prenom, $statut, $statutaire, $admin){
             if (empty($mdp)){
                 $data = array(
