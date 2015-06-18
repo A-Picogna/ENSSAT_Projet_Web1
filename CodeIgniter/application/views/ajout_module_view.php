@@ -62,8 +62,60 @@ echo form_close();
         </div>        
     </div>
 </div>
-<script type='text/javascript'>
+<?php
+$js_array = null;
+if (isset($public)) {
+	$js_array = json_encode($public);
+}
+echo "<script type='text/javascript'>
 	$(document).ready(function() {
-		$('#multiselect_public').chosen();
-	});
-</script>;
+		$('#multiselect_public').SumoSelect();";
+if($js_array != null) {
+	echo	"$.each($js_array, function(i,e){
+				switch(e.replace(/\s/g, '')) {
+					case 'IMR1' :
+						$('#multiselect_public')[0].sumo.selectItem(0);
+						break;
+		            case 'IMR2' :
+						$('#multiselect_public')[0].sumo.selectItem(1);
+						break;
+		            case'IMR3' :
+						$('#multiselect_public')[0].sumo.selectItem(2);
+						break;
+		            case 'Info1' :
+						$('#multiselect_public')[0].sumo.selectItem(3);
+						break;
+		            case 'Info2' :
+						$('#multiselect_public')[0].sumo.selectItem(4);
+						break;
+		            case 'Info3' :
+						$('#multiselect_public')[0].sumo.selectItem(5);
+						break;
+		            case 'TC' :
+						alert('oui');
+						$('#multiselect_public')[0].sumo.selectItem(6);
+						break;
+		            case 'Optro1' :
+						$('#multiselect_public')[0].sumo.selectItem(7);
+						break;
+		            case 'Optro2' :
+						$('#multiselect_public')[0].sumo.selectItem(8);
+						break;
+		            case 'Optro3' :
+						$('#multiselect_public')[0].sumo.selectItem(9);
+						break;
+		            case 'Elec1' :
+						$('#multiselect_public')[0].sumo.selectItem(10);
+						break;
+		            case 'Elec2' :
+						$('#multiselect_public')[0].sumo.selectItem(11);
+						break;
+		            case 'Elec3':
+						$('#multiselect_public')[0].sumo.selectItem(12);
+						break;
+				}
+			});";
+}
+echo "});
+</script>";
+?>

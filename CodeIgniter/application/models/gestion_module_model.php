@@ -41,7 +41,7 @@ class Gestion_Module_model extends CI_Model {
 
 	public function get_cours($ident, $partie)
 	{
-		$query = $this->db->query('Select * from contenu where ident="'.$ident.'" and partie="'.$partie.'"');
+		$query = $this->db->query('Select * from contenu where module="'.$ident.'" and partie="'.$partie.'"');
 		return $query->result_array();
 	}
 
@@ -61,13 +61,13 @@ class Gestion_Module_model extends CI_Model {
 
 	public function modif_cours($ident, $cours) {
 		if ($cours["enseignant"]!="")
-			$this->db->query('Update module 
-					set partie="'.$cours["partie"].'", type="'.$cours["type"].'", hed="'.$cours["hed"].'", enseignant="'.$cours["idEnseignant"].'" 
-					where ident="'.$ident.'"');
+			$this->db->query('Update contenu 
+					set type="'.$cours["type"].'", hed="'.$cours["hed"].'", enseignant="'.$cours["enseignant"].'" 
+					where module="'.$ident.'" and partie="'.$cours["partie"].'"');
 		else
-			$this->db->query('Update module 
-					set partie="'.$cours["partie"].'", type="'.$cours["type"].'", hed="'.$cours["hed"].'"  
-					where ident="'.$ident.'"');
+			$this->db->query('Update contenu 
+					set type="'.$cours["type"].'", hed="'.$cours["hed"].'"  
+					where module="'.$ident.'" and partie="'.$cours["partie"].'"');
 	}
 
 	public function verif_existence_enseignant($id) {
@@ -83,6 +83,11 @@ class Gestion_Module_model extends CI_Model {
 	public function verif_count_cours($ident) {
 		$query = $this->db->query('Select count(*) from contenu where module="'.$ident.'"');
 		return $query->result_array()[0];
+	}
+
+	public function verif_redondance_partie($ident, $str) {
+		$query = $this->db->query('Select partie from contenu where module="'.$ident.'" and partie="'.$str.'"');
+		return $query->result_array();
 	}
 }
 ?>

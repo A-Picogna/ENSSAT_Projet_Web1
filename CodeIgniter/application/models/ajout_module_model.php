@@ -39,5 +39,10 @@ class Ajout_Module_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function verif_redondance_partie($ident, $str) {
+		$query = $this->db->query('Select partie from contenu where module="'.$ident.'" and partie="'.$str.'"');
+		return $query->result_array();
+	}
+
 }
 ?>
