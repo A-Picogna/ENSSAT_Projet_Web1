@@ -183,6 +183,53 @@
             }
         }
 
+        public function getStatut()
+        {
+            $query = $this->db->query('SELECT statut, count(statut) from enseignant group by statut order by statut');
+            if ($query->num_rows() > 0)
+            {
+                return $query->result_array();
+            }
+            else
+            {
+                return NULL;
+            }
+        }
+        public function getheuresEnseignant()
+        {
+            $query = $this->db->query('SELECT nom, prenom, contenu.enseignant, sum(hed) from contenu natural join enseignant where contenu.enseignant = enseignant.login and contenu.enseignant is not null group  by contenu.enseignant;');
+            if ($query->num_rows() > 0)
+            {
+                return $query->result_array();
+            }
+            else
+            {
+                return NULL;
+            }
+        }
+        public function getcoursdispo($module){
+            $query = $this->db->query('SELECT sum(hed) from contenu where module = "'. $module .'" and enseignant is null');
+            if ($query->num_rows() > 0)
+            {
+                return $query->result_array();
+            }
+            else
+            {
+                return NULL;
+            }
+        }
+        public function getcourspris($module){
+            $query = $this->db->query('SELECT sum(hed) from contenu where module = "'. $module .'" and enseignant is not null');
+            if ($query->num_rows() > 0)
+            {
+                return $query->result_array();
+            }
+            else
+            {
+                return NULL;
+            }
+        }
+
     }
 
 ?>
