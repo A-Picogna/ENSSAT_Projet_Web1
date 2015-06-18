@@ -1,4 +1,4 @@
-<h1> <?php echo $page_header ?></h1>
+<h1 class="titre"> <?php echo $page_header ?></h1>
 		<?php
             echo '<div class="panel panel-primary">';
             echo '<div class="panel panel-heading">';
