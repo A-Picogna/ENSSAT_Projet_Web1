@@ -1,41 +1,62 @@
 <script>
     $(function(){$(".tooltip-link").tooltip();});
+    $(document).ready( function () {$('#table_gestion_module').DataTable();} );
 </script>
-	
-<div class="row">
-    <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3" style="margin-top:5%;">
-        <div class="panel panel-primary">
-            <div class="panel panel-heading">
-                <h2 class="panel-title">Liste des modules</h2>
-            </div>
-            <div class="panel-body">
 
-		<?php
-            echo "<table class='table table-striped table-bordered'>";
-			foreach ($liste as $object){
-				echo "
-                    <tr>
-                        <td>
-                            <a href='".base_url()."index.php/afficheModule/module/{$object['ident']}'>
-                                <div>{$object['libelle']}</div>
-                            </a>
-                        </td>
-                        <td>
-                            <div align='right'>
-                                <a href='".base_url()."index.php/choisirCours/positionnement/{$object['ident']}' class=\"link tooltip-link\" data-toggle=\"tooltip\" data-original-title=\"Se positionner sur le cours\">
-                                    <button class='btn btn-success btn-xs'>
-                                        <span class='glyphicon glyphicon-pushpin'></span> 
-                                    </button>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    ";
-            }
-            echo "</table>";
-	 	
-		?>
-            </div>
-        </div>        
+<div class="row">
+    <div class="">
+        <h1 class="text-center login-title">Liste des modules</h1>
+        <table id="table_gestion_module" class="table text-center table-bordered" >
+            <thead>
+                <tr class="titre_tableau">
+                    <th>Libellé</th>
+                    <th>Public</th>
+                    <th>Semestre</th>
+                    <th>Responsable</th>
+                    <th>Voir</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="ligne_couleur_alterne">
+<?php
+    foreach($liste as $l){
+        echo '<tr>';
+        echo '  <td>
+                    <a href="'.base_url().'index.php/afficheModule/module/'.$l['ident'].'" 	  
+                    class="link tooltip-link" 
+                    data-toggle="tooltip"
+                    data-original-title="Voir le module">
+                        '.$l['libelle'].'
+                    </a>
+                </td>';
+        echo '<td>'.$l['public'].'</td>';
+        echo '<td>'.$l['semestre'].'</td>';
+        echo '<td>'.$l['responsable'].'</td>';
+        echo '  <td>
+                <a href="'.base_url().'index.php/afficheModule/module/'.$l['ident'].'" 	  
+                    class="link tooltip-link" 
+                    data-toggle="tooltip"
+                    data-original-title="Voir le module">
+                <button class="btn btn-success btn-xs">
+                <span class="glyphicon glyphicon-eye-open" ></span>
+                </button>
+                </a>
+                </td>';
+        echo '  <td>
+                <a href="'.base_url().'index.php/choisirCours/positionnement/'.$l['ident'].'"  	  
+                    class="link tooltip-link" 
+                    data-toggle="tooltip"
+                    data-original-title="Se positionner sur le cours">
+                <button class="btn btn-success btn-xs">
+                <span class="glyphicon glyphicon-pushpin" ></span>
+                </button>
+                </a>
+                </td>';
+        echo '</tr>';
+    }
+
+?>                    
+            </tbody>
+        </table>
     </div>
 </div>

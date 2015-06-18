@@ -6,7 +6,7 @@
 <div class="row">
     <div class="">
         <h1 class="text-center login-title">Vue des utilisateurs</h1>
-        <table id="table_id" class="table table-striped text-center table-bordered" >
+        <table id="table_id" class="table text-center table-bordered" >
             <thead>
                 <tr class="titre_tableau">
                     <th>Login</th>
