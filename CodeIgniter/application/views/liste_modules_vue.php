@@ -37,21 +37,35 @@
                     class="link tooltip-link" 
                     data-toggle="tooltip"
                     data-original-title="Voir le module">
-                <button class="btn btn-success btn-xs">
+                <button class="btn btn-info btn-xs">
                 <span class="glyphicon glyphicon-eye-open" ></span>
                 </button>
                 </a>
                 </td>';
-        echo '  <td>
-                <a href="'.base_url().'index.php/choisirCours/positionnement/'.$l['ident'].'"  	  
-                    class="link tooltip-link" 
-                    data-toggle="tooltip"
-                    data-original-title="Se positionner sur le cours">
-                <button class="btn btn-success btn-xs">
-                <span class="glyphicon glyphicon-pushpin" ></span>
-                </button>
-                </a>
-                </td>';
+        if ($l['complet']){
+            echo '  <td>
+                    <a href="#"  	  
+                        class="link tooltip-link" 
+                        data-toggle="tooltip"
+                        data-original-title="Plus de place">
+                    <button class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-pushpin" ></span>
+                    </button>
+                    </a>
+                    </td>';            
+        }
+        else{
+            echo '  <td>
+                    <a href="'.base_url().'index.php/choisirCours/positionnement/'.$l['ident'].'"  	  
+                        class="link tooltip-link" 
+                        data-toggle="tooltip"
+                        data-original-title="Se positionner sur des cours">
+                    <button class="btn btn-success btn-xs">
+                    <span class="glyphicon glyphicon-pushpin" ></span>
+                    </button>
+                    </a>
+                    </td>';    
+        }
         echo '</tr>';
     }
 
