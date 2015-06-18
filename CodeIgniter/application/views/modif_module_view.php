@@ -104,7 +104,6 @@ echo "<script type='text/javascript'>
 					$('#multiselect_public_mod')[0].sumo.selectItem(12);
 					break;
 			}
-			alert(e);
 		});
 	});
 </script>";
