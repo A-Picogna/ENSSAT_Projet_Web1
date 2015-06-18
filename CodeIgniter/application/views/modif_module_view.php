@@ -1,5 +1,6 @@
 <div class="row">
     <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <h1 class="text-center login-title">Modifier le module</h1>
 <?php echo validation_errors(); ?>
 <?php
 
