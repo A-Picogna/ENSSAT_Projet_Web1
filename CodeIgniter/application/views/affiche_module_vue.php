@@ -68,6 +68,21 @@
                     Choisir des cours libres
                 </button>
             </a>
+            <?php
+                /*GRAPHES DE JIHANE*/
+                /*CODER ICI*/
+                /*CODER ICI*/
+                /*CODER ICI*/
+                /*CODER ICI*/
+                /*CODER ICI*/
+                /*CODER ICI*/
+                /*CODER ICI*/
+                /*CODER ICI*/
+                /*CODER ICI*/
+                /*CODER ICI*/
+                /*CODER ICI*/
+                /*CODER ICI*/
+            ?>
         </div>
 	</div>
 </div>

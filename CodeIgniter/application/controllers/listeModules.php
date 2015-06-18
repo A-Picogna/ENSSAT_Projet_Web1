@@ -28,7 +28,12 @@ class listeModules extends CI_Controller {
 	{
 		$data['titre']='Liste des modules';
 		$data['page_header']='liste des modules';
-		$data['liste'] = $this->affiche_module_model->getListeModules();
+        $tmp_liste = array();
+		$tmp_liste = $this->affiche_module_model->getListeModules();
+        for ($i = 0 ; $i < count($tmp_liste) ; $i++){
+            $tmp_liste[$i]['complet'] = $this->affiche_module_model->estComplet($tmp_liste[$i]['ident']);
+        }
+        $data['liste'] = $tmp_liste;
 		$this->load->view('header', $data);
 		$this->load->view('liste_modules_vue', $data);
 		$this->load->view('footer', $data);

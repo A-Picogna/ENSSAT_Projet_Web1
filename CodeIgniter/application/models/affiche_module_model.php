@@ -6,6 +6,20 @@ class affiche_module_model extends CI_Model
 	{
 		parent::__construct();
 	} 
+    
+    public function estComplet($module){
+        $query = $this->db->query("SELECT enseignant 
+                                    FROM contenu 
+                                    WHERE module='$module' 
+                                    AND enseignant is null");
+		if ($query->num_rows() > 0)
+		{
+			return 0;
+
+		}else{
+			return 1;
+		}
+    }
 
 	public function getModule($module)
 	{
@@ -96,7 +110,8 @@ class affiche_module_model extends CI_Model
 
 	public function getListeModules()
 	{
-		$query = $this->db->query('SELECT ident,libelle,public,semestre,responsable FROM module order by libelle');
+		$query = $this->db->query('SELECT 
+                                    ident,libelle,public,semestre,responsable FROM module order by libelle');
 		if ($query->num_rows() > 0)
 		{
 			return $query->result_array();
