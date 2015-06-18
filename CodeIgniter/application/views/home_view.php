@@ -164,11 +164,11 @@
 					"titles": [],
 					"dataProvider": [
 								{
-									"category": "Cours disponibles",
+									"category": "Somme des heures de cours disponibles dans le module x ",
 									"column-1": <?php echo $coursdispo[0]['sum(hed)']; ?>
 								},
 								{
-									"category": "Cours occupés par des enseignants",
+									"category": "Somme des heures de cours occupées par des enseignants pour ce module",
 									"column-1": <?php echo $courspris[0]['sum(hed)']; ?>
 								}
 							]
