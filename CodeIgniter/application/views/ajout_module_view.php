@@ -3,7 +3,7 @@
     <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3" style="margin-top:5%;">
         <div class="panel panel-primary">
             <div class="panel panel-heading">
-                <h1 class="text-center login-title">Ajoutez un module</h1>
+                <h2 class="panel-title">Ajouter un module</h2>
             </div>
             <div class="panel-body">
 <?php echo validation_errors(); ?>

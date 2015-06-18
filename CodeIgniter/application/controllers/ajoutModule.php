@@ -83,7 +83,7 @@ class ajoutModule extends CI_Controller {
 	public function ajoutCours() {
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('partie', 'Partie', 'required');
+		$this->form_validation->set_rules('partie', 'Partie', 'callback_partie_cours_check');
 		$this->form_validation->set_rules('hed', 'Hed', 'required');
 		$this->form_validation->set_rules('idEnseignant', 'Identifiant de l\'enseignant', 'callback_enseignant_check');
 

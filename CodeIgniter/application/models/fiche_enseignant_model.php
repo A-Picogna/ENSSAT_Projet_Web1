@@ -14,7 +14,7 @@ class Fiche_Enseignant_model extends CI_Model {
 
 	public function get_cours($login)
 	{
-		$query = $this->db->query('Select module, partie, hed, type, public, libelle from contenu, module where module=ident and enseignant="'. $login .'" order by module');
+		$query = $this->db->query('Select module, partie, hed, type, public, libelle from contenu, module where module=ident and enseignant="'. $login .'" order by module, partie');
 		return $query->result_array();
 	}
 

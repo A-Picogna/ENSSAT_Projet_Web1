@@ -11,17 +11,16 @@
 <?php 
 	$mod = '';
 	foreach ($coursEnseignant as $cours) {
-        echo "<table class='table table-striped'>";
 		if ($mod == '') {
 			$mod = $cours["module"];
 			echo "
-				<tr><th colspan='3'>".$cours["libelle"]." - ".$cours["public"]." </th></tr>
+				<table class='table table-striped'><tr><th colspan='3'>".$cours["libelle"]." - ".$cours["public"]." </th></tr>
 				";
 		}
 		else if ($cours["module"] != $mod) {
 			$mod = $cours["module"];
 			echo "
-				<tr><th colspan='3'>".$cours["libelle"]." - ".$cours["public"]."</th></tr>
+				</table><table class='table table-striped'><tr><th colspan='3'>".$cours["libelle"]." - ".$cours["public"]."</th></tr>
 				";
 		}
 		echo "  <tr>

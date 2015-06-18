@@ -118,7 +118,7 @@ class gestionModule extends CI_Controller {
 			$this->load->view('footer', $data);
 		}
 		else {
-			$data["message_erreur"] = "Vous ne pouvez pas supprimer plus de cours de ce module.";
+			$data["message_erreur"] = "Vous ne pouvez pas supprimer l'unique cours d'un module.";
 			$this->load->view('header_admin', $data);
 			$this->load->view('affiche_erreur', $data);
 			$this->load->view('footer', $data);
@@ -126,7 +126,20 @@ class gestionModule extends CI_Controller {
 	}
 
 	public function modifierCours($ident, $partie) {
+		$data["titre"] = "Modifier cours";
+		$data["ident"] = $ident;
 
+		$cours = $this->gestion_module_model->get_cours($ident, $partie)[0];
+		$data["cours"] = array(
+			"partie" => $cours["partie"],
+			"type" => $cours["type"],
+			"hed" => $cours["hed"],
+			"idEnseignant" => $cours["idEnseignant"]
+		);
+
+		$this->load->view('header_admin', $data);
+		$this->load->view('modif_cours_view', $data);
+		$this->load->view('footer', $data);
 	}
 
 	public function modificationCours($ident, $partie) {
