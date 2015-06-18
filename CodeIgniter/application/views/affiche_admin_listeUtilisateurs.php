@@ -26,7 +26,7 @@
 
 <div class="row">
     <div class="">
-        <h1 class="text-center">Administration des utilisateurs</h1>
+        <h1 class="titre">Administration des utilisateurs</h1>
         <?php echo validation_errors(); ?>
         <table id="table_id" class="table text-center table-bordered" >
             <thead>

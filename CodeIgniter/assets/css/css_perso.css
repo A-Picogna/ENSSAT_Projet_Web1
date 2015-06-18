@@ -104,3 +104,34 @@ table{
     display:inline-block;
 }
 
+.text-color-red{
+    display:inline-block;
+    color: red;
+}
+
+.titre { 
+    text-align: center;
+    color: #000d43; 
+    font-family:Time new roman; 
+    font-size: 45px; 
+    font-weight: normal; 
+    line-height: 48px; 
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #e3efff;
+    border-radius: 10px;
+}
+
+body { 
+    background-color: #fffffb;
+}
+
+.badge {
+    
+}
+
+.panel-footer {
+    background-color: white;
+}

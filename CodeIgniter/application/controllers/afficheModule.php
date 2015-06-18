@@ -27,7 +27,7 @@ class afficheModule extends CI_Controller {
 	public function home($module)
 	{
 		//$this->load->model('admin_model');
-		$data['titre']='Projet_php';
+		$data['titre']='Liste des cours';
 		$data['page_header']='Fiche Module';
 		$data['ResponsablesETfiliere']=$this->affiche_module_model->getResponsableANDFiliere($module);
 		$data['Cours'] = $this->affiche_module_model->getCourses($module);

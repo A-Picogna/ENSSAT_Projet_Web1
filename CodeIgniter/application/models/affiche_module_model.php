@@ -9,7 +9,7 @@ class affiche_module_model extends CI_Model
 
 	public function getModule($module)
 	{
-		$query = $this->db->query('SELECT libelle FROM module where ident="'. $module .'"');
+		$query = $this->db->query('SELECT ident,libelle FROM module where ident="'. $module .'"');
 		if ($query->num_rows() > 0)
 		{
 			return $query->result_array();

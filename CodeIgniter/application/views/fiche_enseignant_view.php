@@ -1,7 +1,7 @@
 <script>
     $(function(){$(".tooltip-link").tooltip();});
 </script>
-<h1 class="text-center login-title">Fiche enseignant</h1>
+<h1 class="titre">Fiche enseignant</h1>
 <?php echo "<p> ".$infosEnseignant[0]['nom']." ".$infosEnseignant[0]['prenom']." </br>"; ?>
 <?php echo "Statut : ".$infosEnseignant[0]['statut']." </p>"; ?>
 
