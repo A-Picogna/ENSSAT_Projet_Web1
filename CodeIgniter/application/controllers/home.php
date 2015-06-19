@@ -31,8 +31,6 @@
             $data['actif'] = $session_data['actif'];
             $data['statutETnb'] = $this->utilisateur->getStatut();
             $data['enseignant'] = $this->utilisateur->getheuresEnseignant();
-            $data['coursdispo'] = $this->utilisateur->getcoursdispo("ALGOC1");
-            $data['courspris'] = $this->utilisateur->getcourspris("ALGOC1");
             $this->load->view('home_view', $data);
             $this->load->view('footer');
         }

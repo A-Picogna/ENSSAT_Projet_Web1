@@ -68,23 +68,62 @@
                     Choisir des cours libres
                 </button>
             </a>
-            <?php
-                /*GRAPHES DE JIHANE*/
-                /*CODER ICI*/
-                /*CODER ICI*/
-                /*CODER ICI*/
-                /*CODER ICI*/
-                /*CODER ICI*/
-                /*CODER ICI*/
-                /*CODER ICI*/
-                /*CODER ICI*/
-                /*CODER ICI*/
-                /*CODER ICI*/
-                /*CODER ICI*/
-                /*CODER ICI*/
-            ?>
+
+        
+        <meta name="description" content="chart created using amCharts live editor" />
+
+        <!-- amCharts javascript sources -->
+        <script type="text/javascript" src="http://cdn.amcharts.com/lib/3/amcharts.js"></script>
+        <script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
+
+        <!-- amCharts javascript code -->
+        <script type="text/javascript">
+            AmCharts.makeChart("chartdiv3",
+                {
+                    "type": "pie",
+                    "angle": 12,
+                    "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+                    "depth3D": 15,
+                    "colors": [
+                        "#FF7F50",
+                        "#008080",
+                        "#BDB76B"
+                    ],
+                    "titleField": "category",
+                    "valueField": "column-1",
+                    "allLabels": [],
+                    "balloon": {},
+                    "legend": {
+                        "align": "center",
+                        "markerType": "circle"
+                    },
+                    "titles": [],
+                    "dataProvider": [
+                                {
+                                    "category": "<?php echo "Somme des heures de cours disponibles dans le module " .$Modules[0]['libelle'].""; ?>",
+                                    "column-1": <?php 
+                                    if ($coursdispo[0]['sum(hed)']==null){echo 0;}
+                                    else{ echo $coursdispo[0]['sum(hed)'];}
+
+                                    ?>
+                                },
+                                {
+                                    "category": "Somme des heures de cours occupées par des enseignants pour ce module",
+                                    "column-1": <?php 
+                                    if ($courspris[0]['sum(hed)']==null){echo 0;}
+                                    else{ echo $courspris[0]['sum(hed)'];}
+
+                                    ?>
+                                }
+                            ]
+                }
+            );
+        </script>
+        <div id="chartdiv3" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
+
         </div>
 	</div>
+
 </div>
 </body>
 </html>

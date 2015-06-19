@@ -207,29 +207,7 @@
                 return NULL;
             }
         }
-        public function getcoursdispo($module){
-            $query = $this->db->query('SELECT sum(hed) from contenu where module = "'. $module .'" and enseignant is null');
-            if ($query->num_rows() > 0)
-            {
-                return $query->result_array();
-            }
-            else
-            {
-                return NULL;
-            }
-        }
-        public function getcourspris($module){
-            $query = $this->db->query('SELECT sum(hed) from contenu where module = "'. $module .'" and enseignant is not null');
-            if ($query->num_rows() > 0)
-            {
-                return $query->result_array();
-            }
-            else
-            {
-                return NULL;
-            }
-        }
-
+        
     }
 
 ?>
