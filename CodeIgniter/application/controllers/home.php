@@ -20,6 +20,7 @@
         }
 
         function index(){ 
+            
             $data['titre'] = "Service de gestion des cours pour les enseignants";            
             $this->load->view('header', $data);
             $session_data = $this->session->userdata('info_user');
@@ -29,8 +30,11 @@
             $data['statut'] = $session_data['statut'];
             $data['administrateur'] = $session_data['administrateur'];
             $data['actif'] = $session_data['actif'];
-            $data['statutETnb'] = $this->utilisateur->getStatut();
-            $data['enseignant'] = $this->utilisateur->getheuresEnseignant();
+            
+
+            $data['info_user'] = $this->utilisateur->get_info_utilisateur("opivert");
+            $data['decharge'] = $this->utilisateur->get_decharge("opivert");
+            $data['heureslogin'] = $this->utilisateur->getheureslogin("opivert");
             $this->load->view('home_view', $data);
             $this->load->view('footer');
         }
@@ -48,6 +52,7 @@
         function listeUtilisateurs(){           
             $data['titre'] = "Liste des utilisateurs";
             $data['liste_utilisateurs'] = $this->utilisateur->getServiceUtilisateurs();
+            $data['enseignant'] = $this->utilisateur->getheuresEnseignant();
             
             $this->load->view('header', $data);
             $this->load->view('affiche_liste_utilisateurs', $data);

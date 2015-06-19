@@ -7,139 +7,75 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>chart created with amCharts | amCharts</title>
+		
 		<meta name="description" content="chart created using amCharts live editor" />
 
 		<!-- amCharts javascript sources -->
+		
+		<!-- amCharts javascript sources -->
 		<script type="text/javascript" src="http://cdn.amcharts.com/lib/3/amcharts.js"></script>
-		<script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/gauge.js"></script>
 
 		<!-- amCharts javascript code -->
 		<script type="text/javascript">
 			AmCharts.makeChart("chartdiv",
 				{
-					"type": "serial",
-					"categoryField": "category",
-					"angle": 30,
-					"depth3D": 30,
-					"colors": [
-						"#FF7F50"
-					],
-
-					"startDuration": 1,
-					"categoryAxis": {
-						"gridPosition": "start"
-					},
-					"trendLines": [],
-					"graphs": [
+					"type": "gauge",
+					"marginBottom": 20,
+					"marginTop": 40,
+					"startDuration": 0,
+					"fontSize": 13,
+					"arrows": [
 						{
-							"balloonText": "[[title]] of [[category]]:[[value]]",
-							"fillAlphas": 1,
-							"id": "AmGraph-1",
-							"title": "graph 1",
-							"type": "column",
-							"valueField": "column-2"
+							"id": "GaugeArrow-1",
+							"value": <?php echo($heureslogin[0]['sum(hed)']);?>
 						}
 					],
-					"guides": [],
-					"valueAxes": [
+					"axes": [
 						{
-							"id": "ValueAxis-1",
-							"title": "Nombre de statuts"
-						}
-					],
-					"allLabels": [],
-					"balloon": {},
-					/*"legend": {
-						"useGraphSettings": true
-					},*/
-					"titles": [
-						{
-							"id": "Title-1",
-							"size": 15,
-							"text": "Nombre d'enseignants par statut"
-						}
-					],
-					"dataProvider": [
-						
-							<?php foreach ($statutETnb as $key ) { ?>
-							{
-							 	"category": "<?php echo $key['statut']; ?>",
-								"column-2" : <?php echo $key['count(statut)']; ?>
-
-							},
-							<?php } ?>
-					]
-				}
-			);
-</script>
-		<script type="text/javascript">
-		AmCharts.makeChart("chartdiv2",
-				{
-					"type": "serial",
-					"categoryField": "category",
-					"angle": 30,
-					"depth3D": 30,
-					"colors": [
-						"#FF7F50"
-					],
-					"startDuration": 1,
-					"categoryAxis": {
-						"gridPosition": "start"
-					},
-					"trendLines": [],
-					"graphs": [
-						{
-							"balloonText": "[[title]] of [[category]]:[[value]]",
-							"fillAlphas": 1,
-							"id": "AmGraph-2",
-							"title": "graph 2",
-							"type": "column",
-							"valueField": "column-2"
-						}
-					],
-					"guides": [],
-					"valueAxes": [
-						{
-							"id": "ValueAxis-1",
-							"title": "Nombre d'heures"
+							"bottomText": "0 h",
+							"bottomTextYOffset": -20,
+							"endValue": <?php echo($info_user['statutaire']-$decharge); ?>,
+							"id": "GaugeAxis-1",
+							"valueInterval": 10,
+							"bands": [
+								{
+									"color": "#00CC00",
+									"endValue": 90,
+									"id": "GaugeBand-1",
+									"startValue": 0
+								},
+								{
+									"color": "#ffac29",
+									"endValue": 130,
+									"id": "GaugeBand-2",
+									"startValue": 90
+								},
+								{
+									"color": "#ea3838",
+									"endValue": 192,
+									"id": "GaugeBand-3",
+									"innerRadius": "95%",
+									"startValue": 130
+								}
+							]
 						}
 					],
 					"allLabels": [],
 					"balloon": {},
-					/*"legend": {
-						"useGraphSettings": true
-					},*/
 					"titles": [
 						{
 							"id": "Title-1",
 							"size": 15,
-							"text": "Nombre d'heures de cours prises par chaque enseignant"
+							"text": "Nombre d'heures que vous avez consommé"
 						}
-					],
-					"dataProvider": [
-						
-							<?php foreach ($enseignant as $key ) { ?>
-							{
-								"category": "<?php echo $key['prenom']." ".$key['nom']; ?>",
-								"column-2" : <?php echo $key['sum(hed)']; ?>
-
-							},
-							<?php } ?>
-						
 					]
 				}
 			);
 		</script>
 
-
-
-
-
 	</head>
 	<body>
-		<div id="chartdiv" style="width: 300px; height: 300px; background-color: #FFFFFF;" ></div>
-		<div id="chartdiv2" style="width: 1000px; height: 400px; background-color: #FFFFFF;" ></div>
-		
+		<div id="chartdiv" style="width: 400px; height: 400px; background-color: #FFFFFF;" ></div>
 	</body>
 </html>

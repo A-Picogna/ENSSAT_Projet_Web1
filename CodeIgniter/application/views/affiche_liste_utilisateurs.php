@@ -6,6 +6,84 @@
 <div class="row">
     <div class="">
         <h1 class="titre">Vue des utilisateurs</h1>
+
+
+
+<!-- Mon beauuuuu Graphe -->
+
+        <!-- amCharts javascript sources -->
+        <script type="text/javascript" src="http://cdn.amcharts.com/lib/3/amcharts.js"></script>
+        <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+
+        <!-- amCharts javascript code -->
+        <script type="text/javascript">
+        AmCharts.makeChart("chartdiv2",
+                {
+                    "type": "serial",
+                    "categoryField": "category",
+                    "angle": 30,
+                    "depth3D": 30,
+                    "colors": [
+                        "#FF7F50"
+                    ],
+                    "startDuration": 1,
+                    "categoryAxis": {
+                        "gridPosition": "start"
+                    },
+                    "trendLines": [],
+                    "graphs": [
+                        {
+                            "balloonText": "[[title]] of [[category]]:[[value]]",
+                            "fillAlphas": 1,
+                            "id": "AmGraph-2",
+                            "title": "graph 2",
+                            "type": "column",
+                            "valueField": "column-2"
+                        }
+                    ],
+                    "guides": [],
+                    "valueAxes": [
+                        {
+                            "id": "ValueAxis-1",
+                            "title": "Nombre d'heures"
+                        }
+                    ],
+                    "allLabels": [],
+                    "balloon": {},
+                    /*"legend": {
+                        "useGraphSettings": true
+                    },*/
+                    "titles": [
+                        {
+                            "id": "Title-1",
+                            "size": 15,
+                            "text": "Nombre d'heures de cours prises par chaque enseignant"
+                        }
+                    ],
+                    "dataProvider": [
+                        
+                            <?php foreach ($enseignant as $key ) { ?>
+                            {
+                                "category": "<?php echo $key['prenom']." ".$key['nom']; ?>",
+                                "column-2" : <?php echo $key['sum(hed)']; ?>
+
+                            },
+                            <?php } ?>
+                        
+                    ]
+                }
+            );
+        </script>
+
+        <div id="chartdiv2" style="width: 1000px; height: 400px; background-color: #FFFFFF;" ></div>
+
+
+
+
+
+
+
+
         <table id="table_id" class="table text-center table-bordered" >
             <thead>
                 <tr class="titre_tableau">
@@ -17,6 +95,7 @@
                 </tr>
             </thead>
             <tbody class="ligne_couleur_alterne">
+
 <?php
     foreach($liste_utilisateurs as $l){
         echo '<tr>';

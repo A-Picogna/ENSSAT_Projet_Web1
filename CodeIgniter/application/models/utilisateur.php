@@ -197,7 +197,19 @@
         }
         public function getheuresEnseignant()
         {
-            $query = $this->db->query('SELECT nom, prenom, contenu.enseignant, sum(hed) from contenu natural join enseignant where contenu.enseignant = enseignant.login and contenu.enseignant is not null group  by contenu.enseignant;');
+            $query = $this->db->query('SELECT nom, prenom, contenu.enseignant, sum(hed) from contenu natural join enseignant where contenu.enseignant = enseignant.login and contenu.enseignant is not null group  by contenu.enseignant');
+            if ($query->num_rows() > 0)
+            {
+                return $query->result_array();
+            }
+            else
+            {
+                return NULL;
+            }
+        }
+        public function getheureslogin($login)
+        {
+            $query = $this->db->query('SELECT sum(hed) from contenu where enseignant ="'. $login.'"');
             if ($query->num_rows() > 0)
             {
                 return $query->result_array();
