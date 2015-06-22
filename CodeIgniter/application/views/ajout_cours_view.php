@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 		<div id="accordAjoutCours">
-        	<h1 class="titre">Ajoutez un cours</h1>
+        	<h1 class="titre">Ajouter un cours</h1>
 			<div>
 <?php
 			echo form_open('ajoutModule/ajoutCours');

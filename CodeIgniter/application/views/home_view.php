@@ -2,66 +2,63 @@
 <html>
 	<head>
 		
+
+<?php $resteheures = $info_user['statutaire']-$decharge-$heureslogin[0]['sum(hed)'] ?>
+
+		</script>
+
 		<meta name="description" content="chart created using amCharts live editor" />
 
 		<!-- amCharts javascript sources -->
-		
-		<!-- amCharts javascript sources -->
 		<script type="text/javascript" src="http://cdn.amcharts.com/lib/3/amcharts.js"></script>
-		<script type="text/javascript" src="http://www.amcharts.com/lib/3/gauge.js"></script>
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
 
 		<!-- amCharts javascript code -->
 		<script type="text/javascript">
 			AmCharts.makeChart("chartdiv",
 				{
-					"type": "gauge",
-					"marginBottom": 20,
-					"marginTop": 40,
-					"startDuration": 0,
-					"fontSize": 13,
-					"arrows": [
-						{
-							"id": "GaugeArrow-1",
-							"value": <?php echo($heureslogin[0]['sum(hed)']);?>
-						}
-					],
-					"axes": [
-						{
-							"bottomText": "0 h",
-							"bottomTextYOffset": -20,
-							"endValue": <?php echo($info_user['statutaire']-$decharge); ?>,
-							"id": "GaugeAxis-1",
-							"valueInterval": 10,
-							"bands": [
-								{
-									"color": "#00CC00",
-									"endValue": 90,
-									"id": "GaugeBand-1",
-									"startValue": 0
-								},
-								{
-									"color": "#ffac29",
-									"endValue": 130,
-									"id": "GaugeBand-2",
-									"startValue": 90
-								},
-								{
-									"color": "#ea3838",
-									"endValue": 192,
-									"id": "GaugeBand-3",
-									"innerRadius": "95%",
-									"startValue": 130
-								}
-							]
-						}
-					],
+					"type": "pie",
+					"angle": 12,
+					"balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+					"depth3D": 15,
+					"innerRadius": "40%",
+					"titleField": "category",
+					"valueField": "column-1",
 					"allLabels": [],
 					"balloon": {},
-					"titles": [
+					"legend": {
+						"align": "center",
+						"markerType": "circle"
+					},
+					"titles": [],
+					"dataProvider": [
 						{
-							"id": "Title-1",
-							"size": 15,
-							"text": "Nombre d'heures que vous avez consommé"
+							"category": "Somme des heures de cours pris pas l'enseignant",
+							"column-1": <?php 
+							if ($heureslogin[0]['sum(hed)'] != null ){
+								echo($heureslogin[0]['sum(hed)']);}
+							else{
+								echo 0;
+							}
+
+							?>
+						},
+						{
+							"category": "Somme des heures restantes à l'enseignant",
+							"column-1": 
+							<?php 
+
+							
+								if ($resteheures == null || $resteheures<0)
+								{
+									echo 0;
+								}
+								else
+								{
+										echo $resteheures;																	
+								}
+
+							?>
 						}
 					]
 				}
@@ -70,6 +67,8 @@
 
 	</head>
 	<body>
-		<div id="chartdiv" style="width: 400px; height: 400px; background-color: #FFFFFF;" ></div>
+		<div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
+		<?php print_r($resteheures); ?>
 	</body>
 </html>
+
