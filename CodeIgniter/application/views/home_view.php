@@ -22,6 +22,10 @@
 					"balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
 					"depth3D": 15,
 					"innerRadius": "40%",
+					"colors": [
+						"#008080",
+						"#FF7F50"
+					],
 					"titleField": "category",
 					"valueField": "column-1",
 					"allLabels": [],
