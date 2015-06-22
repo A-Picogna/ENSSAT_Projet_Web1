@@ -44,7 +44,7 @@
                         <li><a href="<?php echo base_url();?>index.php/listeModules"><span class="glyphicon glyphicon-list"></span> Modules</a></li>
                         <li><a href="<?php echo base_url();?>index.php/home/listeUtilisateurs"><span class="glyphicon glyphicon-list-alt"></span> Utilisateurs</a></li>
                         <?php echo '<li class ="navbar-text"><span class="glyphicon glyphicon-user"></span>
-                        Vous etes '.$this->session->userdata('info_user')['prenom'].' '.$this->session->userdata('info_user')['nom'].', '.
+                        Vous êtes '.$this->session->userdata('info_user')['prenom'].' '.$this->session->userdata('info_user')['nom'].', '.
                         $this->session->userdata('info_user')['statut'].'
                         </li>';
                         ?>

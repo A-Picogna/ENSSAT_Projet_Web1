@@ -62,7 +62,7 @@
                             </ul>
                         </li>
                         <?php echo '<li class ="navbar-text"><span class="glyphicon glyphicon-user"></span>
-                        Vous etes '.$this->session->userdata('info_user')['prenom'].' '.$this->session->userdata('info_user')['nom'].', '.
+                        Vous êtes '.$this->session->userdata('info_user')['prenom'].' '.$this->session->userdata('info_user')['nom'].', '.
                         $this->session->userdata('info_user')['statut'].'
                         </li>';
                         ?>

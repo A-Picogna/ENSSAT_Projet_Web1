@@ -72,7 +72,7 @@
 	</head>
 	<body>
 		<div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
-		<?php print_r($resteheures); ?>
+	
 	</body>
 </html>
 
