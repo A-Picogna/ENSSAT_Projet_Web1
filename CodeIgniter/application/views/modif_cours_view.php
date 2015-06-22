@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-        <h1 class="text-center login-title">Modifier le cours</h1>
-<?php echo validation_errors(); ?>
+        <h1 class="titre">Modifier le cours</h1>
+<?php echo validation_errors('<div class="alert alert-danger gras">', '</div>'); ?>
 		<div>
 <?php
 		echo form_open('gestionModule/modificationCours/'.$ident.'/'.$cours["partie"]);

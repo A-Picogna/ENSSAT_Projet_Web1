@@ -5,7 +5,7 @@
 <?php
     if (!isset($email) && !isset($password)){
         echo form_open('loginVerification', 'class="form-signin"');
-        echo validation_errors();
+        echo validation_errors('<div class="alert alert-danger gras">', '</div>');
             echo '<div class="form-group">';
                 echo form_label('Login :', 'username');
                 echo form_input('login', set_value('login'), 'class="form-control" placeholder="Saisir votre login"');

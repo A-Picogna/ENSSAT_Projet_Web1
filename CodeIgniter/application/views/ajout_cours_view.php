@@ -1,4 +1,4 @@
-<?php echo validation_errors(); ?>
+<?php echo validation_errors('<div class="alert alert-danger gras">', '</div>'); ?>
 
 <div class="row">
     <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">

@@ -39,25 +39,28 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="<?php echo base_url();?>index.php/home"> <span class="glyphicon glyphicon-home"></span> Accueil</a>
                 </div>
-                <div>
+                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="<?php echo base_url();?>index.php/listeModules"><span class="glyphicon glyphicon-list"></span> Modules</a></li>
-						<li><a href="<?php echo base_url();?>index.php/afficheEnseignant"><span class="glyphicon glyphicon-file"></span> Ma fiche</a></li>
                         <li><a href="<?php echo base_url();?>index.php/home/listeUtilisateurs"><span class="glyphicon glyphicon-list-alt"></span> Utilisateurs</a></li>
-                    </ul>      
+                        <?php echo '<li class ="navbar-text"><span class="glyphicon glyphicon-user"></span>
+                        Vous etes '.$this->session->userdata('info_user')['prenom'].' '.$this->session->userdata('info_user')['nom'].', '.
+                        $this->session->userdata('info_user')['statut'].'
+                        </li>';
+                        ?>
+                    </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <?php       
+                        <?php
                         if (isset($this->session->userdata('info_user')['login']) && ($this->session->userdata('info_user')['administrateur'])) {
                         echo '
                         <li><a href="'.base_url().'index.php/administration"><span class="glyphicon glyphicon-cog"></span> Administration</a></li>
-                        ';}?>
+                        ';}      
+                        
+                        ?>
                         <li><a href="<?php echo base_url();?>index.php/home/modifier_utilisateur/<?php echo $this->session->userdata('info_user')['login'];?>"><span class="glyphicon glyphicon-wrench"></span> Mon compte</a></li>
                         <li><a href="<?php echo base_url();?>index.php/home/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="container"  style="margin-top:50px;">
-      
-      
-    
+        <div class="container">

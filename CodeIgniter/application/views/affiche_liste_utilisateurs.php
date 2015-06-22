@@ -74,11 +74,8 @@
                 }
             );
         </script>
-
-        <div id="chartdiv2" style="width: 1000px; height: 400px; background-color: #FFFFFF;" ></div>
-
-
-
+        
+        <div id="chartdiv2"></div>
 
 
 
