@@ -24,7 +24,7 @@
         <meta name="description" content="chart created using amCharts live editor" />
 
         <!-- amCharts javascript sources -->
-        <script type="text/javascript" src="http://cdn.amcharts.com/lib/3/amcharts.js"></script>
+        <script type="text/javascript" src=<?php echo base_url()."assets/js/amcharts.js"; ?>></script>
         <script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
 
         <!-- amCharts javascript code -->
