@@ -91,10 +91,10 @@ class gestionModule extends CI_Controller {
 			$data["titre"] = "Modifier module";
 			$data["ident"] = $_POST["ident"];
 
+			$this->gestion_module_model->modif_module($_POST["ident"], $_POST["libelle"], $publique, $_POST["semestre"], $_POST["idResponsable"]);
+
 			$data["module"] = $this->gestion_module_model->get_module($_POST["ident"])[0];
 			$data["liste_cours"] = $this->gestion_module_model->get_liste_cours($_POST["ident"]);
-
-			$this->gestion_module_model->modif_module($_POST["ident"], $_POST["libelle"], $publique, $_POST["semestre"], $_POST["idResponsable"]);
 
 			$this->load->view('header_admin', $data);
 			$this->load->view('affiche_message_confirmation', $data);
@@ -172,10 +172,10 @@ class gestionModule extends CI_Controller {
 			$data["titre"] = "Modifier module";
 			$data["ident"] = $ident;
 
+			$this->gestion_module_model->modif_cours($ident, $data["cours"]);
+
 			$data["module"] = $this->gestion_module_model->get_module($ident)[0];
 			$data["liste_cours"] = $this->gestion_module_model->get_liste_cours($ident);
-			
-			$this->gestion_module_model->modif_cours($ident, $data["cours"]);
 
 			$this->load->view('header_admin', $data);
 			$this->load->view('affiche_message_confirmation', $data);
