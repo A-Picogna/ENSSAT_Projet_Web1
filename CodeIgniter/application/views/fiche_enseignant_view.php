@@ -61,7 +61,7 @@
         echo ' - '.$cours["hed"].' heq TD ';
         echo '           		
             <a href="'.base_url().'index.php/sedepositionner/depositionnement/'.$cours['partie'].'/'.$cours['module'].'"class="link tooltip-link" data-toggle="tooltip" data-original-title="Se dépositionner de cette partie">
-                <button class="btn btn-danger btn-xs pull-right">
+                <button class="btn btn-danger btn-xs">
                     <span class="glyphicon glyphicon-pushpin"></span>
                 </button>
             </a>';
