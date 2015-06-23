@@ -33,7 +33,7 @@ class sedepositionner extends CI_Controller {
 		//$data['module']=$module;
 		$data['title']='Projet_php';
 		$data['page_header']='Dépositionnement';
-		$partie = str_replace("%20"," ",$partie);
+		$partie = urldecode($partie);
 
 		$this->choisir_cours_model->supprimerEnseignantDePartie($partie ,$module);
         $data['message_validation'] = "Vous vous êtes bien dépositionné du cours ".$partie." du module ".$module.".";
