@@ -132,12 +132,19 @@ table{
 }
 
 body {
-    padding-top: 50px;
+    padding-top: 40px;
     min-width: 992px;
+    background: #D2D3D2 url(images/bg-general.png) repeat-x scroll 0% 0%;
 }
  
 
 .container {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    background-color: white;
+    box-shadow: -8px 8px 4px 0px #b9b9b9;
+    border-radius: 4px;
 }
 
 .badge {
