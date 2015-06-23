@@ -71,11 +71,16 @@
         }
                 
         function modifier_utilisateur($login){
-            if ($this->session->userdata('info_user')['login'] || $this->session->userdata('info_user')['administrateur']){
+            if ($this->session->userdata('info_user')['login']){
                 $data['titre'] = "Modifier informations";
                 $data['info_user'] = $this->utilisateur->get_info_utilisateur($login);
                 $data['decharge'] = $this->utilisateur->get_decharge($login);
+            if ($this->session->userdata('info_user')['administrateur']){
                 $this->load->view('header_admin', $data);
+            }
+            else{
+                $this->load->view('header', $data);
+            }
                 $this->load->view('edit_utilisateur', $data);
                 $this->load->view('footer');
             }
@@ -99,6 +104,18 @@
             $data['heuresProjetEnseignant'] = $this->fiche_enseignant_model->get_heuresProjet($login);
             $data['titre'] = "Affichage Enseignant";
             $this->load->view('fiche_enseignant_view', $data);
+        }
+        
+        public function exportCSV(){
+            $this->load->dbutil();
+            $this->load->helper('file');
+            $this->load->helper('download');
+            $query = $this->db->query("SELECT * FROM enseignant");
+            $delimiter = ",";
+            $newline = "\r\n";
+            $data = $this->dbutil->csv_from_result($query, $delimiter, $newline);
+            $data = mb_convert_encoding($data, 'UTF-16LE', 'UTF-8');
+            force_download('CSV_Report.csv', $data);            
         }
     }
 

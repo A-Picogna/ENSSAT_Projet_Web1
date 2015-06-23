@@ -4,15 +4,15 @@
         <h2 class="panel-title">
             <?php 
                 echo "Module : ".$Modules[0]['libelle']."</br>"."Responsable : ";
-                if (!empty($ResponsablesETfiliere[0]['nom']) && !empty($ResponsablesETfiliere[0]['prenom'])){
-                    echo $ResponsablesETfiliere[0]['prenom']." ";
-                    echo " ".$ResponsablesETfiliere[0]['nom']."</br>"." Public : ";
+                if (!empty($responsable[0]['nom']) && !empty($responsable[0]['prenom'])){
+                    echo $responsable[0]['prenom']." ";
+                    echo " ".$responsable[0]['nom']."</br>"." Public : ";
                 }
                 else{
                     echo "<div class=text-color-red>Aucun Responsable</div>"."</br>"." Public : ";
                 }
-                if (!empty($ResponsablesETfiliere[0]['public'])){
-                    echo " ".$ResponsablesETfiliere[0]['public']."</br>";
+                if (!empty($filiere[0]['public'])){
+                    echo " ".$filiere[0]['public']."</br>";
                 }
                 else{
                     echo "<div class=text-color-red>Non renseigné</div>";
