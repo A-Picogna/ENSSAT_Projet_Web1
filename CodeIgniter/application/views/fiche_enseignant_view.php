@@ -9,7 +9,7 @@
     $max = $info_user['statutaire']-$decharge;
     $progress = round(($totalHeuresEnseignant/$max) * 100);
     echo '
-    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="'.$totalHeuresEnseignant.'" aria-valuemin="0" aria-valuemax="'.$max.'" style="width: '.$progress.'%">
+    <div class="progress-bar progress-bar-primary progress-bar-striped active" role="progressbar" aria-valuenow="'.$totalHeuresEnseignant.'" aria-valuemin="0" aria-valuemax="'.$max.'" style="width: '.$progress.'%">
     '.$totalHeuresEnseignant.' h eq. TD sur '.$max.' heures totales ('.$progress.'%)';
 ?>
     </div>

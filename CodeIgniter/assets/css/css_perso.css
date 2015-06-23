@@ -180,9 +180,13 @@ float: right!important;
     color: black;
 }
 
+.progress-bar{
+    background-color: #FF7F50;
+}
 
 
 /* LES DEFINITIONS PAR ID */
+
 
 #chartdiv{
     margin-left: auto;
