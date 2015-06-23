@@ -27,7 +27,7 @@ class choisirCours extends CI_Controller {
 	public function positionnement($module)
 	{
         $login = $this->session->userdata('info_user')['login'];
-		//$this->load->model('admin_model');
+		$module = urldecode($module);
 		$data['module']=$module;
 		$data['titre']='Choisir un cours';
 		$data['page_header']='Choisir un cours';

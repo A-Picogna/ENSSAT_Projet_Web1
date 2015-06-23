@@ -71,6 +71,7 @@
         }
                 
         function modifier_utilisateur($login){
+			$login = urldecode($login);
             if ($this->session->userdata('info_user')['login']){
                 $data['titre'] = "Modifier informations";
                 $data['info_user'] = $this->utilisateur->get_info_utilisateur($login);

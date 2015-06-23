@@ -33,8 +33,10 @@ class gestionModule extends CI_Controller {
 	}
 
 	public function supprimeModule($ident) {
+		$ident = urldecode($ident);
 		$data["titre"] = "Suppression module";
 		$data["message_validation"] = "Le module " .$ident."et tous ses cours ont bien été supprimés.";
+
 		$this->gestion_module_model->supprime_module($ident);
 		$this->load->view('header_admin', $data);
 		$this->load->view('affiche_message_confirmation', $data);
@@ -43,8 +45,8 @@ class gestionModule extends CI_Controller {
 
 	public function modifierModule($ident) {
 		$data["titre"] = "Modifier module";
+		$ident = urldecode($ident);
 		$data["ident"] = $ident;
-
 		$data["module"] = $this->gestion_module_model->get_module($ident)[0];
 		$data["liste_cours"] = $this->gestion_module_model->get_liste_cours($ident);
 
@@ -105,6 +107,7 @@ class gestionModule extends CI_Controller {
 	}
 
 	public function ajoutCours($ident) {
+		$ident = urldecode($ident);
 		$cours = array (
 			"partie" => $this->input->post('partie'),
 			"type" => $this->input->post('type'),
@@ -117,10 +120,12 @@ class gestionModule extends CI_Controller {
 	}
 
 	public function supprimeCours($ident, $partie) {
+		$ident = urldecode($ident);
+		$partie = urldecode($partie);
 		if ($this->gestion_module_model->verif_count_cours($ident)["count(*)"] > 1) {
 			$data["titre"] = "Suppression module";
-			$data["message_validation"] = "Le cours " .urldecode($partie)." du module ".$ident." a bien été supprimé";
-			$this->gestion_module_model->supprime_cours($ident, urldecode($partie));
+			$data["message_validation"] = "Le cours " .$partie." du module ".$ident." a bien été supprimé";
+			$this->gestion_module_model->supprime_cours($ident, $partie);
 			$this->load->view('header_admin', $data);
 			$this->load->view('affiche_message_confirmation', $data);
 			$this->load->view('footer', $data);
@@ -134,10 +139,12 @@ class gestionModule extends CI_Controller {
 	}
 
 	public function modifierCours($ident, $partie) {
+		$ident = urldecode($ident);
+		$partie = urldecode($partie);
 		$data["titre"] = "Modifier un cours";
 		$data["ident"] = $ident;
 
-		$data["cours"] = $this->gestion_module_model->get_cours($ident, urldecode($partie))[0];
+		$data["cours"] = $this->gestion_module_model->get_cours($ident, $partie)[0];
 
 		$this->load->view('header_admin', $data);
 		$this->load->view('modif_cours_view', $data);
@@ -145,6 +152,8 @@ class gestionModule extends CI_Controller {
 	}
 
 	public function modificationCours($ident, $partie) {
+		$ident = urldecode($ident);
+		$partie = urldecode($partie);
 		$data["titre"] = "Modifier cours";
 		$data["message_validation"] = "Le cours " .$_POST["partie"]." a bien été modifié.";
 		$data["ident"] = $ident;

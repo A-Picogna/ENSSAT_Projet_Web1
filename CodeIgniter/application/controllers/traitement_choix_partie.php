@@ -30,7 +30,8 @@ class traitement_choix_partie extends CI_Controller {
 	
 	public function traitement($module,$login)
 	{
-
+		$module = urldecode($module);
+		$login = urldecode($login);
 		$module = $this->input->post('ident');
 
 

@@ -13,7 +13,7 @@
 
         <!-- amCharts javascript sources -->
         <script type="text/javascript" src=<?php echo base_url()."assets/js/amcharts.js"; ?>></script>
-        <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+        <script type="text/javascript" src=<?php echo base_url()."assets/js/serial.js"; ?>></script>
 
         <!-- amCharts javascript code -->
         <script type="text/javascript">

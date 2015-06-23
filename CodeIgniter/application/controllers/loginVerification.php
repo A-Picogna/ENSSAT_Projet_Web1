@@ -33,6 +33,7 @@ class loginVerification extends CI_Controller {
     }
     
     function verif_bdd($mdp){
+		$mdp = urldecode($mdp);
         $login = $this->input->post('login');
         $res = $this->utilisateur->verif_login_bdd($login, $mdp);
 

@@ -27,13 +27,13 @@ class sedepositionner extends CI_Controller {
 
 	public function depositionnement($partie, $module)
 	{
-
+		$partie = urldecode($partie);
+		$module = urldecode($module);
      	$login = $this->session->userdata('info_user')['login'];
 		//$this->load->model('admin_model');
 		//$data['module']=$module;
 		$data['title']='Projet_php';
 		$data['page_header']='Dépositionnement';
-		$partie = urldecode($partie);
 
 		$this->choisir_cours_model->supprimerEnseignantDePartie($partie ,$module);
         $data['message_validation'] = "Vous vous êtes bien dépositionné du cours ".$partie." du module ".$module.".";
