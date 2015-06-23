@@ -22,69 +22,71 @@
 
 
 	$mod = '';
-	foreach ($coursEnseignant as $cours) {
-		if ($mod == '') {            
-			$mod = $cours["module"];
-			echo '				        
-                <div class="col-centered">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <div class="panel panel-primary">
-                                <div class="panel panel-heading">
-                                    <h2 class="panel-title">'.$cours["libelle"].'</h2>
-                                </div>
-                                <div class="panel-body">
-                                    <ul class="list-group">
-				';
-		}
-		else if ($cours["module"] != $mod) {
-			$mod = $cours["module"];
-			echo '			
-                                    </ul>                                
-                                </div>
-                                <div class="panel-footer">
-                                    Public : '.$cours["public"].'
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>				        
-                <div class="col-centered">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <div class="panel panel-primary">
-                                <div class="panel panel-heading">
-                                    <h2 class="panel-title">'.$cours["libelle"].'</h2>
-                                </div>
-                                <div class="panel-body">
-                                    <ul class="list-group">
-				';
-		}
-            
-        echo' <li class="gras list-group-item  list-group-item-warning">';
-        echo $cours["partie"];
-        echo ' - '.$cours["hed"].' heq TD ';
-        echo '           		
-            <a href="'.base_url().'index.php/sedepositionner/depositionnement/'.$cours['partie'].'/'.$cours['module'].'"class="link tooltip-link" data-toggle="tooltip" data-original-title="Se dépositionner de cette partie">
-                <button class="btn btn-danger btn-xs">
-                    <span class="glyphicon glyphicon-pushpin"></span>
-                </button>
-            </a>';
-        echo '</li>'; 
-	}
-
-
-	echo '			
-                                    </ul>                                
-                                </div>
-                                <div class="panel-footer">
-                                    Public : '.$cours["public"].'
+    if (isset($coursEnseignant) && !empty($coursEnseignant)){
+        foreach ($coursEnseignant as $cours) {
+            if ($mod == '') {            
+                $mod = $cours["module"];
+                echo '				        
+                    <div class="col-centered">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <div class="panel panel-primary">
+                                    <div class="panel panel-heading">
+                                        <h2 class="panel-title">'.$cours["libelle"].'</h2>
+                                    </div>
+                                    <div class="panel-body">
+                                        <ul class="list-group">
+                    ';
+            }
+            else if ($cours["module"] != $mod) {
+                $mod = $cours["module"];
+                echo '			
+                                        </ul>                                
+                                    </div>
+                                    <div class="panel-footer">
+                                        Public : '.$cours["public"].'
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>		
-        ';
+                    </div>				        
+                    <div class="col-centered">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <div class="panel panel-primary">
+                                    <div class="panel panel-heading">
+                                        <h2 class="panel-title">'.$cours["libelle"].'</h2>
+                                    </div>
+                                    <div class="panel-body">
+                                        <ul class="list-group">
+                    ';
+            }
+
+            echo' <li class="gras list-group-item  list-group-item-warning">';
+            echo $cours["partie"];
+            echo ' - '.$cours["hed"].' heq TD ';
+            echo '           		
+                <a href="'.base_url().'index.php/sedepositionner/depositionnement/'.$cours['partie'].'/'.$cours['module'].'"class="link tooltip-link" data-toggle="tooltip" data-original-title="Se dépositionner de cette partie">
+                    <button class="btn btn-danger btn-xs">
+                        <span class="glyphicon glyphicon-pushpin"></span>
+                    </button>
+                </a>';
+            echo '</li>'; 
+        }
+
+
+        echo '			
+                                        </ul>                                
+                                    </div>
+                                    <div class="panel-footer">
+                                        Public : '.$cours["public"].'
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>		
+            ';
+    }
 ?>
 
 	<head>
