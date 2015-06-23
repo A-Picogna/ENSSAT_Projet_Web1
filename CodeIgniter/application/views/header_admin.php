@@ -57,6 +57,11 @@
                                 <li><a href="<?php echo base_url();?>index.php/gestionModule"><span class="glyphicon glyphicon-book"></span> Gérer les modules</a></li> 
                             </ul>
                         </li>
+                        <?php echo '<li class ="navbar-text"><span class="glyphicon glyphicon-user"></span>
+                        Vous êtes '.$this->session->userdata('info_user')['prenom'].' '.$this->session->userdata('info_user')['nom'].', '.
+                        $this->session->userdata('info_user')['statut'].'
+                        </li>';
+                        ?>
                     </ul>      
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="<?php echo base_url();?>index.php/home/modifier_utilisateur/<?php echo $this->session->userdata('info_user')['login'];?>"><span class="glyphicon glyphicon-wrench"></span> Mon compte</a></li>
@@ -65,4 +70,4 @@
                 </div>
             </div>
         </nav>
-        <div class="container"  style="margin-top:50px;">
+        <div class="container">

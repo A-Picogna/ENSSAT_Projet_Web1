@@ -27,76 +27,7 @@
 <div class="row">
     <div class="">
         <h1 class="titre">Administration des utilisateurs</h1>
-        <?php echo validation_errors(); ?>
-
-        <!--Mon autre beau graphe -->
-
-        <script type="text/javascript" src="http://cdn.amcharts.com/lib/3/amcharts.js"></script>
-        <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
-
-        <!-- amCharts javascript code -->
-        <script type="text/javascript">
-            AmCharts.makeChart("chartdiv",
-                {
-                    "type": "serial",
-                    "categoryField": "category",
-                    "angle": 30,
-                    "depth3D": 30,
-                    "colors": [
-                        "#FF7F50"
-                    ],
-
-                    "startDuration": 1,
-                    "categoryAxis": {
-                        "gridPosition": "start"
-                    },
-                    "trendLines": [],
-                    "graphs": [
-                        {
-                            "balloonText": "[[title]] of [[category]]:[[value]]",
-                            "fillAlphas": 1,
-                            "id": "AmGraph-1",
-                            "title": "graph 1",
-                            "type": "column",
-                            "valueField": "column-2"
-                        }
-                    ],
-                    "guides": [],
-                    "valueAxes": [
-                        {
-                            "id": "ValueAxis-1",
-                            "title": "Nombre de statuts"
-                        }
-                    ],
-                    "allLabels": [],
-                    "balloon": {},
-                    /*"legend": {
-                        "useGraphSettings": true
-                    },*/
-                    "titles": [
-                        {
-                            "id": "Title-1",
-                            "size": 15,
-                            "text": "Nombre d'enseignants par statut"
-                        }
-                    ],
-                    "dataProvider": [
-                        
-                            <?php foreach ($statutETnb as $key ) { ?>
-                            {
-                                "category": "<?php echo $key['statut']; ?>",
-                                "column-2" : <?php echo $key['count(statut)']; ?>
-
-                            },
-                            <?php } ?>
-                    ]
-                }
-            );
-    </script>
-
-    <div id="chartdiv"  style="width: 800px; height: 300px; background-color: #FFFFFF;" ></div>
-
-
+        <?php echo validation_errors('<div class="alert alert-danger gras">', '</div>'); ?>
         <table id="table_id" class="table text-center table-bordered" >
             <thead>
                 <tr class="titre_tableau">

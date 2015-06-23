@@ -1,7 +1,7 @@
 <div class="row">
+    <h1 class="titre">Modifier le module</h1>
     <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-        <h1 class="text-center login-title">Modifier le module</h1>
-<?php echo validation_errors(); ?>
+<?php echo validation_errors('<div class="alert alert-danger gras">', '</div>'); ?>
 <?php
 
 echo form_open('gestionModule/modificationModule');
@@ -31,6 +31,7 @@ $options = array(
                 );
 $filtered_text = explode( "  ", str_replace(["commun", "et"], "", $module["public"]));
 echo form_label('Public', 'public');
+echo '</br>';
 echo form_multiselect('public[]', $options, 'class ="form-control chosen-select" ', 'id="multiselect_public_mod" data-placeholder="Filière(s) concernée(s)"');
 echo '</div>';
 echo '<div class="form-group">';
@@ -82,7 +83,6 @@ echo "<script type='text/javascript'>
 					$('#multiselect_public_mod')[0].sumo.selectItem(5);
 					break;
                 case 'TC' :
-					alert('oui');
 					$('#multiselect_public_mod')[0].sumo.selectItem(6);
 					break;
                 case 'Optro1' :

@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
-        <h1 class="text-center login-title">Modifier les paramètres du compte</h1>
+    <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <h1 class="titre">Modifier les paramètres du compte</h1>
 <?php
 
 $options_statut = array(
@@ -17,7 +17,7 @@ $options_admin = array(
 
 
         echo form_open('editUtilisateurVerification', 'data-toggle="validator"');
-        echo validation_errors();
+        echo validation_errors('<div class="alert alert-danger gras">', '</div>');
         echo '<div class="form-group">';
             echo form_label('Login', 'username');
             echo form_input('login', set_value('login', $info_user['login']), 'class="form-control" readonly');
@@ -64,10 +64,10 @@ $options_admin = array(
         echo '</div>';
 
         echo '<div class="form-group">';
-            echo form_submit('submit', 'Valider la saisie','class="btn btn-lg btn-success"');
+            echo form_submit('submit', 'Valider la saisie','class="btn btn-lg btn-success btn-block"');
         echo '</div>';         
         echo '<div class="form-group">';
-            echo form_reset('submit', 'reset','class="btn btn-lg btn-info"');
+            echo form_reset('submit', 'reset','class="btn btn-lg btn-info btn-block"');
         echo '</div>';
 
         echo form_close();  

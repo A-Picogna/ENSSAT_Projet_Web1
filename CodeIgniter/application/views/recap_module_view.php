@@ -1,5 +1,5 @@
 <script>$(document).ready( function () {$('#table_recap_cours').DataTable();} );</script>
-<h1 class="text-center login-title">Le module</h1>
+<h1 class="titre">Le module</h1>
 <table class='table table-striped'>
 	<tr>
 		<th>Identifiant</th>

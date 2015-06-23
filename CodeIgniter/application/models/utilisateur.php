@@ -20,6 +20,22 @@
             }
         }
         
+        function dejaPris($login){
+            $this -> db -> select('login');
+            $this -> db -> from('enseignant');
+            $this -> db -> where('login', $login);
+            $this -> db -> limit(1);
+
+            $query = $this -> db -> get();
+
+            if($query -> num_rows() == 1){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        
         function get_info_utilisateur($login){
             $this -> db -> select('login, pwd, nom, prenom, statut, administrateur, actif, statutaire');
             $this -> db -> from('enseignant');

@@ -28,16 +28,16 @@ class ajoutUtilisateurVerification extends CI_Controller {
         $this->load->library('form_validation');
         
         //On définie les règles des données du formulaire et on appelle la fonction verif_bdd avec un callback
-        $this->form_validation->set_rules('login', 'Login', 'trim|required|xss_clean|callback_verif_bdd');
-        $this->form_validation->set_rules('mdp', 'Mot de passe', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('Vmdp', 'Verification du mot de passe', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('login', 'Login', 'trim|required|xss_clean');
         $this->form_validation->set_rules('nom', 'Nom', 'trim|required|xss_clean');
         $this->form_validation->set_rules('prenom', 'Prenom', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('mdp', 'Mot de passe', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('Vmdp', 'Verification du mot de passe', 'trim|required|xss_clean|callback_verif_bdd');
         
         if($this->form_validation->run() == FALSE){
             $data['titre'] = "Service de gestion des cours pour les enseignants";
             $this->load->view('header', $data);        
-            $this->load->view('ajouter_utilisateur');           
+            $this->load->view('ajout_utilisateur');           
             $this->load->view('footer');
         }
         else{
@@ -57,19 +57,30 @@ class ajoutUtilisateurVerification extends CI_Controller {
         if ($admin != 1)
             $admin = 0;
         
-        if (strcmp($mdp, $Vmdp)){
-            $this->form_validation->set_message('verif_bdd', 'Les mots de passe ne sont pas identiques');
-            return false;
-        }
-        else{
-            $res = $this->utilisateur->inserer_utilisateur($login, $mdp, $nom, $prenom, $statut, $admin);
-            if($res){
-                return true;
-            }
-            else{
-                $this->form_validation->set_message('verif_bdd', 'Le login choisi est déjà utilisé');
+        if (!empty($prenom) && !empty($nom)){        
+            if (strcmp($mdp, $Vmdp)){
+                $this->form_validation->set_message('verif_bdd', 'Les mots de passe ne sont pas identiques');
                 return false;
             }
+            else{
+                if (!($this->utilisateur->dejaPris($login))){
+                    $res = $this->utilisateur->inserer_utilisateur($login, $mdp, $nom, $prenom, $statut, $admin);
+                    if($res){
+                        return true;
+                    }
+                    else{
+                        $this->form_validation->set_message('verif_bdd', 'Erreur inconnue');
+                        return false;
+                    }
+                }
+                else{
+                        $this->form_validation->set_message('verif_bdd', 'Le login choisi est déjà utilisé');
+                        return false;
+                }
+            }
+        }
+        else{
+            return false;
         }
         
         

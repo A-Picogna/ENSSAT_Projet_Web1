@@ -6,7 +6,7 @@
                 <h2 class="panel-title">Ajouter un module</h2>
             </div>
             <div class="panel-body">
-<?php echo validation_errors(); ?>
+<?php echo validation_errors('<div class="alert alert-danger gras">', '</div>'); ?>
 <?php
 
 echo form_open('ajoutModule/ajoutPremierCours');
@@ -35,7 +35,8 @@ $options = array(
                   'Elec3'  => 'Elec3'
                 );
 echo form_label('Public', 'public');
-echo form_multiselect('public[]', $options, 'class ="form-control" ', 'id="multiselect_public" data-placeholder="Filière(s) concernée(s)"');
+echo "</br>";
+echo form_multiselect('public[]', $options, '', 'class ="form-control" id="multiselect_public" data-placeholder="Filière(s) concernée(s)"');
 echo '</div>';
 echo '<div class="form-group">';
 echo form_label('Semestre', 'semestre');
@@ -47,7 +48,7 @@ $options = array(
                   'S5'  => 'S5',
                   'S6'    => 'S6'
                 );
-echo form_dropdown('semestre', $options, 'class ="form-control" ');
+echo form_dropdown('semestre', $options, '','class="form-control"');
 echo '</div>';
 echo '<div class="form-group">';
 echo form_label('Identifiant du responsable', 'idResponsable');
@@ -92,7 +93,6 @@ if($js_array != null) {
 						$('#multiselect_public')[0].sumo.selectItem(5);
 						break;
 		            case 'TC' :
-						alert('oui');
 						$('#multiselect_public')[0].sumo.selectItem(6);
 						break;
 		            case 'Optro1' :

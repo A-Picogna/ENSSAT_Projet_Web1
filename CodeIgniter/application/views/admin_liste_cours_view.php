@@ -39,7 +39,7 @@
 </div>
 <div class="row">
     <div class="">
-        <h1 class="text-center login-title">Liste des cours</h1>
+        <h1 class="titre">Liste des cours</h1>
         <table id="table_gestion_cours" class="table table-striped text-center table-bordered" >
             <thead>
                 <tr class="titre_tableau">

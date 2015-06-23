@@ -47,9 +47,21 @@ class affiche_module_model extends CI_Model
 		}
 	}
 
-	public function getResponsableANDFiliere($module)
+	public function getResponsable($module)
 	{
-		$query = $this->db->query('SELECT nom, prenom, public from enseignant, module where login=responsable and ident="'. $module .'"');
+		$query = $this->db->query('SELECT nom, prenom from enseignant, module where login=responsable and ident="'. $module .'"');
+		if ($query->num_rows() > 0)
+		{
+			return $query->result_array();
+
+		}else{
+			return NULL;
+		}
+	}
+    
+    public function getFiliere($module)
+	{
+		$query = $this->db->query('SELECT public from module where ident="'. $module .'"');
 		if ($query->num_rows() > 0)
 		{
 			return $query->result_array();

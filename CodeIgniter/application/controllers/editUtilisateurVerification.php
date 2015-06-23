@@ -22,13 +22,13 @@ class editUtilisateurVerification extends CI_Controller {
         $this->load->library('form_validation');
         
         //On définie les règles des données du formulaire et on appelle la fonction verif_bdd avec un callback
-        $this->form_validation->set_rules('login', 'Login', 'trim|callback_update_bdd');
-        $this->form_validation->set_rules('mdp', 'Mot de passe', 'trim|xss_clean');
-        $this->form_validation->set_rules('Vmdp', 'Verification du mot de passe', 'trim|xss_clean');
+        $this->form_validation->set_rules('login', 'Login', 'trim');
         $this->form_validation->set_rules('decharge', 'Volume horaire', 'trim|xss_clean');
         $this->form_validation->set_rules('nom', 'Nom', 'trim|required|xss_clean');
         $this->form_validation->set_rules('prenom', 'Prenom', 'trim|required|xss_clean');
         $this->form_validation->set_rules('statutaire', 'Statutaire', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('mdp', 'Mot de passe', 'trim|xss_clean');
+        $this->form_validation->set_rules('Vmdp', 'Verification du mot de passe', 'trim|xss_clean|callback_update_bdd');
         
         if($this->form_validation->run() == FALSE){
             $data['titre'] = "Modifier informations";

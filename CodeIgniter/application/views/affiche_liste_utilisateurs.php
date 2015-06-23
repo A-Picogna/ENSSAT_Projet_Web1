@@ -12,7 +12,7 @@
 <!-- Mon beauuuuu Graphe -->
 
         <!-- amCharts javascript sources -->
-        <script type="text/javascript" src="http://cdn.amcharts.com/lib/3/amcharts.js"></script>
+        <script type="text/javascript" src=<?php echo base_url()."assets/js/amcharts.js"; ?>></script>
         <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
 
         <!-- amCharts javascript code -->
@@ -74,11 +74,8 @@
                 }
             );
         </script>
-
-        <div id="chartdiv2" style="width: 1000px; height: 400px; background-color: #FFFFFF;" ></div>
-
-
-
+        
+        <div id="chartdiv2"></div>
 
 
 

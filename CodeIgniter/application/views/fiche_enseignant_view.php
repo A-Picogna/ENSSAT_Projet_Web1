@@ -1,50 +1,94 @@
 <script>
     $(function(){$(".tooltip-link").tooltip();});
 </script>
-<h1 class="titre">Fiche enseignant</h1>
-<?php echo "<p> ".$infosEnseignant[0]['nom']." ".$infosEnseignant[0]['prenom']." </br>"; ?>
-<?php echo "Statut : ".$infosEnseignant[0]['statut']." </p>"; ?>
-
-<?php echo "" 
+<h1 class="titre">Votre fiche enseignant</h1>
+<div class="progress">
+<?php
+	if ($totalHeuresEnseignant == null)
+		$totalHeuresEnseignant = 0;
+    $max = $info_user['statutaire']-$decharge;
+    $progress = round(($totalHeuresEnseignant/$max) * 100);
+    echo '
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="'.$totalHeuresEnseignant.'" aria-valuemin="0" aria-valuemax="'.$max.'" style="width: '.$progress.'%">
+    '.$totalHeuresEnseignant.' h eq. TD sur '.$max.' heures totales ('.$progress.'%)';
 ?>
+    </div>
+</div>
 
+<div class="row row-centered">
+    
 <?php 
+
+
+
 	$mod = '';
 	foreach ($coursEnseignant as $cours) {
-		if ($mod == '') {
+		if ($mod == '') {            
 			$mod = $cours["module"];
-			echo "
-				<table class='table table-striped'><tr><th colspan='3'>".$cours["libelle"]." - ".$cours["public"]." </th></tr>
-				";
+			echo '				        
+                <div class="col-centered">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <div class="panel panel-primary">
+                                <div class="panel panel-heading">
+                                    <h2 class="panel-title">'.$cours["libelle"].'</h2>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group">
+				';
 		}
 		else if ($cours["module"] != $mod) {
 			$mod = $cours["module"];
-			echo "
-				</table><table class='table table-striped'><tr><th colspan='3'>".$cours["libelle"]." - ".$cours["public"]."</th></tr>
-				";
-		}
-		echo "  <tr>
-                    <td>
-                        ".$cours["partie"]."</td><td>".$cours["hed"]." h eq. TD
-                    </td>
-                    <td>
-                        <div align='right'>            		
-                            <a href='".base_url()."index.php/sedepositionner/depositionnement/".$cours['partie']."/".$cours['module']."'class=\"link tooltip-link\" data-toggle=\"tooltip\" data-original-title=\"Se dépositionner de cette partie\">
-                                <button class='btn btn-danger btn-xs'>
-                                    <span class='glyphicon glyphicon-pushpin'></span>
-                                </button>
-                            </a>
+			echo '			
+                                    </ul>                                
+                                </div>
+                                <div class="panel-footer">
+                                    Public : '.$cours["public"].'
+                                </div>
+                            </div>
                         </div>
-				    </td>
-                </tr>
-			";
+                    </div>
+                </div>				        
+                <div class="col-centered">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <div class="panel panel-primary">
+                                <div class="panel panel-heading">
+                                    <h2 class="panel-title">'.$cours["libelle"].'</h2>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group">
+				';
+		}
+            
+        echo' <li class="gras list-group-item  list-group-item-warning">';
+        echo $cours["partie"];
+        echo ' - '.$cours["hed"].' heq TD ';
+        echo '           		
+            <a href="'.base_url().'index.php/sedepositionner/depositionnement/'.$cours['partie'].'/'.$cours['module'].'"class="link tooltip-link" data-toggle="tooltip" data-original-title="Se dépositionner de cette partie">
+                <button class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-pushpin"></span>
+                </button>
+            </a>';
+        echo '</li>'; 
 	}
 
-	echo "</table><div><span class='badge badge-info'><h4>";
 
-	$total = ($heuresCMEnseignant[0]['sum(hed)'] + $heuresTDEnseignant[0]['sum(hed)'] + $heuresTPEnseignant[0]['sum(hed)'] + $heuresProjetEnseignant[0]['sum(hed)']);
-	if ($total == null)
-		$total = 0;
-	echo "Total : ".$total." h eq. TD</tr></td></h4></span></div>";
-
+	echo '			
+                                    </ul>                                
+                                </div>
+                                <div class="panel-footer">
+                                    Public : '.$cours["public"].'
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>		
+        ';
 ?>
+
+	<head>
+		
+</div>
+
+
