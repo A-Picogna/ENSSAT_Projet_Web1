@@ -23,9 +23,7 @@ class traitement_choix_partie extends CI_Controller {
 	public function index()
 	{
 		$module = $this->input->post('ident');
-		print_r($module);
 		$login = $this->session->userdata('info_user')['login'];
-		print_r($login);
 		$this->traitement($module, $login);
 		
 	}
