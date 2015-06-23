@@ -14,9 +14,10 @@
         <link rel="stylesheet" href=<?php echo base_url()."assets/css/bootstrap.min.css"; ?> type="text/css">
 		<script type="text/javascript" src=<?php echo base_url()."assets/js/bootstrap.min.js"; ?>></script>
         
-        <!-- Chosen -->
-		<link rel="stylesheet" href=<?php echo base_url()."assets/css/chosen.css"; ?> type="text/css"/>
-		<script type="text/javascript" src=<?php echo base_url()."assets/js/chosen.jquery.js"; ?>></script>
+        <!-- AMCHARTS -->
+        <script type="text/javascript" src=<?php echo base_url()."assets/js/amcharts.js"; ?>></script>
+		<script type="text/javascript" src=<?php echo base_url()."assets/js/pie.js"; ?>></script>
+        <script type="text/javascript" src=<?php echo base_url()."assets/js/serial.js"; ?>></script>
         
         <!-- DataTables -->
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.css">

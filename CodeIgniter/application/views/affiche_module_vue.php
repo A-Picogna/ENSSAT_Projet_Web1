@@ -23,9 +23,6 @@
     <div class="panel-body">
         <meta name="description" content="chart created using amCharts live editor" />
 
-        <!-- amCharts javascript sources -->
-        <script type="text/javascript" src=<?php echo base_url()."assets/js/amcharts.js"; ?>></script>
-        <script type="text/javascript" src=<?php echo base_url()."assets/js/pie.js"; ?>></script>
 
         <!-- amCharts javascript code -->
         <script type="text/javascript">

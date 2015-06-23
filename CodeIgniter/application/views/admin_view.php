@@ -4,9 +4,6 @@
 
 <!--Mon autre beau graphe -->
 
-        <script type="text/javascript" src=<?php echo base_url()."assets/js/amcharts.js"; ?>></script>
-        <script type="text/javascript" src=<?php echo base_url()."assets/js/serial.js"; ?>></script>
-
         <!-- amcharts javascript code -->
         <script type="text/javascript">
             AmCharts.makeChart("chartdiv",
