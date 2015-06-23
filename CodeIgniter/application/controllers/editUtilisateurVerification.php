@@ -25,10 +25,10 @@ class editUtilisateurVerification extends CI_Controller {
         $this->form_validation->set_rules('login', 'Login', 'trim');
         $this->form_validation->set_rules('decharge', 'Volume horaire', 'trim|xss_clean');
         $this->form_validation->set_rules('nom', 'Nom', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('prenom', 'Prenom', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('prenom', 'Prénom', 'trim|required|xss_clean');
         $this->form_validation->set_rules('statutaire', 'Statutaire', 'trim|required|xss_clean');
         $this->form_validation->set_rules('mdp', 'Mot de passe', 'trim|xss_clean');
-        $this->form_validation->set_rules('Vmdp', 'Verification du mot de passe', 'trim|xss_clean|callback_update_bdd');
+        $this->form_validation->set_rules('Vmdp', 'Vérification du mot de passe', 'trim|xss_clean|callback_update_bdd');
         
         if($this->form_validation->run() == FALSE){
             $data['titre'] = "Modifier informations";
@@ -62,7 +62,7 @@ class editUtilisateurVerification extends CI_Controller {
         }
         else{
             if ($this->session->userdata('info_user')['administrateur'] && !$admin && strcmp($login, $this->session->userdata('info_user')['login']) == 0){                
-                $this->form_validation->set_message('update_bdd', 'Vous ne pouvez pas vous revoquer vos propres droits administrateur');
+                $this->form_validation->set_message('update_bdd', 'Vous ne pouvez pas révoquer vos propres droits administrateur');
                 return false;
             }
             else{

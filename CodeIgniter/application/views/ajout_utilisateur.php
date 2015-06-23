@@ -20,14 +20,14 @@ $options_statut = array(
         echo validation_errors('<div class="alert alert-danger gras">', '</div>');
             echo '<div class="form-group">';
                 echo form_label('Login :', 'username');
-                echo form_input('login', set_value('login'), 'class="form-control" placeholder="Saisir votre login"');
+                echo form_input('login', set_value('login'), 'class="form-control" placeholder="Saisir le login"');
             echo '</div>';
             echo '<div class="form-group">';
                 echo form_label('Mot de passe', 'mdp');
                 echo form_password('mdp', '', 'class="form-control" placeholder="Saisir le mot de passe"');
             echo '</div>';
             echo '<div class="form-group">';
-                echo form_label('Verification du mot de passe :', 'Vmdp');
+                echo form_label('Vérification du mot de passe :', 'Vmdp');
                 echo form_password('Vmdp', '', 'class="form-control" placeholder="Saisir de nouveau le mot de passe"');
             echo '</div>';
             echo '<div class="form-group">';
@@ -35,8 +35,8 @@ $options_statut = array(
                 echo form_input('nom', set_value('nom'), 'class="form-control" placeholder="Saisir le nom"');
             echo '</div>';
             echo '<div class="form-group">';
-                echo form_label('Prenom :', 'prenom');
-                echo form_input('prenom', set_value('prenom'), 'class="form-control" placeholder="Saisir le prenom"');
+                echo form_label('Prénom :', 'prenom');
+                echo form_input('prenom', set_value('prenom'), 'class="form-control" placeholder="Saisir le prénom"');
             echo '</div>';   
             echo '<div class="form-group">';
                 echo form_label('Statut :', 'statut');

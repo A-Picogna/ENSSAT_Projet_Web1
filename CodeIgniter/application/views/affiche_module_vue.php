@@ -110,7 +110,7 @@
                 }
                 else
                 {
-                    echo "Il n'existe pas de partionnement de cours";
+                    echo "Il n'existe pas de partionnement pour ce module";
                 }
             ?>
             </div>

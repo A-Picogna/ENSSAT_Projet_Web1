@@ -30,15 +30,15 @@ $options_admin = array(
             echo form_input('nom', $info_user['nom'], 'class="form-control"');
         echo '</div>';
         echo '<div class="form-group">';
-            echo form_label('Prenom', 'prenom');
+            echo form_label('Prénom', 'prenom');
             echo form_input('prenom', $info_user['prenom'], 'class="form-control"');
         echo '</div>';   
         echo '<div class="form-group">';
-            echo form_label('Nombre d\'heure statutaire', 'statut');
+            echo form_label('Nombre d\'heures statutaires', 'statut');
             echo form_input('statutaire', $info_user['statutaire'], 'class="form-control"');
         echo '</div>';    
         echo '<div class="form-group">';
-            echo form_label('Volume horaire de decharge', 'decharge');
+            echo form_label('Volume horaire de décharge', 'decharge');
             echo form_input('decharge', $decharge, 'class="form-control"');
         echo '</div>';      
         echo '<div class="form-group">';
@@ -59,7 +59,7 @@ $options_admin = array(
             echo form_password('mdp', '', 'class="form-control" placeholder="Saisir le nouveau mot de passe"');
         echo '</div>';
         echo '<div class="form-group">';
-            echo form_label('Verification du mot de passe', 'Vmdp');
+            echo form_label('Vérification du mot de passe', 'Vmdp');
             echo form_password('Vmdp', '', 'class="form-control" placeholder="Confirmer le nouveau mot de passe"');
         echo '</div>';
 

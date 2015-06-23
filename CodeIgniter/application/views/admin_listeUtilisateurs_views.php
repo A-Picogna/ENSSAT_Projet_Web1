@@ -32,11 +32,11 @@
             <thead>
                 <tr class="titre_tableau">
                     <th>Login</th>
-                    <th>Prenom</th>
+                    <th>Prénom</th>
                     <th>Nom</th>
                     <th>Statut</th>
                     <th>Statutaire</th>
-                    <th>Decharge</th>
+                    <th>Décharge</th>
                     <th>Administrateur</th>
                     <th>Etat</th>
                     <th>Edit</th>
@@ -94,7 +94,7 @@
                     class="link tooltip-link" 
                     data-toggle="tooltip"
                     data-original-title="Supprimer">
-                <button class="btn btn-danger btn-xs" onclick="return confirm(\'Attention ! Etes-vous sûr de vouloir supprimer cet utilisateur ? \')">
+                <button class="btn btn-danger btn-xs" onclick="return confirm(\'Attention ! Etes-vous sûr de vouloir supprimer cet utilisateur ?\')">
                 <span class="glyphicon glyphicon-trash" ></span>
                 </button>
                 </a>

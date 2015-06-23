@@ -44,7 +44,7 @@ $(document).ready( function (){
 					"titles": [],
 					"dataProvider": [
 						{
-							"category": "Somme des heures de cours pris pas l'enseignant",
+							"category": "Somme des heures de cours prises par l'enseignant",
 							"column-1": <?php 
 							if ($heureslogin[0]['sum(hed)'] != null ){
 								echo($heureslogin[0]['sum(hed)']);}
@@ -55,7 +55,7 @@ $(document).ready( function (){
 							?>
 						},
 						{
-							"category": "Somme des heures restantes à l'enseignant",
+							"category": "Somme des heures restantes de l'enseignant",
 							"column-1": 
 							<?php 
 

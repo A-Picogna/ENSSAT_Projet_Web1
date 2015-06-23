@@ -57,7 +57,7 @@
         
         function supprimer_utilisateur($login){
             if (strcmp($login,$this->session->userdata('info_user')['login']) == 0){
-                $this->session->set_flashdata('type_erreur', 'Vous ne pouvez pas vous supprimer vous même !');
+                $this->session->set_flashdata('type_erreur', 'Vous ne pouvez pas vous supprimer vous-même !');
                 redirect('erreur', 'refresh');
             }
             else{
@@ -73,7 +73,7 @@
         
         function desactiver_utilisateur($login){
             if (strcmp($login,$this->session->userdata('info_user')['login']) == 0){
-                $this->session->set_flashdata('type_erreur', 'Vous ne pouvez pas vous désactiver vous même !');
+                $this->session->set_flashdata('type_erreur', 'Vous ne pouvez pas vous désactiver vous-même !');
                 redirect('erreur', 'refresh');
             }
             else{

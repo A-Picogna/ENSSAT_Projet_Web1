@@ -30,9 +30,9 @@ class ajoutUtilisateurVerification extends CI_Controller {
         //On définie les règles des données du formulaire et on appelle la fonction verif_bdd avec un callback
         $this->form_validation->set_rules('login', 'Login', 'trim|required|xss_clean');
         $this->form_validation->set_rules('nom', 'Nom', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('prenom', 'Prenom', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('prenom', 'Prénom', 'trim|required|xss_clean');
         $this->form_validation->set_rules('mdp', 'Mot de passe', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('Vmdp', 'Verification du mot de passe', 'trim|required|xss_clean|callback_verif_bdd');
+        $this->form_validation->set_rules('Vmdp', 'Vérification du mot de passe', 'trim|required|xss_clean|callback_verif_bdd');
         
         if($this->form_validation->run() == FALSE){
             $data['titre'] = "Service de gestion des cours pour les enseignants";

@@ -51,9 +51,9 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href='#' class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Gerer...<span class="caret"></span></a>
+                            <a href='#' class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Gérer...<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url();?>index.php/administration/listeUtilisateurs"><span class="glyphicon glyphicon-list-alt"></span> Gerer les utilisateurs</a></li>
+                                <li><a href="<?php echo base_url();?>index.php/administration/listeUtilisateurs"><span class="glyphicon glyphicon-list-alt"></span> Gérer les utilisateurs</a></li>
                                 <li><a href="<?php echo base_url();?>index.php/gestionModule"><span class="glyphicon glyphicon-book"></span> Gérer les modules</a></li> 
                             </ul>
                         </li>

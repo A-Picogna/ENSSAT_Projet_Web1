@@ -186,7 +186,7 @@ class traitement_choix_partie extends CI_Controller {
 		else if ($totalHeuresEnseignant > $totalHeuresPermises)
 		{
 	
-            $data['message_erreur'] = "Vous ne pouvez pas vous vous positionnez car vous avez dépassez le nombre d'heures permis";
+            $data['message_erreur'] = "Vous ne pouvez pas vous positionnez car vous avez dépassé le nombre d'heures permis !";
 			$this->load->view('affiche_erreur', $data);
 			
 		}

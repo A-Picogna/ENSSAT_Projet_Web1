@@ -10,7 +10,7 @@ class login extends CI_Controller {
         
         if (!isset($this->session->userdata('info_user')['login'])) {
             //On charge le titre dans la liste $data et on appelle les vues qui vont construire notre page de login
-            $data['titre'] = "Login au service de gestion des cours";
+            $data['titre'] = "Connexion au service de gestion des cours";
             $this->load->view('header_login', $data);        
             $this->load->view('login_view');           
             $this->load->view('footer');
