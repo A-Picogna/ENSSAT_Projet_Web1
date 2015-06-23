@@ -20,7 +20,7 @@ class ajoutModule extends CI_Controller {
                 }            
             }
         }
-		$this->load->model('ajout_module_model');
+		$this->load->model('gestion_module_model');
 	}
 
 	public function index()
@@ -132,7 +132,7 @@ class ajoutModule extends CI_Controller {
 	public function creationModule() {
 		$data["titre"] = "Le module";
         $data["message_validation"] = $this->session->userdata('module')["libelle"]." à bien été créé.";
-		$res=$this->ajout_module_model->creer_module();
+		$res=$this->gestion_module_model->creer_module();
 		if ($res) {
 			$this->load->view('header_admin', $data);
 			$this->load->view('affiche_message_confirmation', $data);
@@ -149,7 +149,7 @@ class ajoutModule extends CI_Controller {
 		if ($str=='')
 			return true;
 		else {
-			$res=$this->ajout_module_model->verif_existence_enseignant($str);
+			$res=$this->gestion_module_model->verif_existence_enseignant($str);
 			if (empty($res)) {
 				$this->form_validation->set_message('enseignant_check', 'Cet enseignant n\'est pas répertorié.');
 				return false;
@@ -166,7 +166,7 @@ class ajoutModule extends CI_Controller {
 				return false;
 		}
 		else {
-			$res=$this->ajout_module_model->verif_existence_ident($str);
+			$res=$this->gestion_module_model->verif_existence_ident($str);
 			if (!empty($res)) {
 				$this->form_validation->set_message('identifiant_module_check', 'Cet identifiant est déjà utilisé. Vérifiez que ce module n\'existe pas déjà.');
 				return false;
