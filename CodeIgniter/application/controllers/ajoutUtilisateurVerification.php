@@ -41,7 +41,8 @@ class ajoutUtilisateurVerification extends CI_Controller {
             $this->load->view('footer');
         }
         else{
-            redirect('home', 'refresh');
+            $this->session->set_flashdata('message', 'Création de l\'utilisateur réussie');
+            redirect('home/message_confirmation', 'refresh');
         }
     }
     

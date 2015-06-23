@@ -30,7 +30,7 @@
 			echo form_input('idEnseignant', set_value('idEnseignant'));
 			echo '</div>';
 			echo '<div class="form-group">';
-			echo form_submit('valider', 'Valider');
+			echo form_submit('valider', 'Valider', 'class="btn btn-lg btn-primary"');
 			echo '</div>';
 			echo form_close();
 ?>

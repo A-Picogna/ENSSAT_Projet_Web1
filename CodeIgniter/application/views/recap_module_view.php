@@ -1,7 +1,6 @@
-<script>$(document).ready( function () {$('#table_recap_cours').DataTable();} );</script>
 <h1 class="titre">Le module</h1>
-<table class='table table-striped'>
-	<tr>
+<table class='table text-center table-bordered'>
+	<tr class="titre_tableau">
 		<th>Identifiant</th>
 		<th>Libellé</th>
 		<th>Public</th>
@@ -19,9 +18,9 @@
 
 <?php 
 if ($this->session->userdata('moduleCours') != null): ?>
-<table id="table_recap_cours" class="table table-striped text-center table-bordered" >
+<table id="table_recap_cours" class="table text-center table-bordered" >
 	<thead>
-		<tr>
+		<tr class="titre_tableau">
 			<th>Partie</th>
 			<th>Type</th>
 			<th>Hed</th>

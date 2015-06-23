@@ -93,7 +93,12 @@
             } 
         }
 
-        public function afficheEnseignant() {
+        public function message_confirmation(){
+            $data['titre'] = "Erreur";
+            $data['message_validation'] = $this->session->flashdata('message');            
+            $this->load->view('header', $data);
+			$this->load->view('affiche_message_confirmation', $data);
+            $this->load->view('footer');
         }
 
         public function enseignant() {
