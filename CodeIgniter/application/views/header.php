@@ -40,7 +40,7 @@
                     <a class="navbar-brand" href="<?php echo base_url();?>index.php/home"> <span class="glyphicon glyphicon-home"></span> Accueil</a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
+                    <ul id="navbar_content_left" class="nav navbar-nav">
                         <li><a href="<?php echo base_url();?>index.php/listeModules"><span class="glyphicon glyphicon-list"></span> Modules</a></li>
                         <li><a href="<?php echo base_url();?>index.php/home/listeUtilisateurs"><span class="glyphicon glyphicon-list-alt"></span> Utilisateurs</a></li>
                         <?php echo '<li class ="navbar-text"><span class="glyphicon glyphicon-user"></span>

@@ -1,7 +1,13 @@
+<script>
+$(document).ready( function (){
+    $("#navbar_content_left").append('<li><a></a></li>');
+});
+
+</script>
+
 <!DOCTYPE html>
 <html>
-	<head>
-		
+
 
 <?php $resteheures = $info_user['statutaire']-$decharge-$heureslogin[0]['sum(hed)'] ?>
 
@@ -77,3 +83,29 @@
 	</body>
 </html>
 
+<button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal">Export CSV</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h1 class="modal-title titre">Choisir un export CSV</h1>
+            </div>
+            <div class="modal-body">
+<?php
+echo'
+    <a href="'.base_url().'index.php/home/exportCSV"class="link tooltip-link" data-toggle="tooltip" data-original-title="CSV">
+        <button class="btn btn-danger btn-lg">
+            <span class="glyphicon glyphicon-arrow"></span>
+            Liste Enseignants
+        </button>
+    </a>';
+?>
+            </div>
+        </div>
+    </div>
+</div>

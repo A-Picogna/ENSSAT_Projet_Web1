@@ -14,8 +14,13 @@
 ?>
     </div>
 </div>
+
 <div class="row row-centered">
+    
 <?php 
+
+
+
 	$mod = '';
 	foreach ($coursEnseignant as $cours) {
 		if ($mod == '') {            
@@ -82,7 +87,8 @@
         ';
 ?>
 
-
+	<head>
+		
 </div>
 
 
