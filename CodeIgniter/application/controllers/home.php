@@ -112,11 +112,12 @@
             $this->load->view('fiche_enseignant_view', $data);
         }
         
-        public function exportCSV(){
+        public function exportCSV($choix){
             $this->load->dbutil();
             $this->load->helper('file');
             $this->load->helper('download');
-            $query = $this->db->query("SELECT * FROM enseignant");
+            $this->load->model('csv_export');
+            $query = $this->csv_export->get_data($choix);
             $delimiter = ",";
             $newline = "\r\n";
             $data = $this->dbutil->csv_from_result($query, $delimiter, $newline);
