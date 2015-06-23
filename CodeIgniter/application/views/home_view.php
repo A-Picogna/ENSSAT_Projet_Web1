@@ -5,9 +5,6 @@ $(document).ready( function (){
 
 </script>
 
-<!DOCTYPE html>
-<html>
-
 
 <?php $resteheures = $info_user['statutaire']-$decharge-$heureslogin[0]['sum(hed)'] ?>
 
@@ -76,12 +73,10 @@ $(document).ready( function (){
 			);
 		</script>
 
-	</head>
-	<body>
-		<div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
+<div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
 	
-	</body>
-</html>
+
+
 
 <button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal">Export CSV</button>
 
