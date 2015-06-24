@@ -50,6 +50,7 @@ class sedepositionner extends CI_Controller {
 		$this->load->view('header', $data);
 		$this->load->view('affiche_message_confirmation', $data);
 		$this->load->view('footer', $data);
+        header("Refresh:2;url=".base_url()."index.php/home");
 	}
 
 }

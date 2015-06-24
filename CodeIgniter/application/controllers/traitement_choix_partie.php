@@ -42,7 +42,11 @@ class traitement_choix_partie extends CI_Controller {
 	
 	public function traitement($module,$login)
 	{
+<<<<<<< HEAD
 		$data['titre']='Positionnement sur les cours';
+=======
+		$data['titre']='';
+>>>>>>> d33fb2a7cd719672706b411ea259995f5d52571d
 		$module = urldecode($module);
 		$login = urldecode($login);
 		$module = $this->input->post('ident');
@@ -191,6 +195,7 @@ class traitement_choix_partie extends CI_Controller {
 
 			$data['message_validation'] = "Félicitation ! Votre choix a été pris en compte !";
 			$this->load->view('affiche_message_confirmation', $data);
+            header("Refresh:2;url=".base_url()."index.php/home");
 		
 		
 
@@ -200,6 +205,7 @@ class traitement_choix_partie extends CI_Controller {
 	
             $data['message_erreur'] = "Vous ne pouvez pas vous positionnez car vous avez dépassé le nombre d'heures permis !";
 			$this->load->view('affiche_erreur', $data);
+            header("Refresh:2;url=".base_url()."index.php/home");
 			
 		}
 
