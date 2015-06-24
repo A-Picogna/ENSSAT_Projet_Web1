@@ -1,5 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+	/*
+	*	Constructeur du contrôleur home
+	* 	On vérifie que l'utilisateur est bien connecté.
+	*	On vérifie que l'utilisateur est bien actif.
+	*	Enfin, on charge le modèle.
+	*/
+
 class afficheModule extends CI_Controller {
 
 	public function __construct()
@@ -19,10 +26,9 @@ class afficheModule extends CI_Controller {
 		$this->load->model('affiche_module_model');
 	}
 
-	public function index()
-	{
-        
-	}
+	/**
+	*	Fonction qui affiche la fiche associé a chaque module
+	**/
 	
 	public function home($module)
 	{

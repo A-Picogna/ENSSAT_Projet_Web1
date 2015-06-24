@@ -2,6 +2,13 @@
 
 class traitement_choix_partie extends CI_Controller {
 
+	/*
+	*	Constructeur du contrôleur traitement
+	* 	On vérifie que l'utilisateur est bien connecté.
+	*	On vérifie que l'utilisateur est bien actif.
+	*	Enfin, on charge le modèle.
+	*/
+
 	public function __construct(){
             parent::__construct();
             session_start();
@@ -27,6 +34,11 @@ class traitement_choix_partie extends CI_Controller {
 		$this->traitement($module, $login);
 		
 	}
+
+	/**
+	*	Fonction qui permet traiter le choix de l'utilisateur pour ses parties
+	*	Décharge gérée lors de la prise en compte du choix de l'utilisateur
+	**/
 	
 	public function traitement($module,$login)
 	{

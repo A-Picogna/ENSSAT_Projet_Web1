@@ -1,6 +1,15 @@
 <?php
 
+
+
 class choisirCours extends CI_Controller {
+
+	/*
+	*	Constructeur du contrôleur positionnement
+	* 	On vérifie que l'utilisateur est bien connecté.
+	*	On vérifie que l'utilisateur est bien actif.
+	*	Enfin, on charge le modèle.
+	*/
 
 	public function __construct(){
         parent::__construct();
@@ -23,6 +32,10 @@ class choisirCours extends CI_Controller {
 	{
 		redirect('home','refresh');
 	}
+
+	/**
+	*	Fonction qui permet de se positionner sur un cours
+	**/
 	
 	public function positionnement($module)
 	{

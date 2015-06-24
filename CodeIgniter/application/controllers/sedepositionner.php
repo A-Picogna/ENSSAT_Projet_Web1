@@ -2,6 +2,13 @@
 
 class sedepositionner extends CI_Controller {
 
+	/*
+	*	Constructeur du contrôleur depositionnement
+	* 	On vérifie que l'utilisateur est bien connecté.
+	*	On vérifie que l'utilisateur est bien actif.
+	*	Enfin, on charge le modèle.
+	*/
+
 	public function __construct(){
             parent::__construct();
             session_start();
@@ -24,6 +31,9 @@ class sedepositionner extends CI_Controller {
 		redirect('home','refresh');
 	}
 
+	/**
+	*	Fonction qui permet de se depositionner d'une partie d'un module
+	**/
 
 	public function depositionnement($partie, $module)
 	{
