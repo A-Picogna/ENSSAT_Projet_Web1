@@ -28,7 +28,7 @@
 		echo form_input('idEnseignant', $cours["enseignant"], 'class="form-control"');
 		echo '</div>';
 		echo '<div class="form-group">';
-		echo form_submit('valider', 'Valider', 'class="btn btn-lg btn-primary');
+		echo form_submit('valider', 'Valider', 'class="btn btn-lg btn-primary"');
 		echo '</div>';
 		echo form_close();
 ?>
