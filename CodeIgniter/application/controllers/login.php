@@ -6,6 +6,10 @@ class login extends CI_Controller {
         parent::__construct();
     }
     
+    /*
+    * charge la vue de presentation du login si et seulement si l'utilisateur n'est pas
+    * deja connecte, sinon on le renvoi sur le home
+    */
 	public function index(){
         
         if (!isset($this->session->userdata('info_user')['login'])) {

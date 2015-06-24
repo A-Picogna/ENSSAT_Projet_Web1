@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
 class editUtilisateurVerification extends CI_Controller {
- 
+
     function __construct(){
         parent::__construct();
         session_start();
@@ -43,6 +43,12 @@ class editUtilisateurVerification extends CI_Controller {
         }
     }
     
+    /*
+    * Vérifie les donnée passé pour modification
+    * vérifice la concordance des mot de passes
+    * interdit l'auto revocation des droits
+    * interdit l'auto suppression
+    */
     function update_bdd(){
         $login = $this->input->post('login');
         $mdp = $this->input->post('mdp');

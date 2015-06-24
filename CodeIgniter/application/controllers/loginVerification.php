@@ -1,7 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
 class loginVerification extends CI_Controller {
- 
+    /*
+    * charge les modeles et interdit l'accès aux non-droits
+    */
     function __construct(){
         parent::__construct();
         if (isset($this->session->userdata('info_user')['login'])){
@@ -12,7 +14,7 @@ class loginVerification extends CI_Controller {
             $this->load->model('utilisateur','',TRUE);
         }
     }
-
+    // verification du formulaire
     function index(){
         $this->load->library('form_validation');
         
@@ -20,7 +22,7 @@ class loginVerification extends CI_Controller {
         $this->form_validation->set_rules('login', 'Login', 'trim|required|xss_clean');
         $this->form_validation->set_rules('mdp', 'Password', 'trim|required|xss_clean|callback_verif_bdd');
 
-        
+        // si erreur dans le formulaire, on renvoi sur le login sinon on le conduit à l'accueil
         if($this->form_validation->run() == FALSE){
             $data['titre'] = "Service de gestion des cours pour les enseignants";
             $this->load->view('header_login', $data);        
@@ -32,6 +34,12 @@ class loginVerification extends CI_Controller {
         }
     }
     
+    /*
+    * appelle les fonction de verification
+    * et verifie si le login et le mot de passe sont bon
+    * auquel cas, on recupere toute ses données et on charge
+    * une variable de session
+    */
     function verif_bdd($mdp){
 		$mdp = urldecode($mdp);
         $login = $this->input->post('login');
