@@ -145,6 +145,7 @@ body {
     background-color: white;
     box-shadow: -8px 8px 4px 0px #b9b9b9;
     border-radius: 4px;
+    min-height: 85vh;
 }
 
 .badge {
