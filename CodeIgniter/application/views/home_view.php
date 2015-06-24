@@ -88,10 +88,17 @@ $(document).ready( function (){
             <div class="modal-body">
 <?php
 echo'
-    <a href="'.base_url().'index.php/home/exportCSV"class="link tooltip-link" data-toggle="tooltip" data-original-title="CSV">
+    <a href="'.base_url().'index.php/home/exportCSV/user_liste" class="link tooltip-link" data-toggle="tooltip" data-original-title="CSV">
         <button class="btn btn-danger btn-lg">
             <span class="glyphicon glyphicon-arrow"></span>
             Liste Enseignants
+        </button>
+    </a>';
+echo'
+    <a href="'.base_url().'index.php/home/exportCSV/recap_perso" class="link tooltip-link" data-toggle="tooltip" data-original-title="CSV">
+        <button class="btn btn-danger btn-lg">
+            <span class="glyphicon glyphicon-arrow"></span>
+            Mon Recap
         </button>
     </a>';
 ?>

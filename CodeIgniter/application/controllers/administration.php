@@ -39,6 +39,14 @@
             $this->load->view('footer');
             
         }
+        
+        public function message_confirmation(){
+            $data['titre'] = "Erreur";
+            $data['message_validation'] = $this->session->flashdata('message');            
+            $this->load->view('header_admin', $data);
+			$this->load->view('affiche_message_confirmation', $data);
+            $this->load->view('footer');
+        }
 
         function ajout_utilisateur(){
             $data['titre'] = "Ajout d'un utilisateur";

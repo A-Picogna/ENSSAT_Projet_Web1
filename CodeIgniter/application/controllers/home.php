@@ -93,13 +93,7 @@
             } 
         }
 
-        public function message_confirmation(){
-            $data['titre'] = "Erreur";
-            $data['message_validation'] = $this->session->flashdata('message');            
-            $this->load->view('header', $data);
-			$this->load->view('affiche_message_confirmation', $data);
-            $this->load->view('footer');
-        }
+
 
         public function enseignant() {
             $data['infosEnseignant'] = $this->fiche_enseignant_model->get_enseignant($login);
@@ -112,11 +106,12 @@
             $this->load->view('fiche_enseignant_view', $data);
         }
         
-        public function exportCSV(){
+        public function exportCSV($choix){
             $this->load->dbutil();
             $this->load->helper('file');
             $this->load->helper('download');
-            $query = $this->db->query("SELECT * FROM enseignant");
+            $this->load->model('csv_export');
+            $query = $this->csv_export->get_data($choix);
             $delimiter = ",";
             $newline = "\r\n";
             $data = $this->dbutil->csv_from_result($query, $delimiter, $newline);
