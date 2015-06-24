@@ -49,17 +49,17 @@
                 <div>
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-                            <a href='#' class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Ajouter...<span class="caret"></span></a>
+                            <a href='#' class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Ajout<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url();?>index.php/administration/ajout_utilisateur"><span class="glyphicon glyphicon-user"></span> Ajouter un utilisateur</a></li>
                                 <li><a href="<?php echo base_url();?>index.php/ajoutModule"><span class="glyphicon glyphicon-book"></span> Ajouter un module</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href='#' class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Gérer...<span class="caret"></span></a>
+                            <a href='#' class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Modification ou suppression<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url();?>index.php/administration/listeUtilisateurs"><span class="glyphicon glyphicon-list-alt"></span> Gérer les utilisateurs</a></li>
-                                <li><a href="<?php echo base_url();?>index.php/gestionModule"><span class="glyphicon glyphicon-book"></span> Gérer les modules</a></li> 
+                                <li><a href="<?php echo base_url();?>index.php/administration/listeUtilisateurs"><span class="glyphicon glyphicon-list-alt"></span> Gérer des utilisateurs</a></li>
+                                <li><a href="<?php echo base_url();?>index.php/gestionModule"><span class="glyphicon glyphicon-book"></span> Gérer des modules</a></li> 
                             </ul>
                         </li>
                         <?php echo '<li class ="navbar-text"><span class="glyphicon glyphicon-user"></span>
