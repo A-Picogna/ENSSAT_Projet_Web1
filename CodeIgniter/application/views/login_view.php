@@ -17,9 +17,6 @@
             echo '<div class="form-group">';
                 echo form_submit('submit', 'Connexion','class="btn btn-lg btn-primary btn-block"');
             echo '</div>';
-            echo '<div class="form-group">';
-                echo form_checkbox('remember_me', 'remember_me', FALSE).' Se souvenir de moi';
-            echo '</div>';
         echo form_close();
     }                                                                            
 ?>
