@@ -42,6 +42,7 @@ class traitement_choix_partie extends CI_Controller {
 	
 	public function traitement($module,$login)
 	{
+		$data['titre']='Positionnement sur les cours';
 		$module = urldecode($module);
 		$login = urldecode($login);
 		$module = $this->input->post('ident');
