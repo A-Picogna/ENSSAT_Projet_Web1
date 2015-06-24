@@ -64,7 +64,7 @@ class ajoutUtilisateurVerification extends CI_Controller {
                 return false;
             }
             else{
-                if (!($this->utilisateur->dejaPris($login))){
+            if (!($this->utilisateur->dejaPris($login)) && !empty($prenom) && !empty($nom) && !empty($mdp)){
                     $res = $this->utilisateur->inserer_utilisateur($login, $mdp, $nom, $prenom, $statut, $admin);
                     if($res){
                         return true;
