@@ -1,6 +1,13 @@
 <?php
 class ajoutModule extends CI_Controller {
 
+	/**
+	*	Constructeur du contrôleur ajoutModule
+	* 	On vérifie que l'utilisateur est bien connecté.
+	*	On vérifie que l'utilisateur est bien actif.
+	*	Comme il s'agit d'un contrôleur spécifique à l'administration, on vérifie que l'utilisateur est bien administrateur.
+	*	Enfin, on charge le modèle.
+	**/
     public function __construct(){
         parent::__construct();
         session_start();
@@ -23,6 +30,10 @@ class ajoutModule extends CI_Controller {
 		$this->load->model('gestion_module_model');
 	}
 
+	/**
+	*	Page principale du contrôleur
+	*	On affiche la formulaire pour ajouter un module.
+	**/
 	public function index()
 	{
 		$data["titre"] = "Le module";
@@ -31,6 +42,12 @@ class ajoutModule extends CI_Controller {
 		$this->load->view('footer', $data);
 	}
 
+	/**
+	*	Page de création du premier cours
+	*	On vérifie que les données pour la création du module sont valides.
+	*	Si ce n'est pas le cas, on réaffiche le formulaire de création du module en affichant les erreurs.
+	*	Sinon, on stocke les données du module et on affiche le formulaire de création de cours.
+	**/
 	public function ajoutPremierCours() {
 		$this->load->helper(array('form', 'url'));
 
@@ -82,11 +99,17 @@ class ajoutModule extends CI_Controller {
 		}
 	}
 
+	/**
+	*	Page de création des cours
+	*	On vérifie que les données pour la création du cours sont valides.
+	*	Si ce n'est pas le cas, on réaffiche le formulaire de création du cours en affichant les erreurs.
+	*	Sinon, on stocke les données du cours et on affiche le formulaire de création de cours ainsi que le bouton pour créer le module.
+	**/
 	public function ajoutCours() {
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('partie', 'Partie', 'callback_partie_cours_check');
-		$this->form_validation->set_rules('hed', 'Hed', 'required');
+		$this->form_validation->set_rules('hed', 'Hed', 'required|integer');
 		$this->form_validation->set_rules('idEnseignant', 'Identifiant de l\'enseignant', 'callback_enseignant_check');
 
 		if ($this->form_validation->run() == FALSE)
@@ -129,6 +152,11 @@ class ajoutModule extends CI_Controller {
 		}
 	}
 
+	/**
+	*	Page de création du module dans la base de données
+	*	Les données stockées ont déjà toutes été vérifiées.
+	*	On crée le module en faisant appel au modèle et on affiche le message de confirmation.
+	**/
 	public function creationModule() {
 		$data["titre"] = "Le module";
         $data["message_validation"] = $this->session->userdata('module')["libelle"]." à bien été créé.";
@@ -141,10 +169,11 @@ class ajoutModule extends CI_Controller {
 			$this->session->unset_userdata('module');
 			$this->session->unset_userdata('moduleCours');
 		}
-		else {
-		}
 	}
 
+	/**
+	*	On vérifie que le login de l'enseignant renseigné est bien dans la base de données.
+	**/
 	public function enseignant_check($str) {
 		if ($str=='')
 			return true;
@@ -160,6 +189,9 @@ class ajoutModule extends CI_Controller {
 		}
 	}
 
+	/**
+	*	On vérifie que l'identifiant du module renseigné n'existe pas déjà dans la base de données.
+	**/
 	public function identifiant_module_check($str) {
 		if ($str=='') {
 			$this->form_validation->set_message('identifiant_module_check', 'Le champ Identifiant est obligatoire.');
@@ -177,6 +209,9 @@ class ajoutModule extends CI_Controller {
 		}
 	}
 
+	/**
+	*	On vérifie que le nom de la partie du cours n'existe pas déjà pour ce module.
+	**/
 	public function partie_cours_check($str) {
 		if ($str=='') {
 			$this->form_validation->set_message('partie_cours_check', 'Le champ Partie est obligatoire.');

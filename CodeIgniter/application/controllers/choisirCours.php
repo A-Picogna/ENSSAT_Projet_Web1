@@ -36,10 +36,6 @@ class choisirCours extends CI_Controller {
 		$data['PartiesTD']=$this->choisir_cours_model->getPartiesTD($module);
 		$data['PartiesTP']=$this->choisir_cours_model->getPartiesTP($module);
 		$data['PartiesProjet']=$this->choisir_cours_model->getPartiesProjet($module);
-		//$data['heuresCMEnseignant'] = $this->choisir_cours_model->get_heuresCM($login);
-		//$data['heuresTDEnseignant'] = $this->choisir_cours_model->get_heuresTD($login);
-		//$data['heuresTPEnseignant'] = $this->choisir_cours_model->get_heuresTP($login);
-		//$data['heuresProjetEnseignant'] = $this->choisir_cours_model->get_heuresProjet($login);
 		$data['statutaireEnseignant']=$this->choisir_cours_model->getStatutaire($login);
 		$data['dechargeEnseignant']=$this->choisir_cours_model->getDecharge($login);
 		
@@ -50,7 +46,4 @@ class choisirCours extends CI_Controller {
 	}
 
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
 ?>
