@@ -28,6 +28,7 @@ class erreur extends CI_Controller {
                 $this->load->view('affiche_erreur', $data);
         }
         
-        $this->load->view('footer');
+        $this->load->view('footer');        
+        header("Refresh:3;url=".base_url()."index.php/home");
 	}
 }

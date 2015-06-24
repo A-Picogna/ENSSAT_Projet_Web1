@@ -190,6 +190,7 @@ class traitement_choix_partie extends CI_Controller {
 
 			$data['message_validation'] = "Félicitation ! Votre choix a été pris en compte !";
 			$this->load->view('affiche_message_confirmation', $data);
+            header("Refresh:2;url=".base_url()."index.php/home");
 		
 		
 
@@ -199,6 +200,7 @@ class traitement_choix_partie extends CI_Controller {
 	
             $data['message_erreur'] = "Vous ne pouvez pas vous positionnez car vous avez dépassé le nombre d'heures permis !";
 			$this->load->view('affiche_erreur', $data);
+            header("Refresh:2;url=".base_url()."index.php/home");
 			
 		}
 

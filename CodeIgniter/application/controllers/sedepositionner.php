@@ -42,7 +42,7 @@ class sedepositionner extends CI_Controller {
      	$login = $this->session->userdata('info_user')['login'];
 		//$this->load->model('admin_model');
 		//$data['module']=$module;
-		$data['title']='Projet_php';
+		$data['titre']='Dépositionnement';
 		$data['page_header']='Dépositionnement';
 
 		$this->choisir_cours_model->supprimerEnseignantDePartie($partie ,$module);
@@ -50,6 +50,7 @@ class sedepositionner extends CI_Controller {
 		$this->load->view('header', $data);
 		$this->load->view('affiche_message_confirmation', $data);
 		$this->load->view('footer', $data);
+        header("Refresh:2;url=".base_url()."index.php/home");
 	}
 
 }

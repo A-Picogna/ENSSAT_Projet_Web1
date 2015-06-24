@@ -48,11 +48,12 @@ class administration extends CI_Controller {
     * (n'est uilisé que pour la creation utilisateur)
     */
     public function message_confirmation(){
-        $data['titre'] = "Erreur";
+        $data['titre'] = "Confirmation";
         $data['message_validation'] = $this->session->flashdata('message');            
         $this->load->view('header_admin', $data);
         $this->load->view('affiche_message_confirmation', $data);
         $this->load->view('footer');
+        header("Refresh:3;url=".base_url()."index.php/administration/listeUtilisateurs");
     }
 
     /*

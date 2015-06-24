@@ -44,7 +44,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="<?php echo base_url();?>index.php/home"> <span class="glyphicon glyphicon-home"></span> Accueil</a>
+                    <a class="navbar-brand" href="<?php echo base_url();?>index.php/home"> <span class="glyphicon glyphicon-home"></span></a>
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
